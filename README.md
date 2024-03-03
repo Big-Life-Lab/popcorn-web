@@ -1,4 +1,6 @@
-# Population Health Modelling Consensus Reporting Network (POPCORN-NCD), an internationally agreed-upon reporting guideline for NCD modeling studies.
+# Population Health Modelling Consensus Reporting Network for Noncommunicable Diseases (POPCORN-NCD)
+
+## The development of an internationally agreed-upon reporting guideline for noncommunicable modeling studies.
 
 Stay tuned for updates. 
 
