@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: ../docs
+
+embed-resources: true
+
+website:
+  title: ""
+  repo-subdir: qmd
+  repo-url: "https://github.com/big-life-lab/popcorn-web"
+
+  navbar:
+    logo: assets/logo-PNG/popcorn-white_icon-white.png
+    background: primary
+    search: true
+    left:
+      - text: Home
+        href: index.qmd
+
+    tools:
+      - icon: github
+        href: "https://github.com/big-life-lab/popcorn-web"
+
+format:
+  html:
+    theme:
+      - flatly # https://bootswatch.com/flatly/
+      - assets/popcorn.scss
+      - assets/popcorn-web.scss
+    code-tools: false
+    toc: true
+
+bibliography: references.bib
+csl: assets/vancouver.csl
