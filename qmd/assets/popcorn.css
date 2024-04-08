@@ -1,0 +1,276 @@
+/* https://codepen.io/skirkham/pen/bGJgONp */
+
+/*FONTS *
+-----------------------------------------------*/
+@font-face {
+  font-family: "Exensa Grotesk";
+  src: url("ExensaGrotesk-Black.eot");
+  src: local("Exensa Grotesk Black"), local("ExensaGrotesk-Black"),
+    url("ExensaGrotesk-Black.eot?#iefix") format("embedded-opentype"),
+    url("ExensaGrotesk-Black.woff2") format("woff2"),
+    url("ExensaGrotesk-Black.woff") format("woff"),
+    url("ExensaGrotesk-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Exensa Grotesk";
+  src: url("ExensaGrotesk-Regular.eot");
+  src: local("Exensa Grotesk Regular"), local("ExensaGrotesk-Regular"),
+    url("ExensaGrotesk-Regular.eot?#iefix") format("embedded-opentype"),
+    url("ExensaGrotesk-Regular.woff2") format("woff2"),
+    url("ExensaGrotesk-Regular.woff") format("woff"),
+    url("ExensaGrotesk-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Exensa Grotesk";
+  src: url("ExensaGrotesk-Bold.eot");
+  src: local("Exensa Grotesk Bold"), local("ExensaGrotesk-Bold"),
+    url("ExensaGrotesk-Bold.eot?#iefix") format("embedded-opentype"),
+    url("ExensaGrotesk-Bold.woff2") format("woff2"),
+    url("ExensaGrotesk-Bold.woff") format("woff"),
+    url("ExensaGrotesk-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Exensa Grotesk";
+  src: url("ExensaGrotesk-Light.eot");
+  src: local("Exensa Grotesk Light"), local("ExensaGrotesk-Light"),
+    url("ExensaGrotesk-Light.eot?#iefix") format("embedded-opentype"),
+    url("ExensaGrotesk-Light.woff2") format("woff2"),
+    url("ExensaGrotesk-Light.woff") format("woff"),
+    url("ExensaGrotesk-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+.exensa-grotesk {
+  font-family: "Exensa Grotesk";
+  font-weight: 400;
+  font-style: normal;
+}
+
+.exensa-grotesk-bold {
+  font-family: "Exensa Grotesk";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/*https://github.com/mental-design/basically-a-mono.git*/
+@font-face {
+  font-family: "Basically A Mono";
+  src: url("https://github.com/mental-design/basically-a-mono/blob/master/fonts/ttf/BasicallyAMono-Regular.ttf")
+    format("truetype");
+  font-style: normal;
+}
+
+.bam {
+  font-family: "Basically A Mono";
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bam-bold {
+  font-family: "Basically A Mono";
+  font-weight: 500;
+  font-style: normal;
+}
+
+.bam-light {
+  font-family: "Basically A Mono";
+  font-weight: 300;
+  font-style: normal;
+}
+
+.hanken-grotesk {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.hanken-grotesk-light {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.libre-baskerville-regular {
+  font-family: "Libre Baskerville", serif;
+  font-style: normal;
+}
+
+.libre-baskerville-bold {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libre-baskerville-regular-italic {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/*TYPOGRAPHY *
+-----------------------------------------------*/
+h1 {
+  font: 600 48px "Basically A Mono";
+  color: #262c3a;
+}
+
+h2 {
+  font: 600 32px "Basically A Mono";
+  color: #262c3a;
+}
+
+h3 {
+  font: 600 26px "Basically A Mono";
+  color: #262c3a;
+}
+
+h4 {
+  font: 600 21px "Basically A Mono";
+  color: #262c3a;
+}
+
+h5 {
+  font: 500 16px "Basically A Mono";
+  color: #262c3a;
+}
+
+.secondary-set {
+  font-family: "Libre Baskerville";
+}
+
+p {
+  font-family: "Hanken Grotesk";
+  font-weight: 300;
+}
+
+a {
+  color: #2ea6cc;
+}
+
+.big {
+  font-size: 1.25em;
+}
+
+mark {
+  background-color: #fdc882;
+}
+
+/*LAYOUT *
+-----------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: -50px;
+}
+
+.wrapper {
+  margin: auto;
+  width: 75%;
+  border: solid #fdc882;
+  border-width: 0px 0px 3px 0px;
+  padding: 3rem 0rem 5rem 0rem;
+}
+
+.dark-section-wide {
+  width: 100vw;
+  height: auto;
+  background-color: #262c3a;
+  color: white;
+  display: flex;
+}
+
+.dark-margin {
+  min-height: 100%;
+  min-width: 15%;
+  background: rgba(255, 255, 255, 0.1);
+  background-opacity: 15%;
+  padding: 5rem 0rem 5rem 2rem;
+  margin-right: 5rem;
+}
+
+.margin-tab {
+  border-top: 0.2rem solid;
+  padding: 0rem 0.5rem 1rem 2rem;
+  outline-offset: 0.5rem;
+  font-size: 10px;
+  align-content: flex-end;
+}
+
+.content-container {
+  padding: 3rem 0rem 0rem 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 5rem;
+}
+
+.gap-25 {
+  gap: 25px;
+}
+
+.cover {
+  height: 100vh;
+  background-color: #fdc882;
+  width: 100%;
+  content-align: center;
+}
+
+.break {
+  height: 5vh;
+}
+
+.section-head {
+  text-align: center;
+  margin: 2em 0;
+  font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-size: 70%;
+  font-weight: normal;
+  color: #666666;
+}
+
+.image-container {
+  width: 50%;
+  align-content: center;
+}
+
+/* COLORS */
+
+/* CodePen Document */
+.swatches-container {
+  display: flex;
+  gap: 25px;
+}
+.swatch {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px 100px 0px 0px;
+  background-color: #262c3a;
+}
+
+.chardonnay {
+  background-color: #fdc882;
+}
+.flat {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.name {
+  padding: 0px 0px 16px 16px;
+}
+
+.white-text {
+  color: #ffffff;
+}

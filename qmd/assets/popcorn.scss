@@ -1,0 +1,211 @@
+/* https://codepen.io/skirkham/pen/bGJgONp */
+
+/*-- scss:defaults --*/
+/* COLORS */
+$color_1: #262c3a;
+$color_2: #2ea6cc;
+$color_3: white;
+$color_4: #666666;
+$color_5: #ffffff;
+/* FONTS */
+$font-family_1: "Hanken Grotesk";
+$font-family_2: "Montserrat";
+$font-family_3: "Hanken Grotesk", sans-serif;
+$font-family_4: "Libre Baskerville", serif;
+$font-family_5: "Libre Baskerville";
+$font-family_6: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+$background-color_1: #fdc882;
+$background-color_2: #262c3a;
+
+/*FONTS */
+/* Google Fonts: Best practice to load font families in a single @import */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@300;400;700&family=Hanken+Grotesk:wght@200;300;400&family=Montserrat:wght@300;400;500;600&display=swap");
+
+/*TYPOGRAPHY *----------------------------------*/
+.bam {
+  font-family: $font-family_2;
+  font-weight: 400;
+  font-style: normal;
+}
+.bam-bold {
+  font-family: $font-family_2;
+  font-weight: 500;
+  font-style: normal;
+}
+.bam-light {
+  font-family: $font-family_2;
+  font-weight: 300;
+  font-style: normal;
+}
+.hanken-grotesk {
+  font-family: $font-family_3;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.hanken-grotesk-light {
+  font-family: $font-family_3;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+.libre-baskerville-regular {
+  font-family: $font-family_4;
+  font-style: normal;
+}
+.libre-baskerville-bold {
+  font-family: $font-family_4;
+  font-weight: 700;
+  font-style: normal;
+}
+.libre-baskerville-regular-italic {
+  font-family: $font-family_4;
+  font-weight: 300;
+  font-style: italic;
+}
+/*LAYOUT * -------------------------------------*/
+
+/* .navbar-brand {
+  left: 0;
+  right: 0;
+  width: 50px; /* Adjust the width as needed 
+  height: auto;
+    line-height: 3rem;
+    color: $color_19;
+    background-color: $background-color_3;
+*/
+
+h1 {
+  font-family: $font-family_2;
+  font-weight: 300;
+  color: $color_1;
+}
+h2 {
+  font-family: $font-family_4;
+  font-weight: 300;
+  color: $color_1;
+}
+h3 {
+  font-family: $font-family_4;
+  font-weight: 300;
+  color: $color_1;
+}
+h4 {
+  font-family: $font-family_4;
+  font-weight: 300;
+  color: $color_1;
+}
+h5 {
+  font-family: $font-family_4;
+  font-weight: 300;
+  color: $color_1;
+}
+.secondary-set {
+  font-family: $font-family_5;
+}
+
+p,
+ul,
+ol,
+li,
+.csl-entry /* bibilography entry */ {
+  font-family: $font-family_1;
+  font-weight: 300;
+}
+
+a {
+  color: $color_2;
+}
+.big {
+  font-size: 1.25em;
+}
+mark {
+  background-color: $background-color_1;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  padding: -50px;
+}
+.wrapper {
+  margin: auto;
+  width: 75%;
+  border: solid #fdc882;
+  border-width: 0px 0px 3px 0px;
+  padding: 3rem 0rem 5rem 0rem;
+}
+.dark-section-wide {
+  width: 100vw;
+  height: auto;
+  background-color: $background-color_2;
+  color: $color_3;
+  display: flex;
+}
+.dark-margin {
+  min-height: 100%;
+  min-width: 15%;
+  background: rgba(255, 255, 255, 0.1);
+  background-opacity: 15%;
+  padding: 5rem 0rem 5rem 2rem;
+  margin-right: 5rem;
+}
+.margin-tab {
+  border-top: 0.2rem solid;
+  padding: 0rem 0.5rem 1rem 2rem;
+  outline-offset: 0.5rem;
+  font-size: 10px;
+  align-content: flex-end;
+}
+.content-container {
+  padding: 3rem 0rem 0rem 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 5rem;
+}
+.gap-25 {
+  gap: 25px;
+}
+.cover {
+  height: 100vh;
+  background-color: $background-color_1;
+  width: 100%;
+  content-align: center;
+}
+.break {
+  height: 5vh;
+}
+.section-head {
+  text-align: center;
+  margin: 2em 0;
+  font-family: $font-family_6;
+  font-size: 70%;
+  font-weight: normal;
+  color: $color_4;
+}
+.image-container {
+  width: 50%;
+  align-content: center;
+}
+.swatches-container {
+  display: flex;
+  gap: 25px;
+}
+.swatch {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px 100px 0px 0px;
+  background-color: $background-color_2;
+}
+.chardonnay {
+  background-color: $background-color_1;
+}
+.flat {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.name {
+  padding: 0px 0px 16px 16px;
+}
+.white-text {
+  color: $color_5;
+}
