@@ -4,4 +4,4 @@
 
 Stay tuned for updates. 
 
-Contact: Doug Manuel, Senior Scientist, The Ottawa Hosptial (dmanuel@ohri.ca)
+Contact: Doug Manuel, Senior Scientist, The Ottawa Hospital (dmanuel@ohri.ca)
