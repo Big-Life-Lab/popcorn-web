@@ -18,8 +18,6 @@ We welcome your collaboration and contributions to ensure POPCORN's success.
 
 Contact: Doug Manuel, Senior Scientist, The Ottawa Hospital (dmanuel\@ohri.ca)
 
-
-
 ### References
 
 ::: {#refs}

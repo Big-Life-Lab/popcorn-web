@@ -15,7 +15,7 @@ runs:
       run: R -e 'install.packages("renv")'
       shell: bash
     - name: Restore R environment
-      run: R -e 'renv::restore()'
+      run: R -e 'renv::restore(prompt = FALSE)'
       shell: bash
     - name: Render quarto
       run: quarto render
