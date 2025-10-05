@@ -1,13 +1,39 @@
-# History files
+# R project files
+.Rproj.user
 .Rhistory
-.Rapp.history
+.RData
+.Ruserdata
+
+# renv
+renv/library/
+renv/staging/
+renv/local/
+
+# Mac files
+.DS_Store
+
+# Build website
+docs
+/.quarto/
+
+# Quarto old structure
+qmd/
+
+# AI assistant files
+claude.md
+
+# Backup files
+*.bkp
+
+# Legacy AI tools
+.codegpt
+
+# R Environment Variables
+.Renviron
 
 # Session Data files
-.RData
 .RDataTmp
-
-# User-specific files
-.Ruserdata
+.Rapp.history
 
 # Example code in package build process
 *-Ex.R
@@ -18,14 +44,11 @@
 # Output files from R CMD check
 /*.Rcheck/
 
-# RStudio files
-.Rproj.user/
-
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
 
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+# OAuth2 token
 .httr-oauth
 
 # knitr and R markdown default cache directories
@@ -36,12 +59,6 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 
-# R Environment Variables
-.Renviron
-
-# pkgdown site
-docs/
-
 # translation temp files
 po/*~
 
@@ -49,7 +66,3 @@ po/*~
 rsconnect/
 
 /.luarc.json
-
-.DS_Store
-
-*.Rproj

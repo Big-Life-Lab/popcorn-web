@@ -1,12 +1,11 @@
 project:
   type: website
-  output-dir: ../docs
+  output-dir: docs
 
 embed-resources: true
 
 website:
-  title: ""
-  repo-subdir: qmd
+  title: "POPCORN-NCD"
   repo-url: "https://github.com/big-life-lab/popcorn-web"
 
   navbar:
