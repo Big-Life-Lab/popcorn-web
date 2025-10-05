@@ -4,4 +4,51 @@
   text-align: center;
 }
 
+/* Team page styles */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.team-member {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid var(--bs-primary);
+}
+
+.team-member strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: var(--bs-primary);
+}
+
+.team-member em {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: #6c757d;
+}
+
+/* ORCID icon styling */
+a[href*="orcid"] {
+  color: #A6CE39;
+  text-decoration: none;
+}
+
+a[href*="orcid"]:hover {
+  color: #8CB82F;
+  text-decoration: underline;
+}
+
+/* Optional: circular images if added */
+.img-circle {
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
 

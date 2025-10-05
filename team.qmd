@@ -1,0 +1,245 @@
+---
+title: "Our Team"
+---
+
+Our work on the **POPCORN-NCD Reporting Guideline** is led by an international collaborative group committed to transparency and rigour in simulation-modelling research.
+
+---
+
+## Leadership
+
+<!--
+COORDINATOR: To add a new Leadership member (Co-Investigator), copy the template below and paste it just before the closing ::: of the .grid section.
+
+TEMPLATE:
+::: {.g-col-12 .g-col-md-6}
+### [Role Title]
+
+**[Name], [Credentials]**
+[Position]
+[Institution]
+
+[Brief bio describing expertise and role]
+
+[{{< fa envelope >}} email@example.com](mailto:email@example.com) | [{{< fa brands orcid >}} ORCID](https://orcid.org/[ORCID-ID])
+:::
+
+Optional: Add photo above name:
+![Name](assets/team/photo.jpg){width="150"}
+-->
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### Principal Investigator
+
+**Doug Manuel, MD MSc FRCPC**
+Senior Scientist, The Ottawa Hospital
+Professor, University of Ottawa
+
+Dr. Manuel is a senior scientist at the Ottawa Hospital Research Institute and Professor in the Departments of Family Medicine and Epidemiology and Community Medicine at the University of Ottawa. His research focuses on population health modeling and health equity.
+
+[{{< fa envelope >}} dmanuel@ohri.ca](mailto:dmanuel@ohri.ca) | [{{< fa brands orcid >}} ORCID](https://orcid.org/0000-0002-0599-2061)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Co-Investigator
+
+**[Name], [Credentials]**
+[Position]
+[Institution]
+
+Brief bio describing expertise and role in POPCORN-NCD project.
+
+[{{< fa envelope >}} email@example.com](mailto:email@example.com) | [{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+:::
+
+---
+
+## Working Group
+
+Our working group includes researchers, methodologists, and knowledge users who contribute to the development of the POPCORN-NCD reporting guidelines.
+
+<!--
+COORDINATOR: To add a new Working Group member, copy the template below and paste it just above the closing ::: at the end of this section.
+
+TEMPLATE:
+::: {.team-member}
+**[Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** [Area of expertise]
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/[ORCID-ID])
+:::
+
+Optional: Add photo above name:
+![Name](assets/team/photo.jpg){.img-circle width="100"}
+-->
+
+::: {.team-grid}
+
+::: {.team-member}
+**[Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** Microsimulation modeling, chronic disease epidemiology
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+::: {.team-member}
+**[Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** Health economics, cost-effectiveness analysis
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+::: {.team-member}
+**[Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** Knowledge translation, journal editorial
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+::: {.team-member}
+**[Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** Statistical methods, model validation
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+::: {.team-member}
+**[Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** Policy modeling, public health practice
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+::: {.team-member}
+**[Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** Agent-based modeling, diabetes research
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+:::
+
+---
+
+## Strategic Advisory Group
+
+Our Strategic Advisory Group (SAG) provides expert guidance on the development and implementation of POPCORN-NCD reporting guidelines. Members represent diverse geographical regions, methodological expertise, and stakeholder perspectives.
+
+<!--
+COORDINATOR: To add a new SAG member, copy the template below and paste it just above the closing ::: at the end of this section.
+
+TEMPLATE:
+::: {.team-member}
+**[Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** [Area of expertise]
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/[ORCID-ID])
+:::
+
+Optional: Add photo above name:
+![Name](assets/team/photo.jpg){.img-circle width="100"}
+-->
+
+::: {.team-grid}
+
+::: {.team-member}
+**[SAG Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** [Area of expertise]
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+::: {.team-member}
+**[SAG Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** [Area of expertise]
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+::: {.team-member}
+**[SAG Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** [Area of expertise]
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+::: {.team-member}
+**[SAG Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** [Area of expertise]
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+::: {.team-member}
+**[SAG Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** [Area of expertise]
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+::: {.team-member}
+**[SAG Member Name], [Credentials]**
+*[Institution]*
+[Country]
+
+**Expertise:** [Area of expertise]
+
+[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+:::
+
+:::
+
+---
+
+## Acknowledgement
+
+This work is supported by [Funder names to be added].
+
+All team members have completed conflict of interest disclosures, available upon request by contacting [dmanuel@ohri.ca](mailto:dmanuel@ohri.ca).
+
+---
+
+*Interested in joining our team? Contact us at [dmanuel@ohri.ca](mailto:dmanuel@ohri.ca).*
