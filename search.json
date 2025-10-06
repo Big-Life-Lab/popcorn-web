@@ -1,5 +1,40 @@
 [
   {
+    "objectID": "team.html",
+    "href": "team.html",
+    "title": "Our Team",
+    "section": "",
+    "text": "Our work on the POPCORN-NCD Reporting Guideline is led by an international collaborative group committed to transparency and rigour in simulation-modelling research."
+  },
+  {
+    "objectID": "team.html#leads",
+    "href": "team.html#leads",
+    "title": "Our Team",
+    "section": "Leads",
+    "text": "Leads\n\n\n\nDouglas Manuel, MD MSc FRCPC\nThe Ottawa Hospital Research Institute; University of Ottawa\nOttawa, Canada\nExpertise: Population health microsimulation modelling; model validation methodology; chronic disease epidemiology; reporting guideline development.\nRole: Principal Investigator responsible for overall project management, coordination of working groups, stakeholder engagement, and oversight of the consensus process and guideline development.\n dmanuel@ohri.ca |  ORCID\n\n\nOliver Mytton, MD MPH\nUCL Great Ormond Street Institute for Child Health; Milton Keynes City Council\nLondon, United Kingdom\nExpertise: Public health simulation modelling; population health intervention evaluation; reporting guideline development.\nRole: Co-Principal Investigator responsible for guideline methodology, evidence synthesis, Delphi process coordination, and alignment with EQUATOR Network standards.\n ORCID\n\n\nTony Blakely, MBChB MPH PhD FAFPHM\nUniversity of Melbourne; Institute for Health Metrics and Evaluation\nMelbourne, Australia\nExpertise: NCD simulation modelling; causal inference methods; health economic evaluation; population intervention research; simulation frameworks.\nRole: Chair of the Strategic Advisory Committee, responsible for leading the Committee, synthesizing consensus, and ensuring diverse international perspectives inform guideline development and implementation strategies.\n ORCID"
+  },
+  {
+    "objectID": "team.html#strategic-advisory-group",
+    "href": "team.html#strategic-advisory-group",
+    "title": "Our Team",
+    "section": "Strategic Advisory Group",
+    "text": "Strategic Advisory Group\n\nOur Strategic Advisory Group (SAG) provides expert guidance on the development and implementation of POPCORN-NCD reporting guidelines. Members represent diverse geographical regions, methodological expertise, and stakeholder perspectives.\nMembers to be announced."
+  },
+  {
+    "objectID": "team.html#working-group",
+    "href": "team.html#working-group",
+    "title": "Our Team",
+    "section": "Working Group",
+    "text": "Working Group\n\nOur working group includes researchers, methodologists, and knowledge users who contribute to the development of the POPCORN-NCD reporting guidelines.\nMembers to be announced."
+  },
+  {
+    "objectID": "team.html#acknowledgement",
+    "href": "team.html#acknowledgement",
+    "title": "Our Team",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\nThis work is supported by [Funder names to be added].\nAll team members have completed conflict of interest disclosures, available upon request by contacting dmanuel@ohri.ca.\n\nInterested in joining our team? Contact us at dmanuel@ohri.ca."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Population Health Modelling Consensus Reporting Network for Noncommunicable Diseases (POPCORN-NCD)",
