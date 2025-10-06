@@ -1,0 +1,75 @@
+name: Accessibility Check
+
+on:
+  pull_request:
+    paths:
+      - '**.qmd'
+      - '**.html'
+      - '**.scss'
+      - '_quarto.yml'
+
+jobs:
+  a11y-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.4.3"
+
+      - name: Install renv
+        run: R -e 'install.packages("renv")'
+
+      - name: Restore R environment
+        run: R -e 'renv::restore(prompt = FALSE)'
+
+      - name: Render quarto
+        run: quarto render
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Pa11y
+        run: npm install -g pa11y-ci
+
+      - name: Create Pa11y config
+        run: |
+          cat > .pa11yci.json << 'EOF'
+          {
+            "defaults": {
+              "standard": "WCAG2AA",
+              "timeout": 20000,
+              "wait": 1000,
+              "chromeLaunchConfig": {
+                "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+              }
+            },
+            "urls": [
+              "docs/index.html",
+              "docs/team.html"
+            ]
+          }
+          EOF
+
+      - name: Run Pa11y accessibility tests
+        run: pa11y-ci --config .pa11yci.json || true
+
+      - name: Comment on PR
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '⚠️ Accessibility issues detected. Please review the workflow logs for details.'
+            })
