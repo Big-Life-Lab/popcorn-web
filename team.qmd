@@ -2,144 +2,73 @@
 title: "Our Team"
 ---
 
+```{r setup}
+#| include: false
+library(readr)
+library(dplyr)
+library(glue)
+```
+
 Our work on the **POPCORN-NCD Reporting Guideline** is led by an international collaborative group committed to transparency and rigour in simulation-modelling research.
 
 ---
 
-## Leadership
+## Leads
 
 <!--
-COORDINATOR: To add a new Leadership member (Co-Investigator), copy the template below and paste it just before the closing ::: of the .grid section.
-
-TEMPLATE:
-::: {.g-col-12 .g-col-md-6}
-### [Role Title]
-
-**[Name], [Credentials]**
-[Position]
-[Institution]
-
-[Brief bio describing expertise and role]
-
-[{{< fa envelope >}} email@example.com](mailto:email@example.com) | [{{< fa brands orcid >}} ORCID](https://orcid.org/[ORCID-ID])
-:::
-
-Optional: Add photo above name:
-![Name](assets/team/photo.jpg){width="150"}
--->
-
-::: {.grid}
-
-::: {.g-col-12 .g-col-md-6}
-### Principal Investigator
-
-**Doug Manuel, MD MSc FRCPC**
-Senior Scientist, The Ottawa Hospital
-Professor, University of Ottawa
-
-Dr. Manuel is a senior scientist at the Ottawa Hospital Research Institute and Professor in the Departments of Family Medicine and Epidemiology and Community Medicine at the University of Ottawa. His research focuses on population health modeling and health equity.
-
-[{{< fa envelope >}} dmanuel@ohri.ca](mailto:dmanuel@ohri.ca) | [{{< fa brands orcid >}} ORCID](https://orcid.org/0000-0002-0599-2061)
-:::
-
-::: {.g-col-12 .g-col-md-6}
-### Co-Investigator
-
-**[Name], [Credentials]**
-[Position]
-[Institution]
-
-Brief bio describing expertise and role in POPCORN-NCD project.
-
-[{{< fa envelope >}} email@example.com](mailto:email@example.com) | [{{< fa brands orcid >}} ORCID](https://orcid.org/)
-:::
-
-:::
-
----
-
-## Working Group
-
-Our working group includes researchers, methodologists, and knowledge users who contribute to the development of the POPCORN-NCD reporting guidelines.
-
-<!--
-COORDINATOR: To add a new Working Group member, copy the template below and paste it just above the closing ::: at the end of this section.
-
-TEMPLATE:
-::: {.team-member}
-**[Member Name], [Credentials]**
-*[Institution]*
-[Country]
-
-**Expertise:** [Area of expertise]
-
-[{{< fa brands orcid >}} ORCID](https://orcid.org/[ORCID-ID])
-:::
-
-Optional: Add photo above name:
-![Name](assets/team/photo.jpg){.img-circle width="100"}
+COORDINATOR: Leadership section is MANUAL - use the template below to add new co-investigators.
+Copy the entire block between the ::: {.team-member} divs and paste below, then fill in the details.
 -->
 
 ::: {.team-grid}
 
 ::: {.team-member}
-**[Member Name], [Credentials]**
-*[Institution]*
-[Country]
 
-**Expertise:** Microsimulation modeling, chronic disease epidemiology
+**Douglas Manuel, MD MSc FRCPC**
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+*The Ottawa Hospital Research Institute; University of Ottawa*
+
+Ottawa, Canada
+
+**Expertise:** Population health microsimulation modelling; model validation methodology; chronic disease epidemiology; reporting guideline development.
+
+
+**Role:** Principal Investigator responsible for overall project management, coordination of working groups, stakeholder engagement, and oversight of the consensus process and guideline development.
+
+[{{< fa envelope >}} dmanuel@ohri.ca](mailto:dmanuel@ohri.ca) | [{{< fa brands orcid >}} ORCID](https://orcid.org/0000-0002-0599-2061)
+
 :::
 
 ::: {.team-member}
-**[Member Name], [Credentials]**
-*[Institution]*
-[Country]
 
-**Expertise:** Health economics, cost-effectiveness analysis
+**Oliver Mytton, MD MPH**
+
+*UCL Great Ormond Street Institute for Child Health; Milton Keynes City Council*
+
+London, United Kingdom
+
+**Expertise:** Public health simulation modelling; population health intervention evaluation; reporting guideline development.
+
+**Role:** Co-Principal Investigator responsible for guideline methodology, evidence synthesis, Delphi process coordination, and alignment with EQUATOR Network standards.
 
 [{{< fa brands orcid >}} ORCID](https://orcid.org/)
+
 :::
 
 ::: {.team-member}
-**[Member Name], [Credentials]**
-*[Institution]*
-[Country]
 
-**Expertise:** Knowledge translation, journal editorial
+**Tony Blakely, MBChB MPH PhD FAFPHM**
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
-:::
+*University of Melbourne; Institute for Health Metrics and Evaluation*
 
-::: {.team-member}
-**[Member Name], [Credentials]**
-*[Institution]*
-[Country]
+Melbourne, Australia
 
-**Expertise:** Statistical methods, model validation
+**Expertise:** NCD simulation modelling; causal inference methods; health economic evaluation; population intervention research; simulation frameworks.
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
-:::
+**Role:** Chair of the Strategic Advisory Committee, responsible for leading the Committee, synthesizing consensus, and ensuring diverse international perspectives inform guideline development and implementation strategies.
 
-::: {.team-member}
-**[Member Name], [Credentials]**
-*[Institution]*
-[Country]
+[{{< fa brands orcid >}} ORCID](https://orcid.org/0000-0002-2096-829X)
 
-**Expertise:** Policy modeling, public health practice
-
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
-:::
-
-::: {.team-member}
-**[Member Name], [Credentials]**
-*[Institution]*
-[Country]
-
-**Expertise:** Agent-based modeling, diabetes research
-
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
 :::
 
 :::
@@ -148,89 +77,151 @@ Optional: Add photo above name:
 
 ## Strategic Advisory Group
 
-Our Strategic Advisory Group (SAG) provides expert guidance on the development and implementation of POPCORN-NCD reporting guidelines. Members represent diverse geographical regions, methodological expertise, and stakeholder perspectives.
-
 <!--
-COORDINATOR: To add a new SAG member, copy the template below and paste it just above the closing ::: at the end of this section.
+COORDINATOR: SAG is AUTO-GENERATED from data/team-members.csv
 
-TEMPLATE:
-::: {.team-member}
-**[Member Name], [Credentials]**
-*[Institution]*
-[Country]
+To add/update members:
+1. Open Google Sheet with team member responses
+2. Download/copy rows where Section = "SAG"
+3. Upload to data/team-members.csv (or edit directly in GitHub)
+4. Commit the CSV file - site will rebuild automatically
 
-**Expertise:** [Area of expertise]
-
-[{{< fa brands orcid >}} ORCID](https://orcid.org/[ORCID-ID])
-:::
-
-Optional: Add photo above name:
-![Name](assets/team/photo.jpg){.img-circle width="100"}
+CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, ORCID, Email, Photo
 -->
 
-::: {.team-grid}
+Our Strategic Advisory Group (SAG) provides expert guidance on the development and implementation of POPCORN-NCD reporting guidelines. Members represent diverse geographical regions, methodological expertise, and stakeholder perspectives.
 
-::: {.team-member}
-**[SAG Member Name], [Credentials]**
-*[Institution]*
-[Country]
+```{r}
+#| echo: false
+#| output: asis
 
-**Expertise:** [Area of expertise]
+# Read team data
+team <- read_csv("data/team-members.csv", show_col_types = FALSE)
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
-:::
+# Filter for SAG
+sag <- team %>% filter(Section == "SAG")
 
-::: {.team-member}
-**[SAG Member Name], [Credentials]**
-*[Institution]*
-[Country]
+if (nrow(sag) > 0) {
+  cat('::: {.team-grid}\n\n')
 
-**Expertise:** [Area of expertise]
+  for (i in 1:nrow(sag)) {
+    # Start card
+    cat('::: {.team-member}\n\n')
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
-:::
+    # Photo (if provided)
+    if (!is.na(sag$Photo[i]) && sag$Photo[i] != "") {
+      cat(glue('![{sag$Name[i]}]({sag$Photo[i]}){{.img-circle width="100"}}\n\n'))
+    }
 
-::: {.team-member}
-**[SAG Member Name], [Credentials]**
-*[Institution]*
-[Country]
+    # Name and credentials
+    cat(glue('**{sag$Name[i]}'))
+    if (!is.na(sag$Credentials[i]) && sag$Credentials[i] != "") {
+      cat(glue(', {sag$Credentials[i]}'))
+    }
+    cat('**\n\n')
 
-**Expertise:** [Area of expertise]
+    # Institution
+    cat(glue('*{sag$Institution[i]}*\n\n'))
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
-:::
+    # Country
+    if (!is.na(sag$Country[i]) && sag$Country[i] != "") {
+      cat(glue('{sag$Country[i]}\n\n'))
+    }
 
-::: {.team-member}
-**[SAG Member Name], [Credentials]**
-*[Institution]*
-[Country]
+    # Expertise
+    if (!is.na(sag$Expertise[i]) && sag$Expertise[i] != "") {
+      cat(glue('**Expertise:** {sag$Expertise[i]}\n\n'))
+    }
 
-**Expertise:** [Area of expertise]
+    # ORCID
+    if (!is.na(sag$ORCID[i]) && sag$ORCID[i] != "") {
+      cat(glue('[{{{{< fa brands orcid >}}}} ORCID](https://orcid.org/{sag$ORCID[i]})\n\n'))
+    }
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
-:::
+    # End card
+    cat(':::\n\n')
+  }
 
-::: {.team-member}
-**[SAG Member Name], [Credentials]**
-*[Institution]*
-[Country]
+  cat(':::\n\n')
+} else {
+  cat('*Members to be announced.*\n\n')
+}
+```
 
-**Expertise:** [Area of expertise]
+---
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
-:::
+## Working Group
 
-::: {.team-member}
-**[SAG Member Name], [Credentials]**
-*[Institution]*
-[Country]
+<!--
+COORDINATOR: Working Group is AUTO-GENERATED from data/team-members.csv
 
-**Expertise:** [Area of expertise]
+To add/update members:
+1. Open Google Sheet with team member responses
+2. Download/copy rows where Section = "Working Group"
+3. Upload to data/team-members.csv (or edit directly in GitHub)
+4. Commit the CSV file - site will rebuild automatically
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
-:::
+CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, ORCID, Email, Photo
+-->
 
-:::
+Our working group includes researchers, methodologists, and knowledge users who contribute to the development of the POPCORN-NCD reporting guidelines.
+
+```{r}
+#| echo: false
+#| output: asis
+
+# Read team data
+team <- read_csv("data/team-members.csv", show_col_types = FALSE)
+
+# Filter for Working Group
+wg <- team %>% filter(Section == "Working Group")
+
+if (nrow(wg) > 0) {
+  cat('::: {.team-grid}\n\n')
+
+  for (i in 1:nrow(wg)) {
+    # Start card
+    cat('::: {.team-member}\n\n')
+
+    # Photo (if provided)
+    if (!is.na(wg$Photo[i]) && wg$Photo[i] != "") {
+      cat(glue('![{wg$Name[i]}]({wg$Photo[i]}){{.img-circle width="100"}}\n\n'))
+    }
+
+    # Name and credentials
+    cat(glue('**{wg$Name[i]}'))
+    if (!is.na(wg$Credentials[i]) && wg$Credentials[i] != "") {
+      cat(glue(', {wg$Credentials[i]}'))
+    }
+    cat('**\n\n')
+
+    # Institution
+    cat(glue('*{wg$Institution[i]}*\n\n'))
+
+    # Country
+    if (!is.na(wg$Country[i]) && wg$Country[i] != "") {
+      cat(glue('{wg$Country[i]}\n\n'))
+    }
+
+    # Expertise
+    if (!is.na(wg$Expertise[i]) && wg$Expertise[i] != "") {
+      cat(glue('**Expertise:** {wg$Expertise[i]}\n\n'))
+    }
+
+    # ORCID
+    if (!is.na(wg$ORCID[i]) && wg$ORCID[i] != "") {
+      cat(glue('[{{{{< fa brands orcid >}}}} ORCID](https://orcid.org/{wg$ORCID[i]})\n\n'))
+    }
+
+    # End card
+    cat(':::\n\n')
+  }
+
+  cat(':::\n\n')
+} else {
+  cat('*Members to be announced.*\n\n')
+}
+```
 
 ---
 
