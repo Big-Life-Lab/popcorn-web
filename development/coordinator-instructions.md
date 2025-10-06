@@ -101,7 +101,7 @@ From Google Form responses or direct communication, gather:
 
 [Brief bio describing expertise and role]
 
-[{{< fa envelope >}} email@example.com](mailto:email@example.com) | [{{< fa brands orcid >}} ORCID](https://orcid.org/[ORCID-ID])
+[<img src="assets/icons/envelope.svg" class="inline-icon" alt="Email"> email@example.com](mailto:email@example.com) | [<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/[ORCID-ID])
 :::
 ```
 

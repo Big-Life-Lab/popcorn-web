@@ -35,7 +35,7 @@ Ottawa, Canada
 
 **Role:** Principal Investigator responsible for overall project management, coordination of working groups, stakeholder engagement, and oversight of the consensus process and guideline development.
 
-[{{< fa envelope >}} dmanuel@ohri.ca](mailto:dmanuel@ohri.ca) | [{{< fa brands orcid >}} ORCID](https://orcid.org/0000-0002-0599-2061)
+[<img src="assets/icons/envelope.svg" class="inline-icon" alt="Email"> dmanuel@ohri.ca](mailto:dmanuel@ohri.ca) | [<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/0000-0002-0599-2061)
 
 :::
 
@@ -51,7 +51,7 @@ London, United Kingdom
 
 **Role:** Co-Principal Investigator responsible for guideline methodology, evidence synthesis, Delphi process coordination, and alignment with EQUATOR Network standards.
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/)
+[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/)
 
 :::
 
@@ -67,7 +67,7 @@ Melbourne, Australia
 
 **Role:** Chair of the Strategic Advisory Committee, responsible for leading the Committee, synthesizing consensus, and ensuring diverse international perspectives inform guideline development and implementation strategies.
 
-[{{< fa brands orcid >}} ORCID](https://orcid.org/0000-0002-2096-829X)
+[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/0000-0002-2096-829X)
 
 :::
 
@@ -135,7 +135,7 @@ if (nrow(sag) > 0) {
 
     # ORCID
     if (!is.na(sag$ORCID[i]) && sag$ORCID[i] != "") {
-      cat(glue('[{{{{< fa brands orcid >}}}} ORCID](https://orcid.org/{sag$ORCID[i]})\n\n'))
+      cat(glue('[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/{sag$ORCID[i]})\n\n'))
     }
 
     # End card
@@ -210,7 +210,7 @@ if (nrow(wg) > 0) {
 
     # ORCID
     if (!is.na(wg$ORCID[i]) && wg$ORCID[i] != "") {
-      cat(glue('[{{{{< fa brands orcid >}}}} ORCID](https://orcid.org/{wg$ORCID[i]})\n\n'))
+      cat(glue('[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/{wg$ORCID[i]})\n\n'))
     }
 
     # End card
