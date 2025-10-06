@@ -1,0 +1,137 @@
+name: Validate Citations
+
+on:
+  pull_request:
+    paths:
+      - 'references.bib'
+      - '**.qmd'
+  push:
+    branches:
+      - main
+    paths:
+      - 'references.bib'
+      - '**.qmd'
+
+jobs:
+  validate-bib:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install bibtexparser
+        run: pip install bibtexparser
+
+      - name: Validate BibTeX file
+        run: |
+          python3 << 'EOF'
+          import bibtexparser
+          import sys
+          import re
+          from pathlib import Path
+
+          # Read BibTeX file
+          try:
+              with open('references.bib', 'r', encoding='utf-8') as f:
+                  bib_database = bibtexparser.load(f)
+          except FileNotFoundError:
+              print("✅ No references.bib file found (optional)")
+              sys.exit(0)
+          except Exception as e:
+              print(f"❌ Failed to parse references.bib: {e}")
+              sys.exit(1)
+
+          errors = []
+          warnings = []
+
+          # Validate each entry
+          for entry in bib_database.entries:
+              entry_id = entry.get('ID', 'UNKNOWN')
+              entry_type = entry.get('ENTRYTYPE', 'UNKNOWN')
+
+              # Required fields by entry type
+              required_fields = {
+                  'article': ['author', 'title', 'journal', 'year'],
+                  'book': ['author', 'title', 'publisher', 'year'],
+                  'inproceedings': ['author', 'title', 'booktitle', 'year'],
+                  'techreport': ['author', 'title', 'institution', 'year'],
+                  'misc': ['title'],
+                  'online': ['title', 'url'],
+              }
+
+              # Check required fields
+              if entry_type.lower() in required_fields:
+                  for field in required_fields[entry_type.lower()]:
+                      if field not in entry or not entry[field].strip():
+                          errors.append(f"Entry '{entry_id}': Missing required field '{field}' for type '{entry_type}'")
+
+              # Check for common issues
+              if 'year' in entry:
+                  year = entry['year']
+                  if not re.match(r'^\d{4}$', year):
+                      warnings.append(f"Entry '{entry_id}': Year '{year}' should be 4 digits")
+
+              # Check DOI format
+              if 'doi' in entry:
+                  doi = entry['doi']
+                  if not re.match(r'^10\.\d{4,}/', doi):
+                      warnings.append(f"Entry '{entry_id}': DOI '{doi}' may be malformed")
+
+              # Check URL accessibility
+              if 'url' in entry:
+                  url = entry['url']
+                  if url.startswith('http://') and not url.startswith('http://dx.doi.org'):
+                      warnings.append(f"Entry '{entry_id}': Consider using HTTPS for URL")
+
+          # Find citation usage in qmd files
+          cited_keys = set()
+          qmd_files = list(Path('.').glob('**/*.qmd'))
+
+          for qmd_file in qmd_files:
+              if 'renv/' in str(qmd_file) or 'development/' in str(qmd_file):
+                  continue
+              try:
+                  content = qmd_file.read_text(encoding='utf-8')
+                  # Find citations like [@key] or @key
+                  citations = re.findall(r'@([\w\-:]+)', content)
+                  cited_keys.update(citations)
+              except Exception as e:
+                  warnings.append(f"Could not read {qmd_file}: {e}")
+
+          # Check for unused entries
+          bib_keys = set(entry['ID'] for entry in bib_database.entries)
+          unused_keys = bib_keys - cited_keys
+
+          if unused_keys:
+              warnings.append(f"Unused bibliography entries ({len(unused_keys)}): {', '.join(sorted(unused_keys))}")
+
+          # Check for missing entries
+          missing_keys = cited_keys - bib_keys
+          if missing_keys:
+              errors.append(f"Citations missing from bibliography: {', '.join(sorted(missing_keys))}")
+
+          # Print results
+          print(f"\n📚 Bibliography validation results")
+          print(f"Total entries: {len(bib_database.entries)}")
+          print(f"Citations found in qmd files: {len(cited_keys)}")
+
+          if warnings:
+              print(f"\n⚠️  {len(warnings)} warnings:")
+              for warning in warnings:
+                  print(f"  - {warning}")
+
+          if errors:
+              print(f"\n❌ {len(errors)} errors:")
+              for error in errors:
+                  print(f"  - {error}")
+              sys.exit(1)
+          else:
+              print("\n✅ Bibliography validation passed!")
+              sys.exit(0)
+
+          EOF

@@ -1,0 +1,15 @@
+# Team Member Photos
+
+Place team member headshots in this folder.
+
+**File naming convention:**
+- Use lowercase
+- Use hyphens for spaces
+- Format: `firstname-lastname.jpg`
+- Examples: `doug-manuel.jpg`, `jane-smith.jpg`
+
+**Image specifications:**
+- Format: JPEG or PNG
+- Size: 200x200px minimum (square preferred)
+- File size: < 200KB recommended
+- Professional headshot quality

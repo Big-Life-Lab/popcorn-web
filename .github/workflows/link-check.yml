@@ -1,0 +1,26 @@
+name: Check Links
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  schedule:
+    # Run weekly on Mondays at 9am UTC
+    - cron: '0 9 * * 1'
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Check links in Markdown files
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          config-file: '.github/workflows/link-check-config.json'
+          folder-path: '.'
+          file-path: './README.md'
+          use-quiet-mode: 'yes'
+          check-modified-files-only: 'no'

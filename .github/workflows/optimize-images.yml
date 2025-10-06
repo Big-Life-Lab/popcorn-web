@@ -1,0 +1,126 @@
+name: Optimize Images
+
+on:
+  pull_request:
+    paths:
+      - '**.png'
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.svg'
+  workflow_dispatch:  # Manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install optimization tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y optipng jpegoptim
+          npm install -g svgo
+
+      - name: Optimize PNG images
+        run: |
+          echo "Optimizing PNG files..."
+          find . -type f -name "*.png" \
+            -not -path "./renv/*" \
+            -not -path "./docs/*" \
+            -not -path "./.git/*" \
+            -exec optipng -o2 -strip all {} \;
+
+      - name: Optimize JPEG images
+        run: |
+          echo "Optimizing JPEG files..."
+          find . -type f \( -name "*.jpg" -o -name "*.jpeg" \) \
+            -not -path "./renv/*" \
+            -not -path "./docs/*" \
+            -not -path "./.git/*" \
+            -exec jpegoptim --strip-all --max=85 {} \;
+
+      - name: Optimize SVG images
+        run: |
+          echo "Optimizing SVG files..."
+          find . -type f -name "*.svg" \
+            -not -path "./renv/*" \
+            -not -path "./docs/*" \
+            -not -path "./.git/*" \
+            -not -path "./assets/icons/*" \
+            -exec svgo --multipass {} \;
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "✅ Images were optimized"
+            git diff --stat
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No image optimization needed"
+          fi
+
+      - name: Create summary report
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          echo "## Image Optimization Results" > optimization-report.md
+          echo "" >> optimization-report.md
+          echo "The following images were optimized:" >> optimization-report.md
+          echo "" >> optimization-report.md
+          echo '```' >> optimization-report.md
+          git diff --stat >> optimization-report.md
+          echo '```' >> optimization-report.md
+          echo "" >> optimization-report.md
+          echo "### Summary" >> optimization-report.md
+
+          # Calculate size reduction
+          echo "Size reduction:" >> optimization-report.md
+          git diff --stat | tail -1 >> optimization-report.md
+
+      - name: Commit optimized images
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "chore: Optimize images for web performance
+
+          - Compressed PNG files with optipng
+          - Optimized JPEG files to 85% quality
+          - Minified SVG files (excluding icons)
+
+          Automated by image-optimization workflow"
+          git push
+
+      - name: Comment on PR
+        if: steps.check_changes.outputs.changes == 'true' && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('optimization-report.md', 'utf8');
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: report
+            });
+
+      - name: Skip notification
+        if: steps.check_changes.outputs.changes == 'false'
+        run: echo "No optimization needed - images are already optimized!"

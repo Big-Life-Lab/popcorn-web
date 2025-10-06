@@ -1,0 +1,65 @@
+name: Lint R code
+
+on:
+  pull_request:
+    paths:
+      - '**.R'
+      - '**.Rmd'
+      - '**.qmd'
+  push:
+    branches:
+      - main
+    paths:
+      - '**.R'
+      - '**.Rmd'
+      - '**.qmd'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.4.3"
+
+      - name: Install lintr
+        run: R -e 'install.packages("lintr")'
+
+      - name: Lint R code
+        run: |
+          R -e '
+          library(lintr)
+
+          # Lint all R and Rmd/qmd files
+          files <- c(
+            list.files(pattern = "\\.R$", recursive = TRUE, full.names = TRUE),
+            list.files(pattern = "\\.Rmd$", recursive = TRUE, full.names = TRUE),
+            list.files(pattern = "\\.qmd$", recursive = TRUE, full.names = TRUE)
+          )
+
+          # Exclude renv directory
+          files <- files[!grepl("^renv/", files)]
+
+          # Run linter
+          results <- lapply(files, function(f) {
+            lint(f, linters = linters_with_defaults(
+              line_length_linter = line_length_linter(120),
+              object_name_linter = NULL  # Allow snake_case and camelCase
+            ))
+          })
+
+          # Print results
+          for (result in results) {
+            print(result)
+          }
+
+          # Fail if any lints found
+          total_lints <- sum(sapply(results, length))
+          if (total_lints > 0) {
+            stop("Found ", total_lints, " lint issues")
+          }
+          '

@@ -1,0 +1,180 @@
+name: Validate CSV Files
+
+on:
+  pull_request:
+    paths:
+      - 'data/**.csv'
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/**.csv'
+
+jobs:
+  validate-csv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.4.3"
+
+      - name: Install validation packages
+        run: R -e 'install.packages(c("readr", "dplyr"))'
+
+      - name: Validate team-members.csv
+        run: |
+          R -e '
+          library(readr)
+          library(dplyr)
+
+          cat("## CSV Validation Rules\n\n")
+          cat("1. Required columns must exist\n")
+          cat("2. Section must be \"SAG\" or \"Working Group\"\n")
+          cat("3. Name, Institution, and Country must not be empty\n")
+          cat("4. No leading/trailing whitespace in text fields\n")
+          cat("5. ORCID must match format 0000-0000-0000-0000 (if provided)\n")
+          cat("6. No duplicate entries (same Name + Institution)\n")
+          cat("7. Valid email format (if provided)\n\n")
+
+          # Read CSV (trim_ws automatically handles trailing whitespace)
+          tryCatch({
+            team <- read_csv("data/team-members.csv", show_col_types = FALSE, comment = "#", trim_ws = TRUE)
+          }, error = function(e) {
+            stop("❌ Failed to read CSV: ", e$message)
+          })
+
+          errors <- c()
+          warnings <- c()
+
+          # Rule 1: Required columns must exist
+          required_cols <- c("Section", "Name", "Credentials", "Institution",
+                            "Country", "Expertise", "ORCID", "Email", "Photo")
+
+          missing_cols <- setdiff(required_cols, names(team))
+          if (length(missing_cols) > 0) {
+            errors <- c(errors, paste("Missing required columns:", paste(missing_cols, collapse = ", ")))
+          }
+
+          # Rule 2: Section must be valid value
+          valid_sections <- c("SAG", "Working Group")
+          invalid_sections <- team %>%
+            filter(!Section %in% valid_sections) %>%
+            pull(Section) %>%
+            unique()
+
+          if (length(invalid_sections) > 0) {
+            errors <- c(errors, paste("Invalid Section values:", paste(invalid_sections, collapse = ", "),
+                                     "- Must be one of:", paste(valid_sections, collapse = ", ")))
+          }
+
+          # Rule 3: Required fields must not be empty
+          missing_name <- team %>% filter(is.na(Name) | trimws(Name) == "")
+          if (nrow(missing_name) > 0) {
+            errors <- c(errors, paste("Found", nrow(missing_name), "rows with missing Name"))
+          }
+
+          missing_institution <- team %>% filter(is.na(Institution) | trimws(Institution) == "")
+          if (nrow(missing_institution) > 0) {
+            errors <- c(errors, paste("Found", nrow(missing_institution), "rows with missing Institution"))
+          }
+
+          missing_country <- team %>% filter(is.na(Country) | trimws(Country) == "")
+          if (nrow(missing_country) > 0) {
+            warnings <- c(warnings, paste("Found", nrow(missing_country), "rows with missing Country"))
+          }
+
+          # Rule 4: Check for trailing/leading whitespace (before trim_ws was applied)
+          # Re-read without trimming to detect whitespace
+          team_raw <- read_csv("data/team-members.csv", show_col_types = FALSE, comment = "#", trim_ws = FALSE)
+
+          whitespace_issues <- team_raw %>%
+            filter(
+              (!is.na(Name) & Name != trimws(Name)) |
+              (!is.na(Institution) & Institution != trimws(Institution)) |
+              (!is.na(Country) & Country != trimws(Country)) |
+              (!is.na(Expertise) & Expertise != trimws(Expertise))
+            )
+
+          if (nrow(whitespace_issues) > 0) {
+            warnings <- c(warnings, paste("Found", nrow(whitespace_issues),
+                                        "rows with leading/trailing whitespace"))
+            for (i in 1:min(nrow(whitespace_issues), 3)) {
+              warnings <- c(warnings, paste("  - Row", i, ":", whitespace_issues$Name[i]))
+            }
+          }
+
+          # Rule 5: ORCID format validation
+          invalid_orcid <- team %>%
+            filter(!is.na(ORCID) & ORCID != "") %>%
+            filter(!grepl("^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$", ORCID))
+
+          if (nrow(invalid_orcid) > 0) {
+            warnings <- c(warnings, "Invalid ORCID format (should be 0000-0000-0000-0000):")
+            for (i in 1:nrow(invalid_orcid)) {
+              warnings <- c(warnings, paste("  -", invalid_orcid$Name[i], ":", invalid_orcid$ORCID[i]))
+            }
+          }
+
+          # Rule 6: Check for duplicate entries
+          duplicates <- team %>%
+            group_by(Name, Institution) %>%
+            filter(n() > 1) %>%
+            ungroup()
+
+          if (nrow(duplicates) > 0) {
+            warnings <- c(warnings, "Found duplicate entries (same Name + Institution):")
+            for (i in 1:nrow(duplicates)) {
+              warnings <- c(warnings, paste("  -", duplicates$Name[i], "at", duplicates$Institution[i]))
+            }
+          }
+
+          # Rule 7: Email format validation (if provided)
+          invalid_email <- team %>%
+            filter(!is.na(Email) & Email != "") %>%
+            filter(!grepl("^[^@]+@[^@]+\\.[^@]+$", Email))
+
+          if (nrow(invalid_email) > 0) {
+            warnings <- c(warnings, "Invalid email format:")
+            for (i in 1:nrow(invalid_email)) {
+              warnings <- c(warnings, paste("  -", invalid_email$Name[i], ":", invalid_email$Email[i]))
+            }
+          }
+
+          # Print results
+          cat("\n## Validation Results\n\n")
+
+          if (length(errors) > 0) {
+            cat("❌ ERRORS:\n")
+            for (error in errors) {
+              cat("  ", error, "\n")
+            }
+            cat("\n")
+          }
+
+          if (length(warnings) > 0) {
+            cat("⚠️  WARNINGS:\n")
+            for (warning in warnings) {
+              cat("  ", warning, "\n")
+            }
+            cat("\n")
+          }
+
+          if (length(errors) == 0 && length(warnings) == 0) {
+            cat("✅ All validation rules passed!\n\n")
+          }
+
+          # Summary
+          cat("## Summary\n")
+          cat("Total rows:", nrow(team), "\n")
+          cat("SAG members:", nrow(team %>% filter(Section == "SAG")), "\n")
+          cat("Working Group members:", nrow(team %>% filter(Section == "Working Group")), "\n")
+
+          # Fail if errors found
+          if (length(errors) > 0) {
+            stop("\n❌ CSV validation failed with ", length(errors), " error(s)")
+          }
+          '

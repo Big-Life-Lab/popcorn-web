@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "!development/"
+    - "!renv/"
 
 embed-resources: true
 
@@ -15,6 +19,8 @@ website:
     left:
       - text: Home
         href: index.qmd
+      # - text: Team
+      #   href: team.qmd
 
     tools:
       - icon: github
@@ -28,6 +34,8 @@ format:
       - assets/popcorn-web.scss
     code-tools: false
     toc: true
+    include-in-header:
+      - assets/icons.html
 
 bibliography: references.bib
 csl: assets/vancouver.csl
