@@ -1,8 +1,1 @@
-<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background circle -->
-  <circle cx="100" cy="100" r="100" fill="#E9ECEF"/>
-
-  <!-- Person icon -->
-  <circle cx="100" cy="75" r="30" fill="#ADB5BD"/>
-  <path d="M 100 110 Q 60 110 40 160 L 160 160 Q 140 110 100 110 Z" fill="#ADB5BD"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="#e9ecef"/><circle cx="100" cy="75" r="30" fill="#adb5bd"/><path fill="#adb5bd" d="M100 110q-40 0-60 50h120q-20-50-60-50"/></svg>
