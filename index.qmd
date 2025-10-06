@@ -10,9 +10,11 @@ bibliography: references.bib
 **Developing an internationally agreed-upon reporting guideline for studies that model noncommunicable diseases.**
 :::
 
-We're developing POPCORN, a new reporting guideline to improve the consistency and transparency of research using models to address noncommunicable diseases (NCDs) like heart disease, cancer, and diabetes. Following the successful [EQUATOR](https://www.equator-network.org) approach, POPCORN will help researchers, policymakers, and the public better understand these models and how they can inform decisions ([EQUATOR registration](https://www.equator-network.org/library/reporting-guidelines-under-development/reporting-guidelines-under-development-for-other-study-designs/#NCD)).
+We're developing POPCORN, a new reporting guideline to improve the consistency and transparency of research using models to address noncommunicable diseases (NCDs) like heart disease, cancer, and diabetes. Following the [EQUATOR](https://www.equator-network.org) approach, POPCORN will help researchers, policymakers, and the public better understand these models and how they can inform decisions ([EQUATOR registration](https://www.equator-network.org/library/reporting-guidelines-under-development/reporting-guidelines-under-development-for-other-study-designs/#NCD)).
 
-This study is in its early stages. Our international team has reviewed reporting frameworks and guidelines, and surveyed modellers, journal editors, and knowledge users. 98% of respondents agreed there is a need for a new reporting guideline [@bennett2012; @webber2014; @mytton2019]. The need has strengthened following the pandemic, which highlighted the role of transparent models in informing policymaking and building public trust.
+Our international team has reviewed reporting frameworks and guidelines, and surveyed modellers, journal editors, and knowledge users. 98% of respondents agreed there is a need for a new reporting guideline [@bennett2012; @webber2014; @mytton2019]. The need has strengthened following the pandemic, which highlighted the role of transparent models in informing policymaking and building public trust.
+
+The study has begun with funding from the Canadian Institute for Health Resarch. We have begun recruiting the Strategicy Advisory Committee. Scoping reviews of modelling reporting practices are underdevelopment.
 
 We welcome your collaboration and contributions to ensure POPCORN's success. 
 
