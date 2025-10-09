@@ -7,6 +7,9 @@ title: "Our Team"
 library(readr)
 library(dplyr)
 library(glue)
+
+# Read team data once at the beginning
+team <- read_csv("data/team-members.csv", show_col_types = FALSE)
 ```
 
 Our work on the **POPCORN-NCD Reporting Guideline** is led by an international collaborative group committed to transparency and rigour in simulation-modelling research.
@@ -16,62 +19,74 @@ Our work on the **POPCORN-NCD Reporting Guideline** is led by an international c
 ## Leads
 
 <!--
-COORDINATOR: Leadership section is MANUAL - use the template below to add new co-investigators.
-Copy the entire block between the ::: {.team-member} divs and paste below, then fill in the details.
+COORDINATOR: Leadership section is AUTO-GENERATED from data/team-members.csv
+
+To add/update leads:
+1. Open data/team-members.csv
+2. Add/edit rows where Section = "Leads"
+3. Commit the CSV file - site will rebuild automatically
+
+CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, Role, ORCID, Photo
 -->
 
-::: {.team-grid}
+```{r}
+#| echo: false
+#| output: asis
 
-::: {.team-member}
+# Filter for Leads
+leads <- team %>% filter(Section == "Leads")
 
-**Douglas Manuel, MD MSc FRCPC**
+if (nrow(leads) > 0) {
+  cat('::: {.team-grid}\n\n')
 
-*The Ottawa Hospital Research Institute; University of Ottawa*
+  for (i in 1:nrow(leads)) {
+    # Start card
+    cat('::: {.team-member}\n\n')
 
-Ottawa, Canada
+    # Photo (if provided)
+    if (!is.na(leads$Photo[i]) && leads$Photo[i] != "") {
+      cat('![', leads$Name[i], '](', leads$Photo[i], '){.img-circle width="100"}\n\n', sep='')
+    }
 
-**Expertise:** Population health microsimulation modelling; model validation methodology; chronic disease epidemiology; reporting guideline development.
+    # Name and credentials
+    cat('**', leads$Name[i], sep='')
+    if (!is.na(leads$Credentials[i]) && leads$Credentials[i] != "") {
+      cat(', ', leads$Credentials[i], sep='')
+    }
+    cat('**\n\n')
 
+    # Institution
+    cat('*', leads$Institution[i], '*\n\n', sep='')
 
-**Role:** Principal Investigator responsible for overall project management, coordination of working groups, stakeholder engagement, and oversight of the consensus process and guideline development.
+    # Country
+    if (!is.na(leads$Country[i]) && leads$Country[i] != "") {
+      cat(leads$Country[i], '\n\n', sep='')
+    }
 
-[<img src="assets/icons/envelope.svg" class="inline-icon" alt="Email"> dmanuel@ohri.ca](mailto:dmanuel@ohri.ca) | [<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/0000-0002-0599-2061)
+    # Expertise
+    if (!is.na(leads$Expertise[i]) && leads$Expertise[i] != "") {
+      cat('**Expertise:** ', leads$Expertise[i], '\n\n', sep='')
+    }
 
-:::
+    # Role
+    if (!is.na(leads$Role[i]) && leads$Role[i] != "") {
+      cat('**Role:** ', leads$Role[i], '\n\n', sep='')
+    }
 
-::: {.team-member}
+    # ORCID
+    if (!is.na(leads$ORCID[i]) && leads$ORCID[i] != "") {
+      cat('[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/', leads$ORCID[i], ')\n\n', sep='')
+    }
 
-**Oliver Mytton, MD MPH**
+    # End card
+    cat(':::\n\n')
+  }
 
-*UCL Great Ormond Street Institute for Child Health; Milton Keynes City Council*
-
-London, United Kingdom
-
-**Expertise:** Public health simulation modelling; population health intervention evaluation; reporting guideline development.
-
-**Role:** Co-Principal Investigator responsible for guideline methodology, evidence synthesis, Delphi process coordination, and alignment with EQUATOR Network standards.
-
-[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/)
-
-:::
-
-::: {.team-member}
-
-**Tony Blakely, MBChB MPH PhD FAFPHM**
-
-*University of Melbourne; Institute for Health Metrics and Evaluation*
-
-Melbourne, Australia
-
-**Expertise:** NCD simulation modelling; causal inference methods; health economic evaluation; population intervention research; simulation frameworks.
-
-**Role:** Chair of the Strategic Advisory Committee, responsible for leading the Committee, synthesizing consensus, and ensuring diverse international perspectives inform guideline development and implementation strategies.
-
-[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/0000-0002-2096-829X)
-
-:::
-
-:::
+  cat(':::\n\n')
+} else {
+  cat('*Leadership team to be announced.*\n\n')
+}
+```
 
 ---
 
@@ -86,7 +101,8 @@ To add/update members:
 3. Upload to data/team-members.csv (or edit directly in GitHub)
 4. Commit the CSV file - site will rebuild automatically
 
-CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, ORCID, Email, Photo
+CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, Position, ORCID, Photo
+Note: Position field is optional - use "Ex Officio" for ex officio members
 -->
 
 Our Strategic Advisory Group (SAG) provides expert guidance on the development and implementation of POPCORN-NCD reporting guidelines. Members represent diverse geographical regions, methodological expertise, and stakeholder perspectives.
@@ -94,9 +110,6 @@ Our Strategic Advisory Group (SAG) provides expert guidance on the development a
 ```{r}
 #| echo: false
 #| output: asis
-
-# Read team data
-team <- read_csv("data/team-members.csv", show_col_types = FALSE)
 
 # Filter for SAG
 sag <- team %>% filter(Section == "SAG")
@@ -110,32 +123,38 @@ if (nrow(sag) > 0) {
 
     # Photo (if provided)
     if (!is.na(sag$Photo[i]) && sag$Photo[i] != "") {
-      cat(glue('![{sag$Name[i]}]({sag$Photo[i]}){{.img-circle width="100"}}\n\n'))
+      cat('![', sag$Name[i], '](', sag$Photo[i], '){.img-circle width="100"}\n\n', sep='')
     }
 
     # Name and credentials
-    cat(glue('**{sag$Name[i]}'))
+    cat('**', sag$Name[i], sep='')
     if (!is.na(sag$Credentials[i]) && sag$Credentials[i] != "") {
-      cat(glue(', {sag$Credentials[i]}'))
+      cat(', ', sag$Credentials[i], sep='')
     }
-    cat('**\n\n')
+    cat('**')
+
+    # Position (ex officio)
+    if (!is.na(sag$Position[i]) && sag$Position[i] != "") {
+      cat(' *(', sag$Position[i], ')*', sep='')
+    }
+    cat('\n\n')
 
     # Institution
-    cat(glue('*{sag$Institution[i]}*\n\n'))
+    cat('*', sag$Institution[i], '*\n\n', sep='')
 
     # Country
     if (!is.na(sag$Country[i]) && sag$Country[i] != "") {
-      cat(glue('{sag$Country[i]}\n\n'))
+      cat(sag$Country[i], '\n\n', sep='')
     }
 
     # Expertise
     if (!is.na(sag$Expertise[i]) && sag$Expertise[i] != "") {
-      cat(glue('**Expertise:** {sag$Expertise[i]}\n\n'))
+      cat('**Expertise:** ', sag$Expertise[i], '\n\n', sep='')
     }
 
     # ORCID
     if (!is.na(sag$ORCID[i]) && sag$ORCID[i] != "") {
-      cat(glue('[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/{sag$ORCID[i]})\n\n'))
+      cat('[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/', sag$ORCID[i], ')\n\n', sep='')
     }
 
     # End card
@@ -161,7 +180,8 @@ To add/update members:
 3. Upload to data/team-members.csv (or edit directly in GitHub)
 4. Commit the CSV file - site will rebuild automatically
 
-CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, ORCID, Email, Photo
+CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, Position, ORCID, Photo
+Note: Position field is optional - use "Ex Officio" for ex officio members
 -->
 
 Our working group includes researchers, methodologists, and knowledge users who contribute to the development of the POPCORN-NCD reporting guidelines.
@@ -169,9 +189,6 @@ Our working group includes researchers, methodologists, and knowledge users who 
 ```{r}
 #| echo: false
 #| output: asis
-
-# Read team data
-team <- read_csv("data/team-members.csv", show_col_types = FALSE)
 
 # Filter for Working Group
 wg <- team %>% filter(Section == "Working Group")
@@ -185,32 +202,38 @@ if (nrow(wg) > 0) {
 
     # Photo (if provided)
     if (!is.na(wg$Photo[i]) && wg$Photo[i] != "") {
-      cat(glue('![{wg$Name[i]}]({wg$Photo[i]}){{.img-circle width="100"}}\n\n'))
+      cat('![', wg$Name[i], '](', wg$Photo[i], '){.img-circle width="100"}\n\n', sep='')
     }
 
     # Name and credentials
-    cat(glue('**{wg$Name[i]}'))
+    cat('**', wg$Name[i], sep='')
     if (!is.na(wg$Credentials[i]) && wg$Credentials[i] != "") {
-      cat(glue(', {wg$Credentials[i]}'))
+      cat(', ', wg$Credentials[i], sep='')
     }
-    cat('**\n\n')
+    cat('**')
+
+    # Position (ex officio)
+    if (!is.na(wg$Position[i]) && wg$Position[i] != "") {
+      cat(' *(', wg$Position[i], ')*', sep='')
+    }
+    cat('\n\n')
 
     # Institution
-    cat(glue('*{wg$Institution[i]}*\n\n'))
+    cat('*', wg$Institution[i], '*\n\n', sep='')
 
     # Country
     if (!is.na(wg$Country[i]) && wg$Country[i] != "") {
-      cat(glue('{wg$Country[i]}\n\n'))
+      cat(wg$Country[i], '\n\n', sep='')
     }
 
     # Expertise
     if (!is.na(wg$Expertise[i]) && wg$Expertise[i] != "") {
-      cat(glue('**Expertise:** {wg$Expertise[i]}\n\n'))
+      cat('**Expertise:** ', wg$Expertise[i], '\n\n', sep='')
     }
 
     # ORCID
     if (!is.na(wg$ORCID[i]) && wg$ORCID[i] != "") {
-      cat(glue('[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/{wg$ORCID[i]})\n\n'))
+      cat('[<img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID](https://orcid.org/', wg$ORCID[i], ')\n\n', sep='')
     }
 
     # End card
