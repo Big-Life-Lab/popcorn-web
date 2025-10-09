@@ -41,8 +41,9 @@ jobs:
             list.files(pattern = "\\.qmd$", recursive = TRUE, full.names = TRUE)
           )
 
-          # Exclude renv directory
-          files <- files[!grepl("^renv/", files)]
+          # Exclude renv and development directories
+          files <- files[!grepl("^(\\./)?renv/", files)]
+          files <- files[!grepl("^(\\./)?development/", files)]
 
           # Run linter
           results <- lapply(files, function(f) {
