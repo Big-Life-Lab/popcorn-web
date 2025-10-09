@@ -3916,30 +3916,35 @@ fill: currentColor;
 <section id="leads" class="level2">
 <h2 class="anchored" data-anchor-id="leads">Leads</h2>
 <!--
-COORDINATOR: Leadership section is MANUAL - use the template below to add new co-investigators.
-Copy the entire block between the ::: {.team-member} divs and paste below, then fill in the details.
+COORDINATOR: Leadership section is AUTO-GENERATED from data/team-members.csv
+
+To add/update leads:
+1. Open data/team-members.csv
+2. Add/edit rows where Section = "Leads"
+3. Commit the CSV file - site will rebuild automatically
+
+CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, Role, ORCID, Photo
 -->
 <div class="team-grid">
 <div class="team-member">
 <p><strong>Douglas Manuel, MD MSc FRCPC</strong></p>
 <p><em>The Ottawa Hospital Research Institute; University of Ottawa</em></p>
-<p>Ottawa, Canada</p>
+<p>Canada</p>
 <p><strong>Expertise:</strong> Population health microsimulation modelling; model validation methodology; chronic disease epidemiology; reporting guideline development.</p>
 <p><strong>Role:</strong> Principal Investigator responsible for overall project management, coordination of working groups, stakeholder engagement, and oversight of the consensus process and guideline development.</p>
-<p><a href="mailto:dmanuel@ohri.ca"><img role="img" aria-label="Email" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiPgogIDwhLS0gU2ltcGxlIGVudmVsb3BlIGljb24sIE1JVC1zdHlsZSBsaWNlbnNlIGNvbXBhdGlibGUgLS0+CiAgPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNNjQgMTEyYy04LjggMC0xNiA3LjItMTYgMTZ2MjIuMUwyMjAuNSAyOTEuN2MyMC43IDE3IDUwLjQgMTcgNzEuMSAwTDQ2NCAxNTAuMVYxMjhjMC04LjgtNy4yLTE2LTE2LTE2SDY0ek00OCAyMTIuMlYzODRjMCA4LjggNy4yIDE2IDE2IDE2SDQ0OGM4LjggMCAxNi03LjIgMTYtMTZWMjEyLjJMMzIyIDMyOC44Yy0zOC40IDMxLjUtOTMuNyAzMS41LTEzMiAwTDQ4IDIxMi4yek0wIDEyOEMwIDkyLjcgMjguNyA2NCA2NCA2NEg0NDhjMzUuMyAwIDY0IDI4LjcgNjQgNjRWMzg0YzAgMzUuMy0yOC43IDY0LTY0IDY0SDY0Yy0zNS4zIDAtNjQtMjguNy02NC02NFYxMjh6Ii8+Cjwvc3ZnPgo=" class="inline-icon" alt="Email"> dmanuel@ohri.ca</a> | <a href="https://orcid.org/0000-0002-0599-2061"><img role="img" aria-label="ORCID" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiPgogIDwhLS0gT1JDSUQgaUQgaWNvbiAtIG9mZmljaWFsIGZyb20gT1JDSUQsIENDMCBsaWNlbnNlIC0tPgogIDxwYXRoIGZpbGw9IiNBNkNFMzkiIGQ9Ik0yNTYsMTI4YzAsNzAuNy01Ny4zLDEyOC0xMjgsMTI4QzU3LjMsMjU2LDAsMTk4LjcsMCwxMjhDMCw1Ny4zLDU3LjMsMCwxMjgsMEMxOTguNywwLDI1Niw1Ny4zLDI1NiwxMjh6Ii8+CiAgPGc+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNODYuMywxODYuMkg3MC45Vjc5LjFoMTUuNHY0OC40VjE4Ni4yeiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTEwOC45LDc5LjFoNDEuNmMzOS42LDAsNTcsMjguMyw1Nyw1My42YzAsMjcuNS0yMS41LDUzLjYtNTYuOCw1My42aC00MS44Vjc5LjF6IE0xMjQuMywxNzIuNGgyNC41IGMzNC45LDAsNDIuOS0yNi41LDQyLjktMzkuN2MwLTIxLjUtMTMuNy0zOS43LTQzLjctMzkuN2gtMjMuN1YxNzIuNHoiLz4KICAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik04OC43LDU2LjhjMCw1LjUtNC41LDEwLjEtMTAuMSwxMC4xYy01LjYsMC0xMC4xLTQuNi0xMC4xLTEwLjFjMC01LjYsNC41LTEwLjEsMTAuMS0xMC4xIEM4NC4yLDQ2LjcsODguNyw1MS4zLDg4LjcsNTYuOHoiLz4KICA8L2c+Cjwvc3ZnPgo=" class="inline-icon" alt="ORCID"> ORCID</a></p>
+<p><a href="https://orcid.org/0000-0002-0599-2061"><img role="img" aria-label="ORCID" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiPgogIDwhLS0gT1JDSUQgaUQgaWNvbiAtIG9mZmljaWFsIGZyb20gT1JDSUQsIENDMCBsaWNlbnNlIC0tPgogIDxwYXRoIGZpbGw9IiNBNkNFMzkiIGQ9Ik0yNTYsMTI4YzAsNzAuNy01Ny4zLDEyOC0xMjgsMTI4QzU3LjMsMjU2LDAsMTk4LjcsMCwxMjhDMCw1Ny4zLDU3LjMsMCwxMjgsMEMxOTguNywwLDI1Niw1Ny4zLDI1NiwxMjh6Ii8+CiAgPGc+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNODYuMywxODYuMkg3MC45Vjc5LjFoMTUuNHY0OC40VjE4Ni4yeiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTEwOC45LDc5LjFoNDEuNmMzOS42LDAsNTcsMjguMyw1Nyw1My42YzAsMjcuNS0yMS41LDUzLjYtNTYuOCw1My42aC00MS44Vjc5LjF6IE0xMjQuMywxNzIuNGgyNC41IGMzNC45LDAsNDIuOS0yNi41LDQyLjktMzkuN2MwLTIxLjUtMTMuNy0zOS43LTQzLjctMzkuN2gtMjMuN1YxNzIuNHoiLz4KICAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik04OC43LDU2LjhjMCw1LjUtNC41LDEwLjEtMTAuMSwxMC4xYy01LjYsMC0xMC4xLTQuNi0xMC4xLTEwLjFjMC01LjYsNC41LTEwLjEsMTAuMS0xMC4xIEM4NC4yLDQ2LjcsODguNyw1MS4zLDg4LjcsNTYuOHoiLz4KICA8L2c+Cjwvc3ZnPgo=" class="inline-icon" alt="ORCID"> ORCID</a></p>
 </div>
 <div class="team-member">
 <p><strong>Oliver Mytton, MD MPH</strong></p>
 <p><em>UCL Great Ormond Street Institute for Child Health; Milton Keynes City Council</em></p>
-<p>London, United Kingdom</p>
+<p>United Kingdom</p>
 <p><strong>Expertise:</strong> Public health simulation modelling; population health intervention evaluation; reporting guideline development.</p>
 <p><strong>Role:</strong> Co-Principal Investigator responsible for guideline methodology, evidence synthesis, Delphi process coordination, and alignment with EQUATOR Network standards.</p>
-<p><a href="https://orcid.org/"><img role="img" aria-label="ORCID" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiPgogIDwhLS0gT1JDSUQgaUQgaWNvbiAtIG9mZmljaWFsIGZyb20gT1JDSUQsIENDMCBsaWNlbnNlIC0tPgogIDxwYXRoIGZpbGw9IiNBNkNFMzkiIGQ9Ik0yNTYsMTI4YzAsNzAuNy01Ny4zLDEyOC0xMjgsMTI4QzU3LjMsMjU2LDAsMTk4LjcsMCwxMjhDMCw1Ny4zLDU3LjMsMCwxMjgsMEMxOTguNywwLDI1Niw1Ny4zLDI1NiwxMjh6Ii8+CiAgPGc+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNODYuMywxODYuMkg3MC45Vjc5LjFoMTUuNHY0OC40VjE4Ni4yeiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTEwOC45LDc5LjFoNDEuNmMzOS42LDAsNTcsMjguMyw1Nyw1My42YzAsMjcuNS0yMS41LDUzLjYtNTYuOCw1My42aC00MS44Vjc5LjF6IE0xMjQuMywxNzIuNGgyNC41IGMzNC45LDAsNDIuOS0yNi41LDQyLjktMzkuN2MwLTIxLjUtMTMuNy0zOS43LTQzLjctMzkuN2gtMjMuN1YxNzIuNHoiLz4KICAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik04OC43LDU2LjhjMCw1LjUtNC41LDEwLjEtMTAuMSwxMC4xYy01LjYsMC0xMC4xLTQuNi0xMC4xLTEwLjFjMC01LjYsNC41LTEwLjEsMTAuMS0xMC4xIEM4NC4yLDQ2LjcsODguNyw1MS4zLDg4LjcsNTYuOHoiLz4KICA8L2c+Cjwvc3ZnPgo=" class="inline-icon" alt="ORCID"> ORCID</a></p>
 </div>
 <div class="team-member">
 <p><strong>Tony Blakely, MBChB MPH PhD FAFPHM</strong></p>
 <p><em>University of Melbourne; Institute for Health Metrics and Evaluation</em></p>
-<p>Melbourne, Australia</p>
+<p>Australia</p>
 <p><strong>Expertise:</strong> NCD simulation modelling; causal inference methods; health economic evaluation; population intervention research; simulation frameworks.</p>
 <p><strong>Role:</strong> Chair of the Strategic Advisory Committee, responsible for leading the Committee, synthesizing consensus, and ensuring diverse international perspectives inform guideline development and implementation strategies.</p>
 <p><a href="https://orcid.org/0000-0002-2096-829X"><img role="img" aria-label="ORCID" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiPgogIDwhLS0gT1JDSUQgaUQgaWNvbiAtIG9mZmljaWFsIGZyb20gT1JDSUQsIENDMCBsaWNlbnNlIC0tPgogIDxwYXRoIGZpbGw9IiNBNkNFMzkiIGQ9Ik0yNTYsMTI4YzAsNzAuNy01Ny4zLDEyOC0xMjgsMTI4QzU3LjMsMjU2LDAsMTk4LjcsMCwxMjhDMCw1Ny4zLDU3LjMsMCwxMjgsMEMxOTguNywwLDI1Niw1Ny4zLDI1NiwxMjh6Ii8+CiAgPGc+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNODYuMywxODYuMkg3MC45Vjc5LjFoMTUuNHY0OC40VjE4Ni4yeiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTEwOC45LDc5LjFoNDEuNmMzOS42LDAsNTcsMjguMyw1Nyw1My42YzAsMjcuNS0yMS41LDUzLjYtNTYuOCw1My42aC00MS44Vjc5LjF6IE0xMjQuMywxNzIuNGgyNC41IGMzNC45LDAsNDIuOS0yNi41LDQyLjktMzkuN2MwLTIxLjUtMTMuNy0zOS43LTQzLjctMzkuN2gtMjMuN1YxNzIuNHoiLz4KICAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik04OC43LDU2LjhjMCw1LjUtNC41LDEwLjEtMTAuMSwxMC4xYy01LjYsMC0xMC4xLTQuNi0xMC4xLTEwLjFjMC01LjYsNC41LTEwLjEsMTAuMS0xMC4xIEM4NC4yLDQ2LjcsODguNyw1MS4zLDg4LjcsNTYuOHoiLz4KICA8L2c+Cjwvc3ZnPgo=" class="inline-icon" alt="ORCID"> ORCID</a></p>
@@ -3958,10 +3963,26 @@ To add/update members:
 3. Upload to data/team-members.csv (or edit directly in GitHub)
 4. Commit the CSV file - site will rebuild automatically
 
-CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, ORCID, Email, Photo
+CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, Position, ORCID, Photo
+Note: Position field is optional - use "Ex Officio" for ex officio members
 -->
 <p>Our Strategic Advisory Group (SAG) provides expert guidance on the development and implementation of POPCORN-NCD reporting guidelines. Members represent diverse geographical regions, methodological expertise, and stakeholder perspectives.</p>
-<p><em>Members to be announced.</em></p>
+<div class="team-grid">
+<div class="team-member">
+<p><strong>David Moher, PhD</strong> <em>(Ex Officio)</em></p>
+<p><em>Ottawa Hospital Research Institute; University of Ottawa</em></p>
+<p>Canada</p>
+<p><strong>Expertise:</strong> EQUATOR Network director; reporting guidelines methodology; CONSORT and PRISMA development.</p>
+<p><a href="https://orcid.org/0000-0003-2434-4206"><img role="img" aria-label="ORCID" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiPgogIDwhLS0gT1JDSUQgaUQgaWNvbiAtIG9mZmljaWFsIGZyb20gT1JDSUQsIENDMCBsaWNlbnNlIC0tPgogIDxwYXRoIGZpbGw9IiNBNkNFMzkiIGQ9Ik0yNTYsMTI4YzAsNzAuNy01Ny4zLDEyOC0xMjgsMTI4QzU3LjMsMjU2LDAsMTk4LjcsMCwxMjhDMCw1Ny4zLDU3LjMsMCwxMjgsMEMxOTguNywwLDI1Niw1Ny4zLDI1NiwxMjh6Ii8+CiAgPGc+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNODYuMywxODYuMkg3MC45Vjc5LjFoMTUuNHY0OC40VjE4Ni4yeiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTEwOC45LDc5LjFoNDEuNmMzOS42LDAsNTcsMjguMyw1Nyw1My42YzAsMjcuNS0yMS41LDUzLjYtNTYuOCw1My42aC00MS44Vjc5LjF6IE0xMjQuMywxNzIuNGgyNC41IGMzNC45LDAsNDIuOS0yNi41LDQyLjktMzkuN2MwLTIxLjUtMTMuNy0zOS43LTQzLjctMzkuN2gtMjMuN1YxNzIuNHoiLz4KICAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik04OC43LDU2LjhjMCw1LjUtNC41LDEwLjEtMTAuMSwxMC4xYy01LjYsMC0xMC4xLTQuNi0xMC4xLTEwLjFjMC01LjYsNC41LTEwLjEsMTAuMS0xMC4xIEM4NC4yLDQ2LjcsODguNyw1MS4zLDg4LjcsNTYuOHoiLz4KICA8L2c+Cjwvc3ZnPgo=" class="inline-icon" alt="ORCID"> ORCID</a></p>
+</div>
+<div class="team-member">
+<p><strong>Don Husereau, BScPharm MSc</strong> <em>(Ex Officio)</em></p>
+<p><em>University of Ottawa; Institute of Health Economics</em></p>
+<p>Canada</p>
+<p><strong>Expertise:</strong> CHEERS co-chair; health economics evaluation; health technology assessment.</p>
+<p><a href="https://orcid.org/0000-0002-4416-6876"><img role="img" aria-label="ORCID" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiPgogIDwhLS0gT1JDSUQgaUQgaWNvbiAtIG9mZmljaWFsIGZyb20gT1JDSUQsIENDMCBsaWNlbnNlIC0tPgogIDxwYXRoIGZpbGw9IiNBNkNFMzkiIGQ9Ik0yNTYsMTI4YzAsNzAuNy01Ny4zLDEyOC0xMjgsMTI4QzU3LjMsMjU2LDAsMTk4LjcsMCwxMjhDMCw1Ny4zLDU3LjMsMCwxMjgsMEMxOTguNywwLDI1Niw1Ny4zLDI1NiwxMjh6Ii8+CiAgPGc+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNODYuMywxODYuMkg3MC45Vjc5LjFoMTUuNHY0OC40VjE4Ni4yeiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTEwOC45LDc5LjFoNDEuNmMzOS42LDAsNTcsMjguMyw1Nyw1My42YzAsMjcuNS0yMS41LDUzLjYtNTYuOCw1My42aC00MS44Vjc5LjF6IE0xMjQuMywxNzIuNGgyNC41IGMzNC45LDAsNDIuOS0yNi41LDQyLjktMzkuN2MwLTIxLjUtMTMuNy0zOS43LTQzLjctMzkuN2gtMjMuN1YxNzIuNHoiLz4KICAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik04OC43LDU2LjhjMCw1LjUtNC41LDEwLjEtMTAuMSwxMC4xYy01LjYsMC0xMC4xLTQuNi0xMC4xLTEwLjFjMC01LjYsNC41LTEwLjEsMTAuMS0xMC4xIEM4NC4yLDQ2LjcsODguNyw1MS4zLDg4LjcsNTYuOHoiLz4KICA8L2c+Cjwvc3ZnPgo=" class="inline-icon" alt="ORCID"> ORCID</a></p>
+</div>
+</div>
 <hr>
 </section>
 <section id="working-group" class="level2">
@@ -3975,7 +3996,8 @@ To add/update members:
 3. Upload to data/team-members.csv (or edit directly in GitHub)
 4. Commit the CSV file - site will rebuild automatically
 
-CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, ORCID, Email, Photo
+CSV Columns needed: Section, Name, Credentials, Institution, Country, Expertise, Position, ORCID, Photo
+Note: Position field is optional - use "Ex Officio" for ex officio members
 -->
 <p>Our working group includes researchers, methodologists, and knowledge users who contribute to the development of the POPCORN-NCD reporting guidelines.</p>
 <p><em>Members to be announced.</em></p>
