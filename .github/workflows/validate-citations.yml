@@ -97,8 +97,9 @@ jobs:
                   continue
               try:
                   content = qmd_file.read_text(encoding='utf-8')
-                  # Find citations like [@key] or @key
-                  citations = re.findall(r'@([\w\-:]+)', content)
+                  # Find citations like [@key] or [-@key] but not email addresses
+                  # Match @ followed by alphanumeric/hyphen/colon, but only if preceded by [ or space
+                  citations = re.findall(r'[\[\s]@([\w\-:]+)', content)
                   cited_keys.update(citations)
               except Exception as e:
                   warnings.append(f"Could not read {qmd_file}: {e}")
