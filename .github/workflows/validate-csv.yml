@@ -33,7 +33,7 @@ jobs:
 
           cat("## CSV Validation Rules\n\n")
           cat("1. Required columns must exist\n")
-          cat("2. Section must be \"SAG\" or \"Working Group\"\n")
+          cat("2. Section must be \"Leads\", \"SAG\", or \"Working Group\"\n")
           cat("3. Name, Institution, and Country must not be empty\n")
           cat("4. No leading/trailing whitespace in text fields\n")
           cat("5. ORCID must match format 0000-0000-0000-0000 (if provided)\n")
@@ -52,7 +52,7 @@ jobs:
 
           # Rule 1: Required columns must exist
           required_cols <- c("Section", "Name", "Credentials", "Institution",
-                            "Country", "Expertise", "ORCID", "Email", "Photo")
+                            "Country", "Expertise", "Role", "Position", "ORCID", "Photo")
 
           missing_cols <- setdiff(required_cols, names(team))
           if (length(missing_cols) > 0) {
@@ -60,7 +60,7 @@ jobs:
           }
 
           # Rule 2: Section must be valid value
-          valid_sections <- c("SAG", "Working Group")
+          valid_sections <- c("Leads", "SAG", "Working Group")
           invalid_sections <- team %>%
             filter(!Section %in% valid_sections) %>%
             pull(Section) %>%
@@ -170,6 +170,7 @@ jobs:
           # Summary
           cat("## Summary\n")
           cat("Total rows:", nrow(team), "\n")
+          cat("Leads:", nrow(team %>% filter(Section == "Leads")), "\n")
           cat("SAG members:", nrow(team %>% filter(Section == "SAG")), "\n")
           cat("Working Group members:", nrow(team %>% filter(Section == "Working Group")), "\n")
 
