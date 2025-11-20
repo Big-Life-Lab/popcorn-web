@@ -13,6 +13,8 @@
 #'   - post_nominal_initials
 #'   - affiliation_primary, affiliation_2, affiliation_3, affiliation_4
 #'   - strategic_advisory_cmt (SAC role, or "NA"/"" if not a SAC member)
+#'   - cihr_study (investigator/collaborator role, or "NA"/"" if not applicable)
+#'   - study_team ("Yes" for study team members, or "NA"/"" if not applicable)
 #'   - ORCID, web_bio
 #'
 #' @examples
@@ -54,7 +56,7 @@ suppressPackageStartupMessages({
 #' UPDATE THIS with your actual Google Workbook URL/ID
 GOOGLE_SHEET_ID <- Sys.getenv(
   "POPCORN_TEAM_SHEET_ID",
-  default = "YOUR_GOOGLE_SHEET_ID_HERE"  # Replace with actual ID
+  unset = "YOUR_GOOGLE_SHEET_ID_HERE"  # Replace with actual ID
 )
 
 #' Tab name in Google Sheet
@@ -70,7 +72,7 @@ OUTPUT_CSV <- "data/team-members.csv"
 #' Tries service account first (for automation), falls back to user auth
 authenticate_google <- function() {
   # Try service account (for automated scripts)
-  service_account_file <- ".secrets/google-service-account.json"
+  service_account_file <- ".secrets/popcorn-data-manager.json"
 
   if (file.exists(service_account_file)) {
     message("Authenticating with service account...")
@@ -111,7 +113,7 @@ read_team_from_sheets <- function() {
 validate_team_data <- function(data) {
   required_cols <- c("first_name", "last_name", "post_nominal_initials",
                      "affiliation_primary", "affiliation_2", "affiliation_3", "affiliation_4",
-                     "strategic_advisory_cmt", "ORCID", "web_bio")
+                     "strategic_advisory_cmt", "cihr_study", "study_team", "ORCID", "web_bio")
 
   missing_cols <- setdiff(required_cols, names(data))
   if (length(missing_cols) > 0) {
@@ -152,8 +154,19 @@ preview_team_sync <- function() {
                    data$strategic_advisory_cmt != "NA")
   message(sprintf("  Strategic Advisory Committee: %d", sac_count))
 
+  # Count investigators (where cihr_study is not NA or empty)
+  inv_count <- sum(!is.na(data$cihr_study) &
+                   data$cihr_study != "" &
+                   data$cihr_study != "NA")
+  message(sprintf("  Investigators and collaborators: %d", inv_count))
+
+  # Count study team (where study_team = "Yes")
+  team_count <- sum(!is.na(data$study_team) &
+                    data$study_team == "Yes")
+  message(sprintf("  Study team: %d", team_count))
+
   message("\nFirst few rows:")
-  print(head(data %>% select(first_name, last_name, affiliation_primary, strategic_advisory_cmt), 5))
+  print(head(data %>% select(first_name, last_name, affiliation_primary, strategic_advisory_cmt, cihr_study, study_team), 5))
 
   if (file.exists(OUTPUT_CSV)) {
     current <- read_csv(OUTPUT_CSV, show_col_types = FALSE)

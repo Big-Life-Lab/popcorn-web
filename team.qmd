@@ -118,12 +118,188 @@ if (nrow(sac) > 0) {
 
 ---
 
-## Acknowledgement
+## Investigators and collaborators
 
-This work is supported by [Funder names to be added].
+<!--
+COORDINATOR: Investigators section is AUTO-GENERATED from data/team-members.csv
 
-All team members have completed conflict of interest disclosures, available upon request by contacting [dmanuel@ohri.ca](mailto:dmanuel@ohri.ca).
+To add/update members:
+1. Open Google Sheet with team member data
+2. Add/edit rows where cihr_study has a role value
+3. The sync script will update data/team-members.csv automatically
+
+CSV Columns needed: first_name, last_name, post_nominal_initials, affiliation_primary,
+affiliation_2, affiliation_3, affiliation_4, cihr_study (role), ORCID, web_bio
+-->
+
+Our team of investigators and collaborators brings together expertise in population health modelling, clinical epidemiology, knowledge translation, and health services research. Investigators contribute to study design, methodology, analysis, and knowledge dissemination. Collaborators provide specialized expertise and facilitate knowledge exchange across research networks and practice settings.
+
+```{r}
+#| echo: false
+#| output: asis
+
+# Filter for investigators/collaborators (where cihr_study is not NA or empty)
+investigators <- team %>%
+  filter(!is.na(cihr_study) &
+         cihr_study != "" &
+         cihr_study != "NA") %>%
+  # Sort alphabetically by last name
+  arrange(last_name)
+
+if (nrow(investigators) > 0) {
+  cat('<div class="team-list">\n\n')
+
+  for (i in 1:nrow(investigators)) {
+    # Start member div
+    cat('<div class="team-member">\n\n')
+
+    # Left column: Name and credentials
+    cat('<div class="member-name-col">\n')
+    cat(investigators$first_name[i], ' ', investigators$last_name[i], '\n', sep='')
+    if (!is.na(investigators$post_nominal_initials[i]) && investigators$post_nominal_initials[i] != "") {
+      cat('<div class="member-credentials">', investigators$post_nominal_initials[i], '</div>\n', sep='')
+    }
+    cat('</div>\n\n')
+
+    # Right column: Details
+    cat('<div class="member-details-col">\n\n')
+
+    # Affiliations (combine non-empty affiliations with semicolons)
+    affiliations <- c(
+      investigators$affiliation_primary[i],
+      investigators$affiliation_2[i],
+      investigators$affiliation_3[i],
+      investigators$affiliation_4[i]
+    )
+    affiliations <- affiliations[!is.na(affiliations) & affiliations != ""]
+
+    if (length(affiliations) > 0) {
+      cat('<div class="member-affiliation">', paste(affiliations, collapse='; '), '</div>\n\n', sep='')
+    }
+
+    # CIHR study role
+    if (!is.na(investigators$cihr_study[i]) && investigators$cihr_study[i] != "") {
+      cat('<div class="member-role">', investigators$cihr_study[i], '</div>\n\n', sep='')
+    }
+
+    # Links (ORCID and Web bio)
+    links <- character(0)
+
+    if (!is.na(investigators$ORCID[i]) && investigators$ORCID[i] != "" && investigators$ORCID[i] != "NA") {
+      links <- c(links, paste0('<a href="https://orcid.org/', investigators$ORCID[i], '"><img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID</a>'))
+    }
+
+    if (!is.na(investigators$web_bio[i]) && investigators$web_bio[i] != "") {
+      links <- c(links, paste0('<a href="', investigators$web_bio[i], '">Web bio</a>'))
+    }
+
+    if (length(links) > 0) {
+      cat('<div class="member-links">', paste(links, collapse=' '), '</div>\n', sep='')
+    }
+
+    cat('</div>\n\n')  # Close details column
+    cat('</div>\n\n')  # Close member div
+  }
+
+  cat('</div>\n\n')  # Close team-list
+} else {
+  cat('*Team members to be announced.*\n\n')
+}
+```
 
 ---
 
-*Interested in joining our team? Contact us at [dmanuel@ohri.ca](mailto:dmanuel@ohri.ca).*
+## Study team
+
+<!--
+COORDINATOR: Study team is AUTO-GENERATED from data/team-members.csv
+
+To add/update members:
+1. Open Google Sheet with team member data
+2. Set study_team = "Yes" for team members
+3. The sync script will update data/team-members.csv automatically
+
+CSV Columns needed: first_name, last_name, post_nominal_initials, affiliation_primary,
+affiliation_2, affiliation_3, affiliation_4, study_team (Yes/No), ORCID, web_bio
+-->
+
+The POPCORN-NCD study team manages the day-to-day research activities, coordinates working groups, facilitates stakeholder engagement, and ensures the successful implementation of all project components. This dedicated team drives the project forward through research coordination, knowledge synthesis, stakeholder consultation, and guideline development.
+
+```{r}
+#| echo: false
+#| output: asis
+
+# Filter for study team (where study_team = "Yes")
+study_team <- team %>%
+  filter(!is.na(study_team) &
+         study_team == "Yes") %>%
+  # Sort alphabetically by last name
+  arrange(last_name)
+
+if (nrow(study_team) > 0) {
+  cat('<div class="team-list">\n\n')
+
+  for (i in 1:nrow(study_team)) {
+    # Start member div
+    cat('<div class="team-member">\n\n')
+
+    # Left column: Name and credentials
+    cat('<div class="member-name-col">\n')
+    cat(study_team$first_name[i], ' ', study_team$last_name[i], '\n', sep='')
+    if (!is.na(study_team$post_nominal_initials[i]) && study_team$post_nominal_initials[i] != "") {
+      cat('<div class="member-credentials">', study_team$post_nominal_initials[i], '</div>\n', sep='')
+    }
+    cat('</div>\n\n')
+
+    # Right column: Details
+    cat('<div class="member-details-col">\n\n')
+
+    # Affiliations (combine non-empty affiliations with semicolons)
+    affiliations <- c(
+      study_team$affiliation_primary[i],
+      study_team$affiliation_2[i],
+      study_team$affiliation_3[i],
+      study_team$affiliation_4[i]
+    )
+    affiliations <- affiliations[!is.na(affiliations) & affiliations != ""]
+
+    if (length(affiliations) > 0) {
+      cat('<div class="member-affiliation">', paste(affiliations, collapse='; '), '</div>\n\n', sep='')
+    }
+
+    # No role for study team - just affiliations and links
+
+    # Links (ORCID and Web bio)
+    links <- character(0)
+
+    if (!is.na(study_team$ORCID[i]) && study_team$ORCID[i] != "" && study_team$ORCID[i] != "NA") {
+      links <- c(links, paste0('<a href="https://orcid.org/', study_team$ORCID[i], '"><img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID</a>'))
+    }
+
+    if (!is.na(study_team$web_bio[i]) && study_team$web_bio[i] != "") {
+      links <- c(links, paste0('<a href="', study_team$web_bio[i], '">Web bio</a>'))
+    }
+
+    if (length(links) > 0) {
+      cat('<div class="member-links">', paste(links, collapse=' '), '</div>\n', sep='')
+    }
+
+    cat('</div>\n\n')  # Close details column
+    cat('</div>\n\n')  # Close member div
+  }
+
+  cat('</div>\n\n')  # Close team-list
+} else {
+  cat('*Team members to be announced.*\n\n')
+}
+```
+
+---
+
+## Acknowledgement
+
+This work is supported by the Canadian Institute for Health Research [CIHR FRN 162222]. The Ottawa Hospital Research Institute, Ottawa, Canada, overseas ...
+
+All team members have completed conflict of interest disclosures, available upon request by contacting [popcor@ohri.ca](mailto:popcorn@ohri.ca).
+
+---

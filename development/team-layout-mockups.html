@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Page Layout Mockups</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .mockup-section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* Current Style (Simple List) */
+        .style-current ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .style-current li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .style-current .name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Option A: Structured List with Indentation */
+        .style-structured ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .style-structured li {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .style-structured li:last-child {
+            border-bottom: none;
+        }
+
+        .style-structured .name {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .style-structured .affiliation {
+            color: #555;
+            font-style: italic;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .style-structured .role {
+            color: #666;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .style-structured .links {
+            font-size: 0.9em;
+        }
+
+        /* Option B: Compact Cards */
+        .style-cards {
+            display: grid;
+            gap: 15px;
+        }
+
+        .style-cards .member-card {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            border-radius: 4px;
+            transition: box-shadow 0.2s;
+        }
+
+        .style-cards .member-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .style-cards .name {
+            font-weight: 700;
+            font-size: 1.05em;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+
+        .style-cards .affiliation {
+            color: #555;
+            font-size: 0.95em;
+            margin-bottom: 4px;
+        }
+
+        .style-cards .role {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .style-cards .links {
+            font-size: 0.85em;
+        }
+
+        /* Option C: Two-Column Layout */
+        .style-twocol ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .style-twocol li {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .style-twocol li:last-child {
+            border-bottom: none;
+        }
+
+        .style-twocol .name-col {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .style-twocol .details-col {
+            color: #555;
+        }
+
+        .style-twocol .role {
+            margin-top: 8px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .style-twocol .links {
+            margin-top: 8px;
+            font-size: 0.9em;
+        }
+
+        /* Common link styling */
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .orcid-icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: text-bottom;
+            margin-right: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mockup-section style-current">
+    <h2>Current Style: Simple Bulleted List</h2>
+    <h3>Pros: Compact, scannable. Cons: Dense text, hard to distinguish fields with 50+ people</h3>
+
+    <ul>
+        <li><span class="name">Douglas Manuel, MD MSc FRCPC</span> — The Ottawa Hospital Research Institute; University of Ottawa — Principal Investigator responsible for overall project management, coordination of working groups, stakeholder engagement, and oversight of the consensus process and guideline development. [<a href="#">ORCID</a>]</li>
+        <li><span class="name">Oliver Mytton, MD MPH</span> — UCL Great Ormond Street Institute for Child Health; Milton Keynes City Council — Co-Principal Investigator responsible for guideline methodology, evidence synthesis, Delphi process coordination, and alignment with EQUATOR Network standards.</li>
+        <li><span class="name">Tony Blakely, MBChB MPH PhD FAFPHM</span> — University of Melbourne; Institute for Health Metrics and Evaluation — Chair of the Strategic Advisory Committee, responsible for leading the Committee, synthesizing consensus, and ensuring diverse international perspectives inform guideline development and implementation strategies. [<a href="#">ORCID</a>]</li>
+        <li><span class="name">David Moher, PhD</span> — Ottawa Hospital Research Institute; University of Ottawa — Ex Officio [<a href="#">ORCID</a>]</li>
+        <li><span class="name">Don Husereau, BScPharm MSc</span> — University of Ottawa; Institute of Health Economics — Ex Officio [<a href="#">ORCID</a>]</li>
+    </ul>
+</div>
+
+<div class="mockup-section style-structured">
+    <h2>Option A: Structured List with Indentation</h2>
+    <h3>Pros: Clear hierarchy, easy scanning, scales well. Cons: Takes more vertical space</h3>
+
+    <ul>
+        <li>
+            <span class="name">Douglas Manuel, MD MSc FRCPC</span>
+            <span class="affiliation">The Ottawa Hospital Research Institute; University of Ottawa</span>
+            <span class="role">Principal Investigator responsible for overall project management, coordination of working groups, stakeholder engagement, and oversight of the consensus process and guideline development.</span>
+            <span class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a> | <a href="#">Web bio</a></span>
+        </li>
+        <li>
+            <span class="name">Oliver Mytton, MD MPH</span>
+            <span class="affiliation">UCL Great Ormond Street Institute for Child Health; Milton Keynes City Council</span>
+            <span class="role">Co-Principal Investigator responsible for guideline methodology, evidence synthesis, Delphi process coordination, and alignment with EQUATOR Network standards.</span>
+        </li>
+        <li>
+            <span class="name">Tony Blakely, MBChB MPH PhD FAFPHM</span>
+            <span class="affiliation">University of Melbourne; Institute for Health Metrics and Evaluation</span>
+            <span class="role">Chair of the Strategic Advisory Committee, responsible for leading the Committee, synthesizing consensus, and ensuring diverse international perspectives inform guideline development and implementation strategies.</span>
+            <span class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a></span>
+        </li>
+        <li>
+            <span class="name">David Moher, PhD</span>
+            <span class="affiliation">Ottawa Hospital Research Institute; University of Ottawa</span>
+            <span class="role">Ex Officio</span>
+            <span class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a></span>
+        </li>
+        <li>
+            <span class="name">Don Husereau, BScPharm MSc</span>
+            <span class="affiliation">University of Ottawa; Institute of Health Economics</span>
+            <span class="role">Ex Officio</span>
+            <span class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a></span>
+        </li>
+    </ul>
+</div>
+
+<div class="mockup-section style-cards">
+    <h2>Option B: Compact Cards</h2>
+    <h3>Pros: Visual separation, modern look, easy to scan. Cons: More vertical space</h3>
+
+    <div class="member-card">
+        <div class="name">Douglas Manuel, MD MSc FRCPC</div>
+        <div class="affiliation">The Ottawa Hospital Research Institute; University of Ottawa</div>
+        <div class="role">Principal Investigator responsible for overall project management, coordination of working groups, stakeholder engagement, and oversight of the consensus process and guideline development.</div>
+        <div class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a> | <a href="#">Web bio</a></div>
+    </div>
+
+    <div class="member-card">
+        <div class="name">Oliver Mytton, MD MPH</div>
+        <div class="affiliation">UCL Great Ormond Street Institute for Child Health; Milton Keynes City Council</div>
+        <div class="role">Co-Principal Investigator responsible for guideline methodology, evidence synthesis, Delphi process coordination, and alignment with EQUATOR Network standards.</div>
+    </div>
+
+    <div class="member-card">
+        <div class="name">Tony Blakely, MBChB MPH PhD FAFPHM</div>
+        <div class="affiliation">University of Melbourne; Institute for Health Metrics and Evaluation</div>
+        <div class="role">Chair of the Strategic Advisory Committee, responsible for leading the Committee, synthesizing consensus, and ensuring diverse international perspectives inform guideline development and implementation strategies.</div>
+        <div class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a></div>
+    </div>
+
+    <div class="member-card">
+        <div class="name">David Moher, PhD</div>
+        <div class="affiliation">Ottawa Hospital Research Institute; University of Ottawa</div>
+        <div class="role">Ex Officio</div>
+        <div class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a></div>
+    </div>
+
+    <div class="member-card">
+        <div class="name">Don Husereau, BScPharm MSc</div>
+        <div class="affiliation">University of Ottawa; Institute of Health Economics</div>
+        <div class="role">Ex Officio</div>
+        <div class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a></div>
+    </div>
+</div>
+
+<div class="mockup-section style-twocol">
+    <h2>Option C: Two-Column Layout</h2>
+    <h3>Pros: Efficient use of space, clean alignment. Cons: Can be cramped on mobile, less flexible</h3>
+
+    <ul>
+        <li>
+            <div class="name-col">
+                Douglas Manuel<br>
+                <span style="font-size: 0.9em; font-weight: 400; color: #7f8c8d;">MD MSc FRCPC</span>
+            </div>
+            <div class="details-col">
+                The Ottawa Hospital Research Institute; University of Ottawa
+                <div class="role">Principal Investigator responsible for overall project management, coordination of working groups, stakeholder engagement, and oversight of the consensus process and guideline development.</div>
+                <div class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a> | <a href="#">Web bio</a></div>
+            </div>
+        </li>
+        <li>
+            <div class="name-col">
+                Oliver Mytton<br>
+                <span style="font-size: 0.9em; font-weight: 400; color: #7f8c8d;">MD MPH</span>
+            </div>
+            <div class="details-col">
+                UCL Great Ormond Street Institute for Child Health; Milton Keynes City Council
+                <div class="role">Co-Principal Investigator responsible for guideline methodology, evidence synthesis, Delphi process coordination, and alignment with EQUATOR Network standards.</div>
+            </div>
+        </li>
+        <li>
+            <div class="name-col">
+                Tony Blakely<br>
+                <span style="font-size: 0.9em; font-weight: 400; color: #7f8c8d;">MBChB MPH PhD FAFPHM</span>
+            </div>
+            <div class="details-col">
+                University of Melbourne; Institute for Health Metrics and Evaluation
+                <div class="role">Chair of the Strategic Advisory Committee, responsible for leading the Committee, synthesizing consensus, and ensuring diverse international perspectives inform guideline development and implementation strategies.</div>
+                <div class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a></div>
+            </div>
+        </li>
+        <li>
+            <div class="name-col">
+                David Moher<br>
+                <span style="font-size: 0.9em; font-weight: 400; color: #7f8c8d;">PhD</span>
+            </div>
+            <div class="details-col">
+                Ottawa Hospital Research Institute; University of Ottawa
+                <div class="role">Ex Officio</div>
+                <div class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a></div>
+            </div>
+        </li>
+        <li>
+            <div class="name-col">
+                Don Husereau<br>
+                <span style="font-size: 0.9em; font-weight: 400; color: #7f8c8d;">BScPharm MSc</span>
+            </div>
+            <div class="details-col">
+                University of Ottawa; Institute of Health Economics
+                <div class="role">Ex Officio</div>
+                <div class="links"><a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2368b030' viewBox='0 0 256 256'%3E%3Cpath d='M128 256C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128 0 70.7-57.3 128-128 128z'/%3E%3Cpath fill='white' d='M86 186.5V69.5h-20v117h20zm94 0V69.5h-20v117h20z'/%3E%3C/svg%3E" class="orcid-icon" alt="ORCID"> ORCID</a></div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
