@@ -1,36 +1,71 @@
 /*-- scss:rules --*/
 
+/* Wider content area - increase from default ~850px to ~1000px (15% wider) */
+.page-columns .content {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .centered_content {
   text-align: center;
 }
 
-/* Team page styles */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
+/* Team page styles - clean two-column layout */
+.team-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .team-member {
-  padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border-left: 4px solid var(--bs-primary);
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #dee2e6;
 }
 
-.team-member strong {
-  display: block;
-  font-size: 1.1rem;
-  margin-bottom: 0.25rem;
-  color: var(--bs-primary);
+.team-member:last-child {
+  border-bottom: none;
 }
 
-.team-member em {
-  display: block;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
+.member-name-col {
+  font-weight: 700;
+}
+
+.member-credentials {
+  font-size: 0.9em;
+  font-weight: normal;
   color: #6c757d;
+  margin-top: 0.2rem;
+}
+
+.member-affiliation {
+  font-style: italic;
+  margin-bottom: 0.3rem;
+}
+
+.member-role {
+  font-style: italic;
+  margin-bottom: 0.3rem;
+}
+
+.member-links {
+  font-size: 0.9em;
+  margin-top: 0.3rem;
+}
+
+.member-links a {
+  margin-right: 1rem;
+}
+
+/* Responsive: single column on mobile */
+@media (max-width: 768px) {
+  .team-member {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
 }
 
 /* ORCID icon styling */

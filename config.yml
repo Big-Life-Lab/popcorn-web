@@ -1,0 +1,19 @@
+---
+default:
+  Project: PHIAT-YLL
+  Title: Popuation Health Impact Assessment Tools for years of life lost
+  Description:
+  Version: 0.1.0
+  Date: 2019-10-15
+  Funding: CIHR FRN 162222
+  Authors:
+    person:
+      given: Doug
+      family: Manuel 
+      email: dmanuel@ohri.ca
+      inst: The Ottawa Hospital Research Institute
+      role:
+        - aut
+        - cre 
+      ORCID: 0000-0003-0912-0845
+ 

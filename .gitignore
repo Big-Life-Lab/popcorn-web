@@ -67,3 +67,5 @@ po/*~
 rsconnect/
 
 /.luarc.json
+
+.secrets/
