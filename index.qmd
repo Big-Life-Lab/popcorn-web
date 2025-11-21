@@ -14,11 +14,60 @@ We're developing POPCORN, a new reporting guideline to improve the consistency a
 
 Our international team has reviewed reporting frameworks and guidelines, and surveyed modellers, journal editors, and knowledge users. 98% of respondents agreed there is a need for a new reporting guideline [@bennett2012; @webber2014; @mytton2019]. The need has strengthened following the pandemic, which highlighted the role of transparent models in informing policymaking and building public trust.
 
-The study has begun with funding from the Canadian Institute for Health Resarch. We have begun recruiting the Strategicy Advisory Committee. Scoping reviews of modelling reporting practices are underdevelopment.
+## Project status
 
-We welcome your collaboration and contributions to ensure POPCORN's success. 
+::: {.project-status}
+::: {.progress-line}
+::: {.progress-fill}
+:::
+:::
 
-Contact: Doug Manuel, Senior Scientist, The Ottawa Hospital (dmanuel\@ohri.ca)
+::: {.status-item .completed}
+::: {.step-circle}
+1
+:::
+**Scientific Advisory Group established**
+:::
+
+::: {.status-item .in-progress}
+::: {.step-circle}
+2
+:::
+**Generating candidate checklist items**
+:::
+
+::: {.status-item}
+::: {.step-circle}
+3
+:::
+**International e-Delphi survey**
+:::
+
+::: {.status-item}
+::: {.step-circle}
+4
+:::
+**Consensus and writing meetings**
+:::
+
+::: {.status-item}
+::: {.step-circle}
+5
+:::
+**Dissemination**
+:::
+:::
+
+## Contact
+
+**Principal Investigators:**
+
+- Doug Manuel, Senior Scientist, The Ottawa Hospital Research Institute ([dmanuel@ohri.ca](mailto:dmanuel@ohri.ca))
+- Oliver Mytton (Co-Principal Investigator)
+
+**Study coordinator:** Sarah Beach ([sbeach@ohri.ca](mailto:sbeach@ohri.ca))
+
+**General inquiries:** [popcorn@ohri.ca](mailto:popcorn@ohri.ca)
 
 ### References
 

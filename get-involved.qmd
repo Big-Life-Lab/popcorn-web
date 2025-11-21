@@ -1,0 +1,122 @@
+---
+title: "Get involved"
+---
+
+We welcome participation from researchers, journal editors, policymakers, and all stakeholders interested in improving the reporting of population health modelling studies.
+
+## Ways to participate
+
+### 1. Join the e-Delphi survey {#delphi-interest}
+
+**Status:** Recruitment opens [TIMEFRAME]
+
+Our international e-Delphi survey will evaluate candidate checklist items for POPCORN-NCD. We are seeking participants who:
+
+- Have authored simulation modelling studies of NCDs
+- Edit journals that publish modelling research
+- Review modelling manuscripts for peer-reviewed journals
+- Use model results to inform policy or practice decisions
+- Have methodological expertise in simulation modelling
+
+**Time commitment:** Approximately 1-2 hours per round (two rounds total)
+
+**Timeline:** Rounds to be conducted in [TIMEFRAME]
+
+::: {.callout-note}
+## Interested in participating?
+
+[Subscribe for updates](#subscribe) to receive notification when e-Delphi recruitment opens. We will contact you with eligibility screening and registration information.
+:::
+
+### 2. Subscribe for updates {#subscribe}
+
+Stay informed about POPCORN-NCD development:
+
+- Major milestones and phase completions
+- Publication of scoping reviews and other materials
+- e-Delphi survey recruitment announcements
+- Consensus meeting outcomes
+- Final guideline publication
+
+**To subscribe:** Contact us at [popcorn@ohri.ca](mailto:popcorn@ohri.ca?subject=Subscribe%20to%20POPCORN-NCD%20updates) with "Subscribe" in the subject line, or use the [contact form below](#contact).
+
+### 3. Provide feedback and suggestions {#feedback}
+
+Have expertise or insights to share? We want to hear from you.
+
+**Areas where feedback is valuable:**
+
+- Scope of the guideline (what should be included/excluded)
+- Candidate checklist items (completeness, clarity, feasibility)
+- Draft materials during open comment periods
+- Implementation considerations for different contexts
+- Translation and adaptation for international use
+
+[Contact us](#contact) to share your feedback.
+
+### 4. Collaborate on related research {#collaborate}
+
+Interested in contributing to POPCORN-NCD development or conducting related research?
+
+**Potential collaboration areas:**
+
+- Scoping reviews and evidence synthesis
+- Pilot testing of draft checklist
+- Development of implementation tools
+- Journal editor engagement and endorsement
+- Dissemination and training initiatives
+- Future extensions or adaptations
+
+[Contact us](#contact) to discuss collaboration opportunities.
+
+### 5. Spread the word {#spread-the-word}
+
+Help us reach diverse stakeholders around the world.
+
+**Share POPCORN-NCD with:**
+
+- Modelling researchers in your network
+- Journal editors who handle modelling manuscripts
+- Professional societies and research networks
+- Graduate students and early career researchers
+- Policymakers and knowledge users
+
+**Template message:**
+
+> POPCORN-NCD is developing an international reporting guideline for simulation modelling studies of noncommunicable diseases. Learn more and get involved: https://popcorn-ncd.org
+
+---
+
+## Contact us {#contact}
+
+### General inquiries
+
+**Email:** [popcorn@ohri.ca](mailto:popcorn@ohri.ca)
+
+Please include "POPCORN-NCD" in your subject line and specify your inquiry type:
+
+- E-Delphi participation interest
+- Subscribe to updates
+- Feedback or suggestions
+- Collaboration opportunities
+- Media or interview requests
+- Other questions
+
+### Principal investigators
+
+**Dr. Doug Manuel**
+Senior Scientist, The Ottawa Hospital Research Institute
+Email: [dmanuel@ohri.ca](mailto:dmanuel@ohri.ca)
+
+**Dr. Oliver Mytton** (Co-Principal Investigator)
+
+### Study coordinator
+
+**Sarah Beach**
+Email: [sbeach@ohri.ca](mailto:sbeach@ohri.ca)
+
+---
+
+**Thank you for your interest in POPCORN-NCD!**
+
+Together, we can improve the transparency and quality of population health modelling research.

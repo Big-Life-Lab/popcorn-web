@@ -1,0 +1,56 @@
+# POPCORN-NCD project status tracking
+# This file is used to maintain current status across multiple pages
+# Update dates and status as milestones are reached
+
+current_phase:
+  number: 2
+  title: "Generating candidate checklist items"
+  status: "in_progress"
+
+last_updated: "2024-11-20"
+
+phases:
+  - number: 1
+    title: "Scientific Advisory Group established"
+    status: "completed"
+    completion_date: "2024-11-24"  # SAC kick-off meeting
+
+  - number: 2
+    title: "Generating candidate checklist items"
+    status: "in_progress"
+    started_date: null  # TO BE ADDED
+    projected_completion: null  # TO BE ADDED
+
+  - number: 3
+    title: "International e-Delphi survey"
+    status: "planned"
+    projected_start: null  # TO BE ADDED
+
+  - number: 4
+    title: "Consensus and writing meetings"
+    status: "planned"
+    projected_start: null  # TO BE ADDED
+
+  - number: 5
+    title: "Dissemination"
+    status: "planned"
+    projected_start: null  # TO BE ADDED
+
+# Major milestones for tracking progress
+milestones:
+  - date: null  # TO BE ADDED - check with team
+    title: "CIHR funding awarded (FRN 162222)"
+    phase: 0
+    category: "funding"
+
+  - date: "2024-11-24"
+    title: "Scientific Advisory Group kick-off meeting"
+    phase: 1
+    category: "team"
+
+  - date: null  # TO BE ADDED
+    title: "Scoping review protocols registered"
+    phase: 2
+    category: "milestone"
+
+  # Add additional milestones as they occur

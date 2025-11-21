@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Option 5: Minimal Styling with Strong Center Emphasis</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@300;400;700&family=Hanken+Grotesk:wght@200;300;400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  padding: 40px;
+  background: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #262c3a;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  color: #262c3a;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.intro-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.05rem;
+  color: #424b5e;
+  line-height: 1.6;
+}
+
+.approaches-row {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.approach-item {
+  text-align: center;
+  padding: 1rem;
+}
+
+.approach-item.emphasized {
+  padding: 2.5rem 2rem;
+  border: 3px solid #fdc882;
+  border-radius: 12px;
+  background: #fffbf5;
+  transform: scale(1.05);
+}
+
+.icon-container {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.approach-item.emphasized .icon-container {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 1.25rem;
+}
+
+.icon-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: opacity(0.85);
+}
+
+.approach-item.emphasized .icon-container img {
+  filter: opacity(1);
+}
+
+.approach-title {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0 0 0.4rem 0;
+  color: #424b5e;
+}
+
+.approach-item.emphasized .approach-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #262c3a;
+  margin-bottom: 0.6rem;
+}
+
+.approach-description {
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: #8892a0;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.approach-item.emphasized .approach-description {
+  font-size: 1.05rem;
+  color: #424b5e;
+  font-weight: 400;
+}
+
+.focus-badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #fdc882;
+  color: #262c3a;
+  margin-top: 0.75rem;
+}
+</style>
+</head>
+<body>
+
+<h2>Simulation as a science approach</h2>
+
+<p class="intro-text">
+Simulation modelling represents a distinct scientific approach alongside theoretical, observational, and experimental methods.
+</p>
+
+<div class="approaches-row">
+  <div class="approach-item">
+    <div class="icon-container">
+      <img src="../assets/icons/light-bulb.svg" alt="Theoretical">
+    </div>
+    <h3 class="approach-title">Theoretical</h3>
+    <p class="approach-description">Propose why phenomena occur</p>
+  </div>
+
+  <div class="approach-item emphasized">
+    <div class="icon-container">
+      <img src="../assets/icons/globe-sim-open.svg" alt="Simulation">
+    </div>
+    <h3 class="approach-title">Simulation</h3>
+    <p class="approach-description">Explore what could be</p>
+    <span class="focus-badge">POPCORN's Focus</span>
+  </div>
+
+  <div class="approach-item">
+    <div class="icon-container">
+      <img src="../assets/icons/telescope.svg" alt="Observational">
+    </div>
+    <h3 class="approach-title">Observational</h3>
+    <p class="approach-description">Analyze what is</p>
+  </div>
+
+  <div class="approach-item">
+    <div class="icon-container">
+      <img src="../assets/icons/beaker.svg" alt="Experimental">
+    </div>
+    <h3 class="approach-title">Experimental</h3>
+    <p class="approach-description">Test what changes when</p>
+  </div>
+</div>
+
+</body>
+</html>

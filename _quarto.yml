@@ -19,8 +19,14 @@ website:
     left:
       - text: Home
         href: index.qmd
-      # - text: Team
-      #   href: team.qmd
+      - text: About
+        href: about.qmd
+      - text: Development
+        href: process.qmd
+      - text: Team
+        href: team.qmd
+      - text: Get Involved
+        href: get-involved.qmd
 
     tools:
       - icon: github
