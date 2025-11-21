@@ -40,7 +40,8 @@ Our Strategic Advisory Committee provides expert guidance on the development and
 sac <- team %>%
   filter(!is.na(strategic_advisory_cmt) &
          strategic_advisory_cmt != "" &
-         strategic_advisory_cmt != "NA") %>%
+         strategic_advisory_cmt != "NA" &
+         strategic_advisory_cmt != ".") %>%
   # Create sort order: Chair → Members → Ex Officio → PIs → Staff
   mutate(
     role_order = case_when(
@@ -142,7 +143,8 @@ Our team of investigators and collaborators brings together expertise in populat
 investigators <- team %>%
   filter(!is.na(cihr_study) &
          cihr_study != "" &
-         cihr_study != "NA") %>%
+         cihr_study != "NA" &
+         cihr_study != ".") %>%
   # Sort alphabetically by last name
   arrange(last_name)
 
