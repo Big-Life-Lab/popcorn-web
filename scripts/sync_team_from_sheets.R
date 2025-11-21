@@ -29,8 +29,8 @@
 
 # Required packages ----
 required_packages <- c(
-  "googlesheets4",
   "googledrive",
+  "readxl",
   "readr",
   "dplyr"
 )
@@ -44,8 +44,8 @@ if (length(missing_packages) > 0) {
 
 # Load packages
 suppressPackageStartupMessages({
-  library(googlesheets4)
   library(googledrive)
+  library(readxl)
   library(readr)
   library(dplyr)
 })
@@ -59,15 +59,15 @@ GOOGLE_SHEET_ID <- Sys.getenv(
   unset = "YOUR_GOOGLE_SHEET_ID_HERE"  # Replace with actual ID
 )
 
-#' Tab name in Google Sheet
-TAB_NAME <- "Team Members"
+#' Tab name in Excel file
+TAB_NAME <- "contributors"
 
 #' Output CSV file
 OUTPUT_CSV <- "data/team-members.csv"
 
 # Authentication ----
 
-#' Authenticate with Google Sheets
+#' Authenticate with Google Drive
 #'
 #' Tries service account first (for automation), falls back to user auth
 authenticate_google <- function() {
@@ -76,33 +76,72 @@ authenticate_google <- function() {
 
   if (file.exists(service_account_file)) {
     message("Authenticating with service account...")
-    gs4_auth(path = service_account_file)
+    drive_auth(path = service_account_file)
   } else {
     # Fall back to interactive user authentication
     message("Service account not found. Using interactive authentication...")
     message("(To set up service account, see development/google-sheets-setup.md)")
-    gs4_auth()
+    drive_auth()
   }
 }
 
 # Main functions ----
 
-#' Read team members data from Google Sheet
+#' Read team members data from Google Drive Excel file
 #'
 #' @return Data frame with team member data
 read_team_from_sheets <- function() {
-  message("Reading Team Members from Google Sheets...")
+  message("Reading Team Members from Google Drive...")
 
   # Authenticate
   authenticate_google()
 
-  # Read sheet
+  # Download the Excel file
   tryCatch({
-    data <- read_sheet(GOOGLE_SHEET_ID, sheet = TAB_NAME)
+    # Create temp file for download
+    temp_file <- tempfile(fileext = ".xlsx")
+
+    message(sprintf("Downloading Excel file (ID: %s)...", GOOGLE_SHEET_ID))
+    options(googledrive_quiet = TRUE)
+    drive_download(
+      as_id(GOOGLE_SHEET_ID),
+      path = temp_file,
+      overwrite = TRUE
+    )
+
+    # Read the Excel file
+    message(sprintf("Reading '%s' tab from Excel file...", TAB_NAME))
+    data <- read_excel(temp_file, sheet = TAB_NAME)
+
+    # Clean up temp file
+    unlink(temp_file)
+
     message(sprintf("Read %d rows from '%s' tab", nrow(data), TAB_NAME))
+
+    # Select and rename columns we need
+    # Handle duplicate affiliation_3 columns from Excel
+    required_cols <- c("first_name", "last_name", "post_nominal_initials",
+                       "affiliation_primary", "affiliation_2", "affiliation_4",
+                       "strategic_advisory_cmt", "cihr_study", "study_team", "web_bio")
+
+    # Find affiliation_3 column (may have been renamed by readxl)
+    aff3_col <- grep("^affiliation_3", names(data), value = TRUE)[1]
+    if (!is.na(aff3_col)) {
+      data$affiliation_3 <- data[[aff3_col]]
+    }
+
+    # Add ORCID column if missing
+    if (!"ORCID" %in% names(data)) {
+      data$ORCID <- ""
+    }
+
+    # Select only required columns
+    all_required <- c(required_cols, "affiliation_3", "ORCID")
+    data <- data[, all_required]
+
     data
   }, error = function(e) {
-    stop(sprintf("Error reading Google Sheet: %s\nCheck that GOOGLE_SHEET_ID is correct and you have access.", e$message))
+    stop(sprintf("Error reading Excel file from Google Drive: %s\nCheck that GOOGLE_SHEET_ID is correct and you have access.", e$message))
   })
 }
 
