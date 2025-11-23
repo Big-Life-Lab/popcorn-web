@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Palette 3: Cool Slate with Peach Accent</title>
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding: 40px;
+  background: #ffffff;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  color: #1a1f2e;
+  margin-bottom: 3rem;
+  font-size: 1.8rem;
+}
+
+.progress-stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding: 0 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.progress-line {
+  position: absolute;
+  top: 25px;
+  left: 60px;
+  right: 60px;
+  height: 4px;
+  background: #e1e4e8;
+  z-index: 0;
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  background: linear-gradient(to right, #1a1f2e, #262c3a, #424b5e, #fdc882);
+  transition: width 0.6s ease;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.step-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  border: 4px solid #d0d5db;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.step.completed .step-circle {
+  background: #1a1f2e;
+  border-color: #1a1f2e;
+  color: white;
+}
+
+.step.in-progress .step-circle {
+  background: #fdc882;
+  border-color: #fdc882;
+  color: #1a1f2e;
+  box-shadow: 0 0 0 4px rgba(253, 200, 130, 0.25);
+  font-weight: 800;
+}
+
+.step-label {
+  text-align: center;
+  font-size: 0.9rem;
+  max-width: 140px;
+}
+
+.step.completed .step-label {
+  color: #1a1f2e;
+  font-weight: 600;
+}
+
+.step.in-progress .step-label {
+  color: #1a1f2e;
+  font-weight: 700;
+}
+
+.step .step-label {
+  color: #8892a0;
+}
+
+.note {
+  text-align: center;
+  color: #5f6876;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.swatch {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  border: 2px solid #e1e4e8;
+}
+
+.swatch-label {
+  font-size: 0.75rem;
+  color: #5f6876;
+}
+</style>
+</head>
+<body>
+
+<h2>Project Status</h2>
+
+<div class="progress-stepper">
+  <div class="progress-line">
+    <div class="progress-fill"></div>
+  </div>
+
+  <div class="step completed">
+    <div class="step-circle">1</div>
+    <div class="step-label">Scientific Advisory Group established</div>
+  </div>
+
+  <div class="step in-progress">
+    <div class="step-circle">2</div>
+    <div class="step-label">Generating candidate checklist items</div>
+  </div>
+
+  <div class="step">
+    <div class="step-circle">3</div>
+    <div class="step-label">International e-Delphi survey</div>
+  </div>
+
+  <div class="step">
+    <div class="step-circle">4</div>
+    <div class="step-label">Consensus and writing meetings</div>
+  </div>
+
+  <div class="step">
+    <div class="step-circle">5</div>
+    <div class="step-label">Dissemination</div>
+  </div>
+</div>
+
+<p class="note">Option 3: Cool slate range - darker slate for completed, peach accent for current</p>
+
+<div class="color-palette">
+  <div class="color-swatch">
+    <div class="swatch" style="background: #1a1f2e;"></div>
+    <span class="swatch-label">#1a1f2e<br>Dark slate</span>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background: #262c3a;"></div>
+    <span class="swatch-label">#262c3a<br>Slate</span>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background: #424b5e;"></div>
+    <span class="swatch-label">#424b5e<br>Mid slate</span>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background: #fdc882;"></div>
+    <span class="swatch-label">#fdc882<br>Peach accent</span>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background: #8892a0;"></div>
+    <span class="swatch-label">#8892a0<br>Light slate</span>
+  </div>
+</div>
+
+</body>
+</html>

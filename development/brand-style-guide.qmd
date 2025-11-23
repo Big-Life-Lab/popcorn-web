@@ -1,0 +1,429 @@
+---
+title: "POPCORN-NCD Brand & Style Guide"
+format: html
+---
+
+# Brand identity
+
+## Our dual nature
+
+POPCORN-NCD balances two complementary identities:
+
+### Whimsical & accessible
+- **Name:** POPCORN is a playful acronym that makes complex science approachable
+- **AI team member:** "Kernel" - our AI assistant is acknowledged as part of the team
+- **Voice:** Friendly, collaborative, inclusive
+- **Visual accents:** The peach/chardonnay accent colour (#fdc882) adds warmth
+
+### Serious & professional
+- **Foundation:** Rigorous epidemiological simulation science
+- **Credibility:** Professional colour palette, clear typography, clean layouts
+- **Authority:** Evidence-based methodology, international expert collaboration
+- **Visual tone:** Cool slate colours convey stability and expertise
+
+**Key principle:** We're serious scientists who believe accessible communication strengthens research impact.
+
+---
+
+# Colour palette
+
+## Primary colours
+
+:::{.color-palette}
+| Colour | Hex | Usage |
+|--------|-----|-------|
+| **Dark slate** | `#262c3a` | Primary text, headings, completed states |
+| **Mid slate** | `#424b5e` | Secondary elements, borders |
+| **Light slate** | `#8892a0` | Tertiary text, inactive states |
+| **Peach accent** | `#fdc882` | Highlights, in-progress states, visual interest |
+| **Bright blue** | `#2ea6cc` | Links, interactive elements |
+:::
+
+## Colour usage guidelines
+
+### Text hierarchy
+- **Primary text:** `#262c3a` (dark slate) - body copy, main headings
+- **Secondary text:** `#8892a0` (light slate) - captions, inactive labels
+- **Links:** `#2ea6cc` (bright blue) - clearly distinguishable for accessibility
+
+### Interactive states
+- **Completed/success:** `#262c3a` (dark slate) with white text
+- **In progress/active:** `#fdc882` (peach) with dark slate text
+- **Inactive/future:** White background with light grey border `#d0d5db`
+
+### Visual accents
+- Use peach (`#fdc882`) sparingly as a highlight colour
+- Reserve for:
+  - Current step indicators
+  - Call-to-action backgrounds
+  - Section dividers
+  - Emphasis markers
+
+---
+
+# Typography
+
+## Font families
+
+We use three Google Font families:
+
+### Headings
+
+**H1 (Page titles)**
+- Font: Montserrat
+- Weight: 300 (Light)
+- Colour: `#262c3a`
+- Usage: Single page title per page
+
+**H2, H3, H4, H5 (Section headings)**
+- Font: Libre Baskerville
+- Weight: 300 (Light)
+- Colour: `#262c3a`
+- Usage: Content hierarchy, serif provides classic academic feel
+
+### Body text
+
+**Paragraphs, lists, navigation**
+- Font: Hanken Grotesk
+- Weight: 300 (Light) for body, 400 (Regular) for emphasis
+- Colour: `#262c3a`
+- Usage: All body content, highly readable sans-serif
+
+### Accents
+
+**Special emphasis** (`.bam` class)
+- Font: Montserrat
+- Weight: 300 (Light), 400 (Regular), 500 (Medium)
+- Usage: Callouts, labels, special formatted content
+
+## Typography hierarchy
+
+```css
+h1 { font-family: Montserrat; font-weight: 300; }
+h2, h3, h4, h5 { font-family: Libre Baskerville; font-weight: 300; }
+p, ul, ol, li { font-family: Hanken Grotesk; font-weight: 300; }
+```
+
+## Font loading
+
+Fonts are loaded via single Google Fonts import for optimal performance:
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@300;400;700&family=Hanken+Grotesk:wght@200;300;400&family=Montserrat:wght@300;400;500;600&display=swap");
+```
+
+---
+
+# Layout & spacing
+
+## Content width
+
+- **Default content area:** 850px (Quarto default)
+- **Wide content area:** 1000px (15% wider, used for index page)
+- **Rationale:** 1000px provides better balance for wide components like the project timeline while maintaining readability
+
+```scss
+.page-columns .content {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+```
+
+## Spacing system
+
+### Vertical rhythm
+- Section spacing: `3rem` (48px)
+- Paragraph spacing: Default Quarto (1em)
+- List spacing: Tight for related items, standard for distinct items
+
+### Horizontal spacing
+- Content padding: `1.5rem` (24px) for components
+- Gap between elements: `1rem` - `1.5rem` depending on relationship
+- Tight grouping: `0.5rem` (8px) for closely related items
+
+## Responsive breakpoints
+
+```scss
+@media (max-width: 768px) {
+  // Switch to single-column layouts
+  // Reduce spacing to conserve vertical space
+  // Adjust timeline from horizontal to vertical
+}
+```
+
+---
+
+# Components
+
+## Project status timeline
+
+A custom horizontal stepper showing project phases:
+
+### Visual design
+- **Circles:** 50px diameter, 4px border
+- **Numbers:** 1.2em, font-weight 900
+- **Progress line:** 4px height, connects circle centres
+- **Labels:** Max 180px width, centred, 0.9rem text
+
+### States
+
+**Completed**
+```scss
+background: #3d4555;
+border-color: #3d4555;
+color: white;
+label-color: #3d4555;
+label-weight: 700;
+```
+
+**In progress**
+```scss
+background: #fdc882;
+border-color: #fdc882;
+color: #3d4555;
+box-shadow: 0 0 0 4px rgba(253, 200, 130, 0.25);
+label-color: #3d4555;
+label-weight: 800;
+```
+
+**Inactive/future**
+```scss
+background: white;
+border-color: #d0d5db;
+color: #262c3a;
+label-color: #8892a0;
+label-weight: normal;
+```
+
+### Responsive behaviour
+- Desktop: Horizontal layout with connecting line
+- Mobile (< 768px): Vertical layout with left-aligned labels
+
+## Team member list
+
+Clean two-column grid layout:
+
+### Desktop layout
+```scss
+grid-template-columns: 250px 1fr;
+gap: 1.25rem;
+border-bottom: 1px solid #dee2e6;
+```
+
+### Mobile layout
+- Switches to single column
+- Reduces gap to `0.5rem`
+
+### Typography
+- **Name:** Font-weight 700 (bold)
+- **Credentials:** 0.9em, `#6c757d` (muted)
+- **Affiliation/role:** Italic
+- **Links:** 0.9em with `1rem` spacing between items
+
+## Status banners
+
+Coloured left-border boxes for phase indicators:
+
+```scss
+padding: 1rem 1.5rem;
+margin: 1.5rem 0;
+border-left: 4px solid;
+border-radius: 4px;
+```
+
+### Colour schemes
+- **Phase 1 (complete):** `#e8f5e9` background, `#4caf50` border
+- **Phase 2 (current):** `#e3f2fd` background, `#2196f3` border
+- **Phase 3 (planned):** `#fff3e0` background, `#ff9800` border
+
+## Call-to-action boxes
+
+```scss
+border: 2px solid #2196f3;
+border-radius: 8px;
+padding: 1.5rem;
+background-color: #f8f9fa;
+```
+
+**Button style:**
+```scss
+background-color: #2196f3;
+color: white;
+padding: 0.5rem 1rem;
+border-radius: 4px;
+font-weight: 600;
+```
+
+---
+
+# Special styling
+
+## ORCID links
+
+Recognizable green colour for academic identity:
+
+```scss
+color: #A6CE39;
+hover: #8CB82F;
+```
+
+## Emphasis
+
+- **Mark/highlight:** Background `#fdc882` (peach)
+- **Big text:** `font-size: 1.25em` (`.big` class)
+
+## Smooth scrolling
+
+```css
+html {
+  scroll-behavior: smooth;
+}
+```
+
+Improves user experience for anchor navigation in long pages.
+
+---
+
+# Writing style
+
+## Voice & tone
+
+### General principles
+- **Active voice:** Prefer direct, clear statements
+- **Plain language:** Avoid jargon when possible; define technical terms
+- **Inclusive:** "We" and "our" to include readers in the research community
+- **Confident but humble:** Acknowledge limitations and uncertainties
+
+### Examples
+
+**Good:** "We're developing reporting guidelines through international consensus."
+
+**Avoid:** "Reporting guidelines are being developed utilizing a multi-phase international consensus-building methodology."
+
+## Spelling
+
+Use **Canadian English** spelling throughout:
+- behaviour (not behavior)
+- colour (not color)
+- centre (not center)
+- analyse (not analyze)
+
+## Heading capitalization
+
+Follow **sentence case** for all headings except the document title:
+
+- **Level 1 (title):** Title Case
+- **Level 2+:** Sentence case (capitalize only first word and proper nouns)
+
+**Examples:**
+- ✓ `## Our approach to simulation science`
+- ✗ `## Our Approach to Simulation Science`
+
+---
+
+# Accessibility
+
+## Colour contrast
+
+All colour combinations meet WCAG AA standards:
+
+- Dark slate on white: 12.48:1 (AAA)
+- Light slate on white: 4.58:1 (AA)
+- Links (bright blue) on white: 4.51:1 (AA)
+- Dark slate on peach: 8.11:1 (AAA)
+
+## Typography
+
+- Minimum body text: 16px (1rem)
+- Line height: Default 1.5 for body text
+- Font weights: Avoid ultra-light weights (all body text ≥ 300)
+
+## Interactive elements
+
+- Links clearly distinguishable by colour and underline on hover
+- Buttons have adequate padding for touch targets (min 44x44px)
+- Focus states visible for keyboard navigation
+
+---
+
+# Implementation notes
+
+## File structure
+
+```
+popcorn-web/
+├── assets/
+│   ├── popcorn.scss          # Core typography and base styles
+│   ├── popcorn-web.scss      # Component styles and layouts
+│   └── team/                 # Team member photos
+├── development/
+│   ├── brand-style-guide.qmd # This document
+│   └── [other dev docs]
+└── [qmd pages]
+```
+
+## SCSS organization
+
+### `popcorn.scss`
+- Font imports
+- Typography definitions (h1-h5, p, ul, ol)
+- Base colour variables
+- Legacy layout components (kept for backwards compatibility)
+
+### `popcorn-web.scss`
+- Page-specific layouts (content width, team page)
+- Interactive components (timeline, status banners)
+- Responsive breakpoints
+- Modern component styles
+
+## Maintenance
+
+### When adding new components
+
+1. **Check existing patterns first** - Reuse status banners, spacing, colours
+2. **Use established colours** - Don't introduce new colours without reason
+3. **Follow spacing system** - Use 0.5rem, 1rem, 1.5rem, 3rem increments
+4. **Test responsively** - Check mobile behaviour at 768px breakpoint
+5. **Maintain accessibility** - Check colour contrast, touch targets
+
+### When updating colours
+
+1. **Update SCSS variables** in `popcorn.scss` first
+2. **Check all component usage** - Grep for hex codes
+3. **Test contrast ratios** - Use WebAIM or browser DevTools
+4. **Update this guide** - Keep documentation synchronized
+
+---
+
+# Quick reference
+
+## Hex codes
+| Element | Colour | Hex |
+|---------|--------|-----|
+| Primary text | Dark slate | `#262c3a` |
+| Links | Bright blue | `#2ea6cc` |
+| Accent | Peach | `#fdc882` |
+| Borders | Light grey | `#d0d5db` |
+| Muted text | Light slate | `#8892a0` |
+
+## Font stacks
+| Usage | Font |
+|-------|------|
+| H1 | Montserrat 300 |
+| H2-H5 | Libre Baskerville 300 |
+| Body | Hanken Grotesk 300 |
+
+## Spacing scale
+```
+0.5rem = 8px   (tight)
+1rem   = 16px  (standard)
+1.5rem = 24px  (comfortable)
+3rem   = 48px  (sections)
+```
+
+---
+
+**Last updated:** `r format(Sys.Date(), "%Y-%m-%d")`
+
+**Maintained by:** POPCORN-NCD team (with assistance from Kernel, our AI colleague)

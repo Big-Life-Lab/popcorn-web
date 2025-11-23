@@ -9,8 +9,11 @@ This folder contains documentation and resources for managing the POPCORN-NCD we
 - **[google-form-template.md](google-form-template.md)** - Template questions for Google Form to collect team member information
 
 ### Design & Planning
+- **[brand-style-guide.qmd](brand-style-guide.qmd)** - Complete branding and style guide for the website
 - **[team-page-concepts.md](team-page-concepts.md)** - Original design concepts and requirements
 - **[team-mock-up.png](team-mock-up.png)** - Visual mockup of team page layout
+- **[final-palatte-design.html](final-palatte-design.html)** - Interactive colour palette reference
+- **[visual-assets-notes.md](visual-assets-notes.md)** - Status of graphics and visual assets
 
 ## Quick Start for Coordinators
 

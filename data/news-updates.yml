@@ -1,0 +1,27 @@
+# POPCORN-NCD news and updates
+# Add new items to the top of the list (reverse chronological order)
+# Used on home page and future news page
+
+updates:
+  # Template for new entries:
+  # - date: "YYYY-MM-DD"
+  #   title: "Brief description of update"
+  #   url: "relative/path/to/page.qmd" or "https://external-url.org"
+  #   category: "milestone" | "publication" | "team" | "funding" | "announcement"
+
+  - date: null  # TO BE ADDED
+    title: "Project website launched"
+    url: "index.qmd"
+    category: "announcement"
+
+  - date: "2024-11-24"
+    title: "Scientific Advisory Group kick-off meeting held"
+    url: "team.qmd#strategic-advisory-committee"
+    category: "team"
+
+  - date: null  # TO BE ADDED
+    title: "CIHR funding awarded (FRN 162222)"
+    url: null
+    category: "funding"
+
+  # Add new updates above this line as they occur

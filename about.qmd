@@ -1,0 +1,354 @@
+---
+title: "About POPCORN-NCD"
+bibliography: references.bib
+---
+
+## What is POPCORN-NCD?
+
+POPCORN-NCD (Population Health Modelling Consensus Reporting Network for Noncommunicable Diseases) is an international initiative to develop a reporting guideline for studies that use simulation models to address noncommunicable diseases (NCDs).
+
+Noncommunicable diseases—including cardiovascular diseases, cancer, diabetes, and chronic respiratory diseases—are the leading causes of death globally. Simulation models are increasingly used to inform prevention strategies, clinical guidelines, and health policy decisions. However, inconsistent reporting practices make it difficult to evaluate model quality, compare findings across studies, and translate results into practice.
+
+POPCORN-NCD will provide researchers with clear guidance on what information to report when publishing simulation modelling studies of NCDs.
+
+## Simulation as a science approach
+
+```{=html}
+<style>
+.science-intro-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.05rem;
+  color: #424b5e;
+  line-height: 1.6;
+}
+
+.approaches-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Responsive: 2x2 grid on smaller screens */
+@media (max-width: 900px) {
+  .approaches-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.approach-item {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.approach-item.emphasized {
+  padding: 2rem;
+  border: 3px solid #fdc882;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, #fffbf5, #ffffff);
+  box-shadow: 0 4px 16px rgba(253, 200, 130, 0.2);
+}
+
+.icon-container {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.approach-item.emphasized .icon-container {
+  width: 100px;
+  height: 100px;
+}
+
+.icon-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.approach-title {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  color: #262c3a;
+}
+
+.approach-item.emphasized .approach-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.approach-description {
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #424b5e;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.approach-item.emphasized .approach-description {
+  font-size: 1rem;
+  color: #262c3a;
+}
+
+.focus-badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #fdc882;
+  color: #262c3a;
+  margin-top: 0.5rem;
+}
+</style>
+
+<p class="science-intro-text">
+Simulation modelling represents a distinct scientific approach alongside theoretical, observational, and experimental methods.
+</p>
+
+<div class="approaches-row">
+  <div class="approach-item">
+    <div class="icon-container">
+      <img src="assets/icons/light-bulb.svg" alt="Theoretical">
+    </div>
+    <h3 class="approach-title">Theoretical</h3>
+    <p class="approach-description">Propose why phenomena occur</p>
+  </div>
+
+  <div class="approach-item">
+    <div class="icon-container">
+      <img src="assets/icons/telescope.svg" alt="Observational">
+    </div>
+    <h3 class="approach-title">Observational</h3>
+    <p class="approach-description">Analyze what is</p>
+  </div>
+
+  <div class="approach-item emphasized">
+    <div class="icon-container">
+      <img src="assets/icons/globe-sim-open.svg" alt="Simulation">
+    </div>
+    <h3 class="approach-title">Simulation</h3>
+    <p class="approach-description">Explore what could be</p>
+    <span class="focus-badge">POPCORN's Focus</span>
+  </div>
+
+  <div class="approach-item">
+    <div class="icon-container">
+      <img src="assets/icons/beaker.svg" alt="Experimental">
+    </div>
+    <h3 class="approach-title">Experimental</h3>
+    <p class="approach-description">Test what changes when</p>
+  </div>
+</div>
+```
+
+As one expert noted:
+
+> "Sometimes simulation is viewed as the 'poor cousin' of the randomized trial. But consider this: The world's most powerful supercomputers aren't analyzing spreadsheets; they are running simulations. From Global Climate Models that predict our planet's future, to AlphaFold solving protein structures that baffled experimentalists for decades, to the COVID-19 models that guided global policy—simulation is how we solve problems that are too complex, too slow, or too dangerous to experiment on in the real world."
+
+Simulation modelling studies are becoming more prominent and influential across science fields. However, the science of simulation modelling remains underdeveloped in health compared to other scientific approaches, underscoring the need for robust reporting standards.
+
+## Scope of the guideline
+
+POPCORN-NCD uses a structured framework to define which studies fall within scope. The detailed criteria are being refined through our scoping reviews and consultation with the Scientific Advisory Group.
+
+### Population
+
+**Included:** Real or generalizable human populations or subpopulations defined by geographic, demographic, or social characteristics—including everyone with and without NCD disease or risk factors.
+
+**Excluded:** Studies limited to people with a diagnosed disease or specific exposure (e.g., only patients with diabetes).
+
+### Intervention and comparator
+
+**Included:** Exposures, interventions, strategies, or policies for primary public health or population health prevention.
+
+**Excluded:** Studies examining treatments for people already diagnosed (downstream interventions).
+
+### Outcome
+
+**Included studies address:**
+
+**Noncommunicable diseases:**
+
+- **Cardiovascular diseases:** heart disease, stroke, hypertension-related conditions
+- **Cancer:** all major types including breast, lung, colorectal, prostate, and melanoma
+- **Diabetes:** type 1, type 2, and gestational diabetes
+- **Chronic respiratory diseases:** COPD, asthma
+- **Neurological conditions:** dementia, Parkinson's disease
+- **Mental health conditions:** major depressive disorder, anxiety disorders, bipolar disorder, schizophrenia, suicide/self-harm
+- **Musculoskeletal disorders:** osteoarthritis, rheumatoid arthritis, osteoporosis, low back pain
+- **Injuries:** unintentional and intentional, including major trauma, falls, transport-related injuries
+
+**General health measures relevant to NCDs:**
+
+- All-cause mortality
+- Life expectancy
+- Years of life lost (YLL), quality-adjusted life years (QALYs), disability-adjusted life years (DALYs)
+
+**NCD risk factors (if modelled as primary outcomes):**
+
+- Smoking or tobacco use
+- Diet or nutrition
+- Physical activity
+- Alcohol or substance use (e.g., opioids)
+- Obesity
+- Hypertension
+
+**Excluded:** Studies focused exclusively on infectious diseases or purely health economics evaluations without NCD-specific outcomes.
+
+### Study method
+
+**Included:** Computational simulation used to evaluate "what-if" scenarios, counterfactuals, or future projections.
+
+**Model types include:**
+
+1. **Individual-level simulation:** microsimulation, agent-based models (ABM), discrete event simulation (DES)
+   - Look for: "Monte Carlo", "synthetic population", "stochastic", "individual-based"
+
+2. **Aggregate/cohort-level simulation:** cohort Markov, system dynamics, multi-state life tables
+   - Look for: "transition probabilities", "compartmental model", "stocks & flows", "difference equations"
+
+3. **Risk & hybrid models:** comparative risk assessment (CRA), computational population attributable fraction (PAF) scenarios, ensemble/hybrid models
+   - Look for: "attributable burden", "counterfactual exposure", "population impact"
+
+**Excluded:**
+
+- Observational/experimental studies (RCTs, cohort studies) analyzed with standard statistical methods
+- Individual prediction tools (e.g., clinical risk calculators predicting one person's risk)
+- Pure forecasting (trending data forward without an intervention scenario)
+- Methodological-only studies ("toy" models used only to prove a mathematical equation)
+
+### Additional scope considerations
+
+**Multiple data sources:** Studies that integrate different data sources or types of information that are not directly linked.
+
+**Model adaptability:** Studies using models designed to be updated and incorporate new data, test alternative assumptions, or explore different scenarios.
+
+**Excluded:** Fixed-scenario models that cannot be modified to incorporate new data or explore alternatives.
+
+## Why we need POPCORN-NCD
+
+### Evidence of need
+
+Our international survey of modellers, journal editors, and knowledge users found:
+
+- **98% agreed** there is a need for a reporting guideline for population health modelling studies [@bennett2012; @webber2014; @mytton2019]
+- Inconsistent reporting practices hinder model evaluation and comparison
+- Journal editors lack clear guidance for reviewing modelling manuscripts
+- Policymakers struggle to interpret and apply model findings
+
+### Lessons from the pandemic
+
+The COVID-19 pandemic highlighted both the value and challenges of simulation modelling:
+
+- Models played a critical role in informing public health decisions
+- Transparent reporting was essential for building public trust
+- Lack of standardized reporting complicated cross-model comparisons
+- Underscored the need for clear communication of uncertainty and assumptions
+
+### Building on existing guidelines
+
+POPCORN-NCD complements existing reporting guidelines but addresses a unique gap:
+
+| Guideline | Focus | POPCORN-NCD relationship |
+|-----------|-------|-------------------------|
+| CONSORT | Randomized controlled trials | Does not cover simulation models |
+| STROBE | Observational studies | Limited guidance for modelling |
+| PRISMA | Systematic reviews | May review modelling studies but doesn't specify model reporting |
+| CHEERS | Economic evaluations | Covers cost-effectiveness but not all modelling studies |
+| GATHER | Health estimates | Relevant but focused on data assembly and estimation methods |
+
+POPCORN-NCD will provide model-specific guidance while maintaining consistency with these established guidelines.
+
+## Who should use POPCORN-NCD?
+
+Once developed, POPCORN-NCD will serve multiple stakeholders:
+
+### Primary users: Researchers
+
+- Write more complete and transparent model descriptions
+- Ensure all critical information is reported
+- Facilitate manuscript preparation and peer review
+
+### Journal editors and peer reviewers
+
+- Evaluate completeness and quality of modelling manuscripts
+- Provide consistent review criteria across journals
+- Request specific information during revision process
+
+### Policymakers and knowledge users
+
+- Better understand model assumptions and limitations
+- Evaluate credibility and applicability of model findings
+- Make more informed decisions based on model results
+
+### Systematic reviewers and evidence synthesizers
+
+- Assess risk of bias in modelling studies
+- Extract standardized information across diverse models
+- Compare methods and findings across studies
+
+## Relationship to EQUATOR Network
+
+POPCORN-NCD is registered with the [EQUATOR Network](https://www.equator-network.org) (Enhancing the QUAlity and Transparency Of health Research), an international initiative that promotes transparent and accurate reporting of research.
+
+**EQUATOR registration:** [Guidelines under development](https://www.equator-network.org/library/reporting-guidelines-under-development/reporting-guidelines-under-development-for-other-study-designs/#NCD)
+
+By following EQUATOR's rigorous development methodology, we ensure that POPCORN-NCD:
+
+- Reflects international consensus
+- Engages diverse stakeholder perspectives
+- Builds on systematic evidence synthesis
+- Undergoes transparent development and review
+- Aligns with established reporting guideline standards
+
+## Timeline
+
+*Note: Dates will be updated as the project progresses.*
+
+- **2024:** Protocol development and Scientific Advisory Group establishment
+- **2024-2025:** Scoping reviews to identify candidate checklist items
+- **2025:** International e-Delphi survey
+- **2025-2026:** Consensus meetings and guideline writing
+- **2026:** Publication and dissemination
+
+[View detailed development process →](process.qmd)
+
+## Broader study objectives
+
+While the primary focus is developing the POPCORN reporting guideline, this project includes complementary objectives to support implementation and advance the field:
+
+1. **Develop a reporting guideline** for population health noncommunicable diseases modelling studies (POPCORN)
+2. **Identify barriers and enablers** for guideline adoption
+3. **Develop and evaluate algorithms** for screening and summarizing NCD modelling studies
+4. **Develop an application** to screen and summarize NCD model studies
+
+These additional components will facilitate guideline adoption and help researchers, editors, and systematic reviewers implement POPCORN in practice.
+
+## Funding and support
+
+This work is supported by the Canadian Institutes for Health Research [CIHR FRN 162222]. The Ottawa Hospital Research Institute, Ottawa, Canada, provides institutional support and research infrastructure.
+
+All team members have completed conflict of interest disclosures, available upon request by contacting [popcorn@ohri.ca](mailto:popcorn@ohri.ca).
+
+## Questions?
+
+- [Contact the study team](get-involved.qmd#contact)
+- [Join our mailing list for updates](get-involved.qmd#subscribe)
+
+### References
+
+::: {#refs}
+:::

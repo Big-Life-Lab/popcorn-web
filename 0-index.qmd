@@ -1,0 +1,75 @@
+---
+bibliography: references.bib
+---
+
+::: centered_content
+![](assets/logo-SVG/popcorn_main-wordmark.svg){width="400"}
+
+# Population Health Modelling Consensus Reporting Network for Noncommunicable Diseases (POPCORN-NCD)
+
+**Developing an internationally agreed-upon reporting guideline for studies that model noncommunicable diseases.**
+:::
+
+We're developing POPCORN, a new reporting guideline to improve the consistency and transparency of research using simulation models that address noncommunicable diseases (NCDs) like heart disease, cancer, and diabetes. Following the [EQUATOR](https://www.equator-network.org) methods, will provide standardised guidance to help researchers report their models transparently, enabling policymakers and the public to better understand and trust model-based evidence ([EQUATOR registration](https://www.equator-network.org/library/reporting-guidelines-under-development/reporting-guidelines-under-development-for-other-study-designs/#NCD)).
+
+## Project status
+
+::: {.project-status}
+::: {.progress-line}
+::: {.progress-fill}
+:::
+:::
+
+::: {.status-item .completed}
+::: {.step-circle}
+1
+:::
+**Scientific Advisory Group established**
+:::
+
+::: {.status-item .in-progress}
+::: {.step-circle}
+2
+:::
+**Generating candidate checklist items**
+:::
+
+::: {.status-item}
+::: {.step-circle}
+3
+:::
+**International e-Delphi survey**
+:::
+
+::: {.status-item}
+::: {.step-circle}
+4
+:::
+**Consensus and writing meetings**
+:::
+
+::: {.status-item}
+::: {.step-circle}
+5
+:::
+**Dissemination**
+:::
+:::
+
+Transparent reporting builds trust in model-based evidence and enables better decisions for population health.
+
+## Contact
+
+**Principal Investigators:**
+
+- Doug Manuel, Ottawa Hospital Research Institute, Ottawa, Canada
+- Oliver Mytton, University College London, Great Ormond Street,  London, UK
+
+**Study coordinator:** Sarah Beach
+
+**General inquiries:** [popcorn@ohri.ca](mailto:popcorn@ohri.ca)
+
+### References
+
+::: {#refs}
+:::

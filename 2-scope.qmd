@@ -1,0 +1,65 @@
+---
+title: "Scope"
+---
+
+POPCORN-NCD reporting guidelines apply to studies using simulation modelling to address noncommunicable diseases at the population level.
+
+## Is POPCORN-NCD right for your study?
+
+::: {.callout-tip}
+##  POPCORN-NCD applies if your study:
+
+- Uses computational simulation (not just statistical analysis of observed data)
+- Addresses population-level health (not individual clinical decisions)
+- Focuses on NCDs, their risk factors, or related health outcomes
+- Explores "what if" scenarios or alternative interventions across past, current, or future time horizons
+:::
+
+::: {.callout-note}
+##  POPCORN-NCD may not apply
+
+Consider these alternatives:
+
+- **Observational studies** (cohort, case-control, cross-sectional) � [STROBE](https://www.strobe-statement.org/)
+- **Prediction models** (individual risk calculators developed from observed data) � [TRIPOD](https://www.tripod-statement.org/)
+- **Health estimates** (data assembly and burden quantification) � [GATHER](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(16)30388-9/fulltext)
+- **Economic evaluations** (without simulation modelling) � [CHEERS](https://www.ispor.org/heor-resources/good-practices/cheers)
+- **Burden of disease studies** (using standardised formulas without simulation) � [STROBOD](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004699)
+- **Experimental studies** � [CONSORT](https://www.consort-statement.org/) and related extensions
+- **Systematic reviews** � [PRISMA](https://www.prisma-statement.org/)
+:::
+
+::: {.callout-warning}
+## Note
+Many simulation studies benefit from using POPCORN alongside other guidelinesparticularly CHEERS (for economic evaluations), GATHER (for health estimates), or STROBOD (for DALY calculations).
+:::
+
+---
+
+## POPCORN fills a gap in health research reporting
+
+Most EQUATOR reporting guidelines address observation (what happened), experimentation (controlled tests), or summarization (synthesis of studies). Few address simulationthe computational exploration of "what could be."
+
+### What makes simulation distinct
+
+- **Synthesizes multiple evidence sources** (not single datasets)
+- **Explores counterfactual scenarios** (not just describes what was observed)
+- **Projects across time horizons** (retrospective, current, and prospective)
+- **Generates insights** for questions too complex, time-consuming, dangerous, or impossible to answer through observation or experimentation
+
+While simulation is central to many fields (climate science, engineering, physics), health research has developed strong traditions in reporting guidelines through EQUATOR. POPCORN brings simulation modelling into this established framework.
+
+### When to use POPCORN together with other guidelines
+
+- **CHEERS:** If your simulation is part of an economic evaluation
+- **GATHER:** For reporting data assembly and estimation methods
+- **STROBOD:** If calculating DALYs or quantifying attributable burden
+
+
+## Reporting guidelines vs. best practice guidance
+
+POPCORN is a **reporting guideline** (what to report in publications), distinct from **best practice guidance** (how to build and use simulation models). Other valuable resources for modellers include:
+
+- [ISPOR-SMDM Good Research Practices](https://www.ispor.org/heor-resources/good-practices) for modelling methodology and validation
+- [ODD Protocol](https://www.jasss.org/23/2/7.html) (Overview, Design concepts, Details) for agent-based models
+- Various field-specific modelling standards

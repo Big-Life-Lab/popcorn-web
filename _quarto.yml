@@ -18,9 +18,15 @@ website:
     search: true
     left:
       - text: Home
-        href: index.qmd
-      # - text: Team
-      #   href: team.qmd
+        href: 0-index.qmd
+      - text: About
+        href: 1-about.qmd
+      - text: Scope
+        href: 2-scope.qmd
+      - text: Development
+        href: 3-process.qmd
+      - text: Get Involved
+        href: 5-get-involved.qmd
 
     tools:
       - icon: github
