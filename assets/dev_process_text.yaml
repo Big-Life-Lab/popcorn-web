@@ -1,0 +1,30 @@
+steps:
+  - number: 1
+    title: "Establish the Scientific Advisory Group"
+    details:
+      - "Agree on the reporting guideline scope"
+      - "Provide ongoing guidance on development and implementation strategy"
+
+  - number: 2
+    title: "Generate candidate reporting guideline checklist items"
+    details:
+      - "Conduct scoping reviews to extract relevant items for e-Delphi"
+      - "Review candidate items to establish the organization, completeness, and redundancy of the candidate items list"
+
+  - number: 3
+    title: "Perform the international e-Delphi survey"
+    details:
+      - "Recruit, screen, and register international participants for the e-Delphi survey"
+      - "Conduct a two-round evaluation of candidate items"
+
+  - number: 4
+    title: "Conduct consensus and writing meetings"
+    details:
+      - "Obtain expert consensus on the final list of checklist items"
+      - "Develop the reporting guideline with checklist, explanation and elaboration document, and implementation tools"
+
+  - number: 5
+    title: "Disseminate the reporting guideline"
+    details:
+      - "Make the reporting guideline available to all stakeholder groups and publish it in an open-access journal with an open license"
+      - "Engage with researchers and support the adoption of the reporting guideline"

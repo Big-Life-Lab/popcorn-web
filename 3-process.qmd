@@ -260,7 +260,7 @@ The group has:
 
 #### Deliverables
 
-- Scientific Advisory Group membership finalized ([view members →](team.qmd#strategic-advisory-committee))
+- Scientific Advisory Group membership finalized ([view members →](4-team.qmd#strategic-advisory-committee))
 - Scope statement approved
 - Development protocol outlined
 
@@ -372,7 +372,7 @@ We will recruit international participants representing:
 
 Recruitment will open in [TIMEFRAME].
 
-[Sign up for notifications →](get-involved.qmd#delphi-interest)
+[Sign up for notifications →](5-get-involved.qmd#delphi-interest)
 
 #### Deliverables (planned)
 
@@ -514,16 +514,16 @@ All study materials will be shared on our **OSF.io project** [link to be added]:
 ### Progress updates
 
 - This page is updated regularly to reflect current status
-- [Subscribe to our mailing list](get-involved.qmd#subscribe) for milestone notifications
-- Major updates are announced on our [home page](index.qmd)
+- [Subscribe to our mailing list](5-get-involved.qmd#subscribe) for milestone notifications
+- Major updates are announced on our [home page](0-index.qmd)
 
 ### Community input
 
 We welcome input from the broader research community:
 
-- [Contact us](get-involved.qmd#contact) with questions or suggestions
-- [Sign up for e-Delphi participation](get-involved.qmd#delphi-interest)
-- [Share this project](get-involved.qmd#spread-the-word) with relevant networks
+- [Contact us](5-get-involved.qmd#contact) with questions or suggestions
+- [Sign up for e-Delphi participation](5-get-involved.qmd#delphi-interest)
+- [Share this project](5-get-involved.qmd#spread-the-word) with relevant networks
 
 ## Study protocol
 
@@ -533,7 +533,7 @@ Detailed information about our methodology will be available in our published pr
 
 ## Questions about the process?
 
-[Contact the study team](get-involved.qmd#contact)
+[Contact the study team](5-get-involved.qmd#contact)
 
 ---
 

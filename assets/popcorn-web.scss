@@ -299,4 +299,111 @@ a[href*="orcid"]:hover {
   }
 }
 
+/* Science approaches visualization */
+.science-approaches {
+  max-width: 850px;
+  margin: 1.5rem auto 2rem auto;
+}
+
+.approaches-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.approach-item {
+  text-align: center;
+  padding: 1rem 0.5rem;
+}
+
+.approach-item.emphasized {
+  padding: 1.25rem 1rem;
+  border: 2px solid #fdc882;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #fffbf5, #ffffff);
+  box-shadow: 0 2px 12px rgba(253, 200, 130, 0.15);
+}
+
+.approach-item .icon-container {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 0.75rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.approach-item.emphasized .icon-container {
+  width: 80px;
+  height: 80px;
+}
+
+.approach-item .icon-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.approach-title {
+  display: block;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0 0 0.35rem 0;
+  color: #262c3a;
+  text-align: center;
+}
+
+.approach-item.emphasized .approach-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.approach-desc {
+  display: block;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: #424b5e;
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
+}
+
+.approach-item.emphasized .approach-desc {
+  font-size: 0.9rem;
+  color: #262c3a;
+}
+
+.focus-badge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #fdc882;
+  color: #262c3a;
+  margin-top: 0.75rem;
+}
+
+/* Responsive: 2x2 grid on smaller screens */
+@media (max-width: 768px) {
+  .approaches-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .approach-item .icon-container {
+    width: 50px;
+    height: 50px;
+  }
+
+  .approach-item.emphasized .icon-container {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 

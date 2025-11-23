@@ -14,7 +14,7 @@ team <- read_csv("data/team-members.csv", show_col_types = FALSE)
 
 Our work on the **POPCORN-NCD Reporting Guideline** is led by an international collaborative group committed to transparency and rigour in simulation modelling research. Our team brings together expertise from diverse regions, disciplines, and stakeholder perspectives.
 
-[Learn more about our development process →](process.qmd)
+[Learn more about our development process →](3-process.qmd)
 
 ---
 
