@@ -14,528 +14,71 @@ POPCORN-NCD is being developed following the [EQUATOR Network](https://www.equat
 
 ## Five-step development process
 
-```{=html}
-<style>
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
+::: {.process-grid}
 
-.step-card {
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  border: 2px solid #e1e4e8;
-  transition: all 0.3s ease;
-}
+::: {.step-card .completed}
+::: {.step-header}
+[1]{.step-number}
 
-.step-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-
-.step-card.completed {
-  border-color: #3d4555;
-  background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
-}
-
-.step-card.current {
-  border-color: #fdc882;
-  background: linear-gradient(to bottom right, #fffbf5, #fff9ed);
-  box-shadow: 0 0 0 3px rgba(253, 200, 130, 0.2);
-}
-
-.step-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #e1e4e8;
-}
-
-.step-card.completed .step-header {
-  border-bottom-color: #3d4555;
-}
-
-.step-card.current .step-header {
-  border-bottom-color: #fdc882;
-}
-
-.step-number {
-  width: 45px;
-  height: 45px;
-  min-width: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 1.3rem;
-  border: 3px solid #d0d5db;
-  background: white;
-  color: #262c3a;
-}
-
-.step-card.completed .step-number {
-  background: #3d4555;
-  border-color: #3d4555;
-  color: white;
-}
-
-.step-card.current .step-number {
-  background: #fdc882;
-  border-color: #fdc882;
-  color: #262c3a;
-  font-weight: 900;
-}
-
-.step-title {
-  font-family: 'Libre Baskerville', serif;
-  font-weight: 400;
-  font-size: 1rem;
-  margin: 0;
-  color: #262c3a;
-  flex: 1;
-  line-height: 1.3;
-}
-
-.step-details {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.step-details li {
-  padding-left: 1.5rem;
-  margin-bottom: 0.7rem;
-  position: relative;
-  font-weight: 300;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.step-details li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.15rem;
-  width: 14px;
-  height: 14px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-.step-card.completed .step-details li::before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><path fill="%23424b5e" d="m205.42 112.33-.03-.02-.15-.15-.24-.23c-4.77-4.65-11.27-7.11-18.02-6.9-1.61-21.02-14.07-39.81-32.84-49.31-14.25-7.22-30.48-8.48-45.67-3.58l-.34.08c-3.03.99-6.09 2.31-9.35 4.03l-.53.26c-.29.14-.57.28-.85.44-.86.48-1.69 1.02-2.51 1.55l-1.15.73c-.44.27-.87.54-1.36.87l-.48.25c-13.12 9.36-21.81 23.26-24.47 39.14-.24 1.41-.37 2.83-.5 4.24l1.56.31-1.61.13-.06.5c-.12 1.44-.17 3-.17 4.9l-.02 1.03c0 .32.02.64.03.96-8.16 1.37-15.49 5.47-20.78 11.66-6.07 7.11-9 16.16-8.26 25.48.74 9.33 5.06 17.8 12.16 23.86 7.04 6.01 16.17 8.97 25.48 8.26 2.42-.19 4.88-.71 7.65-1.6 7.27 11.98 19.25 19.71 33.06 21.29.38.04.75.07.98.06 1.31.12 2.73.24 4.15.24 11.79 0 23.24-4.77 31.63-13.13 5.08 2.99 10.81 4.57 16.68 4.57 8.81 0 17.1-3.44 23.28-9.62l.25-.26c6-6.1 9.35-14.17 9.45-22.77l.03-.36c0-.69-.08-1.35-.18-2.02-.04-.31-.08-.62-.11-.92l-.07-.89c-.06-.86-.12-1.72-.29-2.57-.16-.83-.41-1.61-.67-2.4 2.97-1.9 5.42-4.28 7.28-7.07.11-.16.2-.33.35-.64.85-1.36 1.46-2.53 1.93-3.7.05-.12.09-.24.12-.38 1.15-2.95 1.73-5.96 1.73-8.95 0-.2-.03-.36-.06-.48-.12-6.38-2.61-12.35-7.03-16.87Zm-6.15 37.61.05-.02zm-7.6-16.47-.27.25-.02.04c-.19.17-.39.32-.6.46-2.22-1.91-4.56-3.48-7-4.68.49-1.42.95-2.92 1.37-4.53 2.12-1.19 4.75-.88 6.44.8 2.13 2.13 2.13 5.6.07 7.66Zm-26.07 27.61a9.53 9.53 0 0 0-2.03-7.1 9.56 9.56 0 0 0-6.46-3.58c-5.29-.61-10.08 3.2-10.68 8.49-1.61 13.97-14.31 24.04-28.25 22.45-7.97-.91-15.02-5.62-19.08-12.67l.02-.02a9.63 9.63 0 0 0 2.28-7.03 9.54 9.54 0 0 0-3.36-6.58c-1.96-1.67-4.45-2.47-7.03-2.28-2.57.21-4.9 1.4-6.57 3.36-2.72 3.18-6.51 5.12-10.54 5.46l-.2-.02-.24.02c-.18 0-.36-.02-.51-.01-4.04.02-7.71-1.2-10.61-3.67l-.23-.19a15.58 15.58 0 0 1-5.24-10.52c-.33-4.18.98-8.24 3.7-11.42a15.57 15.57 0 0 1 9.8-5.35 60.7 60.7 0 0 0 7.45 14.06 9.7 9.7 0 0 0 7.87 4.05c2.01 0 3.95-.62 5.6-1.8 4.33-3.09 5.34-9.13 2.25-13.46-2.49-3.5-4.43-7.39-5.74-11.55-.34-1.1-.66-2.2-.95-3.51l-.07-.37c-.23-1.11-.43-2.22-.57-3.33-.04-.34-.06-.68-.08-1.02l-.09-1.16c-.05-.57-.1-1.15-.12-1.72-.02-.97.01-1.95.06-2.94v-.51c.01-.17.01-.33.03-.50.07-1.08.22-2.16.38-3.24l.1-.8c.07-.42.17-.84.26-1.25l.16-.68c.77-3.47 1.92-6.73 3.42-9.7a40 40 0 0 1 2.17-3.76l.21-.29c.67-1.01 1.35-1.99 2.16-3 12.06-15.1 33.32-19.73 50.56-11.01 20.16 10.21 28.27 34.93 18.06 55.09-.1.2-.16.38-.2.56-2.25 1.86-3.54 4.49-3.54 7.29 0 5.32 4.33 9.65 9.65 9.65 4.36 0 8.5 2.14 11.09 5.72.07.1.16.2.28.34.27.41.49.85.71 1.29l.37.72c.07.12.14.24.19.37.16.38.26.77.37 1.17l.26.88c.06.18.12.35.16.53.12.61.19 1.3.22 2.24.12 3.77-1.22 7.29-3.78 9.95l-.19.18c-4.05 4.06-10.7 5.01-15.93 2.42 1.22-3.34 2.04-6.79 2.44-10.26Z"/></svg>');
-}
-
-.step-card.current .step-details li::before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><path fill="%23fdc882" d="m205.42 112.33-.03-.02-.15-.15-.24-.23c-4.77-4.65-11.27-7.11-18.02-6.9-1.61-21.02-14.07-39.81-32.84-49.31-14.25-7.22-30.48-8.48-45.67-3.58l-.34.08c-3.03.99-6.09 2.31-9.35 4.03l-.53.26c-.29.14-.57.28-.85.44-.86.48-1.69 1.02-2.51 1.55l-1.15.73c-.44.27-.87.54-1.36.87l-.48.25c-13.12 9.36-21.81 23.26-24.47 39.14-.24 1.41-.37 2.83-.5 4.24l1.56.31-1.61.13-.06.5c-.12 1.44-.17 3-.17 4.9l-.02 1.03c0 .32.02.64.03.96-8.16 1.37-15.49 5.47-20.78 11.66-6.07 7.11-9 16.16-8.26 25.48.74 9.33 5.06 17.8 12.16 23.86 7.04 6.01 16.17 8.97 25.48 8.26 2.42-.19 4.88-.71 7.65-1.6 7.27 11.98 19.25 19.71 33.06 21.29.38.04.75.07.98.06 1.31.12 2.73.24 4.15.24 11.79 0 23.24-4.77 31.63-13.13 5.08 2.99 10.81 4.57 16.68 4.57 8.81 0 17.1-3.44 23.28-9.62l.25-.26c6-6.1 9.35-14.17 9.45-22.77l.03-.36c0-.69-.08-1.35-.18-2.02-.04-.31-.08-.62-.11-.92l-.07-.89c-.06-.86-.12-1.72-.29-2.57-.16-.83-.41-1.61-.67-2.4 2.97-1.9 5.42-4.28 7.28-7.07.11-.16.2-.33.35-.64.85-1.36 1.46-2.53 1.93-3.7.05-.12.09-.24.12-.38 1.15-2.95 1.73-5.96 1.73-8.95 0-.2-.03-.36-.06-.48-.12-6.38-2.61-12.35-7.03-16.87Zm-6.15 37.61.05-.02zm-7.6-16.47-.27.25-.02.04c-.19.17-.39.32-.6.46-2.22-1.91-4.56-3.48-7-4.68.49-1.42.95-2.92 1.37-4.53 2.12-1.19 4.75-.88 6.44.8 2.13 2.13 2.13 5.6.07 7.66Zm-26.07 27.61a9.53 9.53 0 0 0-2.03-7.1 9.56 9.56 0 0 0-6.46-3.58c-5.29-.61-10.08 3.2-10.68 8.49-1.61 13.97-14.31 24.04-28.25 22.45-7.97-.91-15.02-5.62-19.08-12.67l.02-.02a9.63 9.63 0 0 0 2.28-7.03 9.54 9.54 0 0 0-3.36-6.58c-1.96-1.67-4.45-2.47-7.03-2.28-2.57.21-4.9 1.4-6.57 3.36-2.72 3.18-6.51 5.12-10.54 5.46l-.2-.02-.24.02c-.18 0-.36-.02-.51-.01-4.04.02-7.71-1.2-10.61-3.67l-.23-.19a15.58 15.58 0 0 1-5.24-10.52c-.33-4.18.98-8.24 3.7-11.42a15.57 15.57 0 0 1 9.8-5.35 60.7 60.7 0 0 0 7.45 14.06 9.7 9.7 0 0 0 7.87 4.05c2.01 0 3.95-.62 5.6-1.8 4.33-3.09 5.34-9.13 2.25-13.46-2.49-3.5-4.43-7.39-5.74-11.55-.34-1.1-.66-2.2-.95-3.51l-.07-.37c-.23-1.11-.43-2.22-.57-3.33-.04-.34-.06-.68-.08-1.02l-.09-1.16c-.05-.57-.1-1.15-.12-1.72-.02-.97.01-1.95.06-2.94v-.51c.01-.17.01-.33.03-.50.07-1.08.22-2.16.38-3.24l.1-.8c.07-.42.17-.84.26-1.25l.16-.68c.77-3.47 1.92-6.73 3.42-9.7a40 40 0 0 1 2.17-3.76l.21-.29c.67-1.01 1.35-1.99 2.16-3 12.06-15.1 33.32-19.73 50.56-11.01 20.16 10.21 28.27 34.93 18.06 55.09-.1.2-.16.38-.2.56-2.25 1.86-3.54 4.49-3.54 7.29 0 5.32 4.33 9.65 9.65 9.65 4.36 0 8.5 2.14 11.09 5.72.07.1.16.2.28.34.27.41.49.85.71 1.29l.37.72c.07.12.14.24.19.37.16.38.26.77.37 1.17l.26.88c.06.18.12.35.16.53.12.61.19 1.3.22 2.24.12 3.77-1.22 7.29-3.78 9.95l-.19.18c-4.05 4.06-10.7 5.01-15.93 2.42 1.22-3.34 2.04-6.79 2.44-10.26Z"/></svg>');
-}
-
-.step-card:not(.completed):not(.current) .step-details li::before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><path fill="%238892a0" d="m205.42 112.33-.03-.02-.15-.15-.24-.23c-4.77-4.65-11.27-7.11-18.02-6.9-1.61-21.02-14.07-39.81-32.84-49.31-14.25-7.22-30.48-8.48-45.67-3.58l-.34.08c-3.03.99-6.09 2.31-9.35 4.03l-.53.26c-.29.14-.57.28-.85.44-.86.48-1.69 1.02-2.51 1.55l-1.15.73c-.44.27-.87.54-1.36.87l-.48.25c-13.12 9.36-21.81 23.26-24.47 39.14-.24 1.41-.37 2.83-.5 4.24l1.56.31-1.61.13-.06.5c-.12 1.44-.17 3-.17 4.9l-.02 1.03c0 .32.02.64.03.96-8.16 1.37-15.49 5.47-20.78 11.66-6.07 7.11-9 16.16-8.26 25.48.74 9.33 5.06 17.8 12.16 23.86 7.04 6.01 16.17 8.97 25.48 8.26 2.42-.19 4.88-.71 7.65-1.6 7.27 11.98 19.25 19.71 33.06 21.29.38.04.75.07.98.06 1.31.12 2.73.24 4.15.24 11.79 0 23.24-4.77 31.63-13.13 5.08 2.99 10.81 4.57 16.68 4.57 8.81 0 17.1-3.44 23.28-9.62l.25-.26c6-6.1 9.35-14.17 9.45-22.77l.03-.36c0-.69-.08-1.35-.18-2.02-.04-.31-.08-.62-.11-.92l-.07-.89c-.06-.86-.12-1.72-.29-2.57-.16-.83-.41-1.61-.67-2.4 2.97-1.9 5.42-4.28 7.28-7.07.11-.16.2-.33.35-.64.85-1.36 1.46-2.53 1.93-3.7.05-.12.09-.24.12-.38 1.15-2.95 1.73-5.96 1.73-8.95 0-.2-.03-.36-.06-.48-.12-6.38-2.61-12.35-7.03-16.87Zm-6.15 37.61.05-.02zm-7.6-16.47-.27.25-.02.04c-.19.17-.39.32-.6.46-2.22-1.91-4.56-3.48-7-4.68.49-1.42.95-2.92 1.37-4.53 2.12-1.19 4.75-.88 6.44.8 2.13 2.13 2.13 5.6.07 7.66Zm-26.07 27.61a9.53 9.53 0 0 0-2.03-7.1 9.56 9.56 0 0 0-6.46-3.58c-5.29-.61-10.08 3.2-10.68 8.49-1.61 13.97-14.31 24.04-28.25 22.45-7.97-.91-15.02-5.62-19.08-12.67l.02-.02a9.63 9.63 0 0 0 2.28-7.03 9.54 9.54 0 0 0-3.36-6.58c-1.96-1.67-4.45-2.47-7.03-2.28-2.57.21-4.9 1.4-6.57 3.36-2.72 3.18-6.51 5.12-10.54 5.46l-.2-.02-.24.02c-.18 0-.36-.02-.51-.01-4.04.02-7.71-1.2-10.61-3.67l-.23-.19a15.58 15.58 0 0 1-5.24-10.52c-.33-4.18.98-8.24 3.7-11.42a15.57 15.57 0 0 1 9.8-5.35 60.7 60.7 0 0 0 7.45 14.06 9.7 9.7 0 0 0 7.87 4.05c2.01 0 3.95-.62 5.6-1.8 4.33-3.09 5.34-9.13 2.25-13.46-2.49-3.5-4.43-7.39-5.74-11.55-.34-1.1-.66-2.2-.95-3.51l-.07-.37c-.23-1.11-.43-2.22-.57-3.33-.04-.34-.06-.68-.08-1.02l-.09-1.16c-.05-.57-.1-1.15-.12-1.72-.02-.97.01-1.95.06-2.94v-.51c.01-.17.01-.33.03-.50.07-1.08.22-2.16.38-3.24l.1-.8c.07-.42.17-.84.26-1.25l.16-.68c.77-3.47 1.92-6.73 3.42-9.7a40 40 0 0 1 2.17-3.76l.21-.29c.67-1.01 1.35-1.99 2.16-3 12.06-15.1 33.32-19.73 50.56-11.01 20.16 10.21 28.27 34.93 18.06 55.09-.1.2-.16.38-.2.56-2.25 1.86-3.54 4.49-3.54 7.29 0 5.32 4.33 9.65 9.65 9.65 4.36 0 8.5 2.14 11.09 5.72.07.1.16.2.28.34.27.41.49.85.71 1.29l.37.72c.07.12.14.24.19.37.16.38.26.77.37 1.17l.26.88c.06.18.12.35.16.53.12.61.19 1.3.22 2.24.12 3.77-1.22 7.29-3.78 9.95l-.19.18c-4.05 4.06-10.7 5.01-15.93 2.42 1.22-3.34 2.04-6.79 2.44-10.26Z"/></svg>');
-}
-
-.step-details li:last-child {
-  margin-bottom: 0;
-}
-
-.step-badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 0.5rem;
-}
-
-.badge-completed {
-  background: #e8f5e9;
-  color: #2e7d32;
-}
-
-.badge-current {
-  background: #fdc882;
-  color: #262c3a;
-}
-
-.badge-upcoming {
-  background: #f0f0f0;
-  color: #8892a0;
-}
-</style>
-
-<div class="process-grid">
-  <div class="step-card completed">
-    <div class="step-header">
-      <div class="step-number">1</div>
-      <h3 class="step-title">Establish the Scientific Advisory Group</h3>
-    </div>
-    <ul class="step-details">
-      <li>Agree on the reporting guideline scope</li>
-      <li>Provide ongoing guidance on development and implementation strategy</li>
-    </ul>
-    <span class="step-badge badge-completed">Completed</span>
-  </div>
-
-  <div class="step-card current">
-    <div class="step-header">
-      <div class="step-number">2</div>
-      <h3 class="step-title">Generate candidate reporting guideline checklist items</h3>
-    </div>
-    <ul class="step-details">
-      <li>Conduct scoping reviews to extract relevant items for e-Delphi</li>
-      <li>Review candidate items to establish the organization, completeness, and redundancy of the candidate items list</li>
-    </ul>
-    <span class="step-badge badge-current">In Progress</span>
-  </div>
-
-  <div class="step-card">
-    <div class="step-header">
-      <div class="step-number">3</div>
-      <h3 class="step-title">Perform the international e-Delphi survey</h3>
-    </div>
-    <ul class="step-details">
-      <li>Recruit, screen, and register international participants for the e-Delphi survey</li>
-      <li>Conduct a two-round evaluation of candidate items</li>
-    </ul>
-    <span class="step-badge badge-upcoming">Upcoming</span>
-  </div>
-
-  <div class="step-card">
-    <div class="step-header">
-      <div class="step-number">4</div>
-      <h3 class="step-title">Conduct consensus and writing meetings</h3>
-    </div>
-    <ul class="step-details">
-      <li>Obtain expert consensus on the final list of checklist items</li>
-      <li>Develop the reporting guideline with checklist, explanation and elaboration document, and implementation tools</li>
-    </ul>
-    <span class="step-badge badge-upcoming">Upcoming</span>
-  </div>
-
-  <div class="step-card">
-    <div class="step-header">
-      <div class="step-number">5</div>
-      <h3 class="step-title">Disseminate the reporting guideline</h3>
-    </div>
-    <ul class="step-details">
-      <li>Make the reporting guideline available to all stakeholder groups and publish it in an open-access journal with an open license</li>
-      <li>Engage with researchers and support the adoption of the reporting guideline</li>
-    </ul>
-    <span class="step-badge badge-upcoming">Upcoming</span>
-  </div>
-</div>
-```
-
-### ✅ Step 1: Establish the Scientific Advisory Group {#step-1}
-
-**Status:** Complete
-
-#### Objectives
+### Establish the Scientific Advisory Group {.step-title}
+:::
 
 - Agree on the reporting guideline scope
 - Provide ongoing guidance on development and implementation strategy
 
-#### What we did
+[Completed]{.step-badge .badge-completed}
+:::
 
-Our Scientific Advisory Group brings together international expertise in:
+::: {.step-card .current}
+::: {.step-header}
+[2]{.step-number}
 
-- Diverse geographical regions
-- Various modelling approaches and methodologies
-- Multiple stakeholder perspectives (researchers, editors, policymakers)
-
-The group has:
-
-- Established the guideline scope and development strategy
-- Planned the scoping review approach
-- Provided ongoing guidance on methodology and implementation
-
-#### Deliverables
-
-- Scientific Advisory Group membership finalized ([view members →](4-team.qmd#strategic-advisory-committee))
-- Scope statement approved
-- Development protocol outlined
-
-**Last updated:** [TO BE ADDED]
-
----
-
-### ⏳ Step 2: Generate candidate reporting guideline checklist items {#step-2}
-
-**Status:** In progress
-
-#### Objectives
+### Generate candidate reporting guideline checklist items {.step-title}
+:::
 
 - Conduct scoping reviews to extract relevant items for e-Delphi
 - Review candidate items to establish the organization, completeness, and redundancy of the candidate items list
 
-#### What we're doing
+[In Progress]{.step-badge .badge-current}
+:::
 
-**Scoping review 1: Existing reporting guidelines and frameworks**
+::: {.step-card}
+::: {.step-header}
+[3]{.step-number}
 
-- Systematic search for reporting guidelines, quality assessment tools, and best practice frameworks relevant to simulation modelling
-- Extraction of candidate checklist items from identified resources
-- Synthesis and categorization of items by reporting domain
-
-**Scoping review 2: Published simulation modelling studies**
-
-- Sample of recent NCD simulation modelling studies across journals and model types
-- Assessment of what information is currently being reported
-- Identification of gaps and variability in reporting practices
-
-**Review and synthesis**
-
-The Scientific Advisory Group will:
-
-- Review all candidate items extracted from scoping reviews
-- Eliminate redundancy and consolidate similar items
-- Organize items into logical reporting domains
-- Ensure coverage of all critical model components
-- Prepare candidate list for e-Delphi evaluation
-
-#### Current progress
-
-[TO BE UPDATED with actual progress]
-
-- [ ] Scoping review protocols developed
-- [ ] Scoping review 1: Literature search conducted
-- [ ] Scoping review 1: Item extraction in progress
-- [ ] Scoping review 2: Study sample selected
-- [ ] Scoping review 2: Reporting assessment ongoing
-- [ ] Candidate item list synthesis
-- [ ] Scientific Advisory Group review of candidate items
-
-#### Materials
-
-Materials from this phase will be shared on our [OSF.io project](https://osf.io/[PROJECT-ID]/) as they become available:
-
-- Scoping review protocols
-- Scoping review reports
-- Candidate checklist items for e-Delphi
-
-**Projected completion:** [TO BE ADDED]
-**Last updated:** [TO BE ADDED]
-
----
-
-### ⏺ Step 3: Perform the international e-Delphi survey {#step-3}
-
-**Status:** Planned - recruitment not yet open
-
-#### Objectives
+### Perform the international e-Delphi survey {.step-title}
+:::
 
 - Recruit, screen, and register international participants for the e-Delphi survey
 - Conduct a two-round evaluation of candidate items
 
-#### Planned activities
+[Upcoming]{.step-badge .badge-upcoming}
+:::
 
-**Participant recruitment**
+::: {.step-card}
+::: {.step-header}
+[4]{.step-number}
 
-We will recruit international participants representing:
-
-- **Modelling researchers:** Authors of NCD simulation modelling studies
-- **Journal editors:** Editors handling modelling manuscripts
-- **Peer reviewers:** Reviewers with modelling expertise
-- **Knowledge users:** Policymakers and decision-makers who use model results
-- **Methodological experts:** Statisticians, health economists, epidemiologists
-
-**Two-round e-Delphi process**
-
-**Round 1:**
-
-- Participants rate each candidate item on importance and clarity
-- Open-ended feedback on wording, missing items, and organization
-- Analysis of agreement and feedback themes
-
-**Round 2:**
-
-- Participants review Round 1 results (anonymized)
-- Re-rate items that didn't reach consensus
-- Evaluate modified items based on Round 1 feedback
-- Assess organization and structure of checklist
-
-**Analysis:**
-
-- Quantitative: Agreement percentages, stability of ratings
-- Qualitative: Thematic analysis of open-ended comments
-- Synthesis: Items for consensus meeting discussion
-
-#### How to participate
-
-Recruitment will open in [TIMEFRAME].
-
-[Sign up for notifications →](5-get-involved.qmd#delphi-interest)
-
-#### Deliverables (planned)
-
-- e-Delphi recruitment materials
-- e-Delphi survey instruments (rounds 1 and 2)
-- Summary of e-Delphi results (anonymized)
-- List of items achieving consensus
-- List of items requiring consensus meeting discussion
-
-**Projected timeline:** [TO BE ADDED]
-**Last updated:** [TO BE ADDED]
-
----
-
-### ⏺ Step 4: Conduct consensus and writing meetings {#step-4}
-
-**Status:** Planned
-
-#### Objectives
+### Conduct consensus and writing meetings {.step-title}
+:::
 
 - Obtain expert consensus on the final list of checklist items
 - Develop the reporting guideline with checklist, explanation and elaboration document, and implementation tools
 
-#### Planned activities
+[Upcoming]{.step-badge .badge-upcoming}
+:::
 
-**Consensus meeting**
+::: {.step-card}
+::: {.step-header}
+[5]{.step-number}
 
-- Meeting with Scientific Advisory Group and invited experts
-- Review e-Delphi results and discuss items without consensus
-- Finalize checklist item wording and organization
-- Agree on structure of explanation and elaboration document
-- Plan implementation tools (templates, examples, tutorials)
-
-**Writing and review**
-
-Draft materials to be developed:
-
-- POPCORN-NCD checklist
-- Explanation and elaboration (E&E) document with:
-  - Detailed guidance for each checklist item
-  - Examples of good reporting from published studies
-  - Common pitfalls and how to avoid them
-  - Rationale and evidence supporting each item
-- Implementation tools:
-  - Manuscript submission template
-  - Peer reviewer checklist
-  - Author self-assessment tool
-  - Reporting examples by model type
-
-**External review**
-
-- Share draft materials with broader stakeholder groups
-- Incorporate feedback and finalize documents
-- Prepare for publication and dissemination
-
-#### Deliverables (planned)
-
-- Consensus meeting summary
-- POPCORN-NCD checklist (final version)
-- Explanation and elaboration document
-- Implementation tools and templates
-- Manuscript for publication
-
-**Projected timeline:** [TO BE ADDED]
-**Last updated:** [TO BE ADDED]
-
----
-
-### ⏺ Step 5: Disseminate the reporting guideline {#step-5}
-
-**Status:** Planned
-
-#### Objectives
+### Disseminate the reporting guideline {.step-title}
+:::
 
 - Make the reporting guideline available to all stakeholder groups and publish it in an open-access journal with an open license
 - Engage with researchers and support the adoption of the reporting guideline
 
-#### Planned activities
+[Upcoming]{.step-badge .badge-upcoming}
+:::
 
-**Publication strategy**
-
-- Submit POPCORN-NCD statement to high-impact open-access journal
-- Publish explanation and elaboration document (same or companion journal)
-- Make all materials freely available on this website and OSF.io
-
-**Dissemination channels**
-
-- **Academic:** Conference presentations, journal clubs, webinars
-- **Journals:** Encourage editorial adoption and author guidelines updates
-- **Policy:** Engage knowledge user networks and decision-maker forums
-- **Public:** Press release, social media, lay summary
-- **Educational:** Integrate into graduate curricula and training programs
-
-**Implementation support**
-
-- Develop training materials (slide decks, videos, tutorials)
-- Host workshops and webinars for researchers and editors
-- Create examples and case studies demonstrating application
-- Establish support channels for questions and feedback
-- Monitor adoption and gather user feedback
-
-**Long-term maintenance**
-
-Periodic review and updates based on:
-
-- User feedback and implementation challenges
-- Evolution of modelling methods
-- Emergence of new model types or applications
-- Potential development of extensions for specific contexts
-
-#### Deliverables (planned)
-
-- Published POPCORN-NCD statement (open access)
-- Published explanation and elaboration document (open access)
-- Website with all materials freely downloadable
-- Training and implementation resources
-- Dissemination plan and tracking
-
-**Projected timeline:** [TO BE ADDED]
-**Last updated:** [TO BE ADDED]
-
----
-
-## Transparency and open development
-
-We are committed to making this development process as transparent as possible.
-
-### Open materials
-
-All study materials will be shared on our **OSF.io project** [link to be added]:
-
-- Development protocol
-- Scoping review protocols and reports
-- e-Delphi survey instruments and results (anonymized)
-- Consensus meeting summaries
-- Draft checklist versions
-- All published papers and presentations
-
-### Progress updates
-
-- This page is updated regularly to reflect current status
-- [Subscribe to our mailing list](5-get-involved.qmd#subscribe) for milestone notifications
-- Major updates are announced on our [home page](0-index.qmd)
-
-### Community input
-
-We welcome input from the broader research community:
-
-- [Contact us](5-get-involved.qmd#contact) with questions or suggestions
-- [Sign up for e-Delphi participation](5-get-involved.qmd#delphi-interest)
-- [Share this project](5-get-involved.qmd#spread-the-word) with relevant networks
-
-## Study protocol
-
-Detailed information about our methodology will be available in our published protocol.
-
-**Protocol:** [TO BE ADDED when published]
-
-## Questions about the process?
-
-[Contact the study team](5-get-involved.qmd#contact)
-
----
-
-**Page last updated:** [TO BE ADDED]
-**Current phase:** Step 2 of 5
+:::

@@ -5,6 +5,7 @@ project:
     - "*.qmd"
     - "!development/"
     - "!renv/"
+    - "!5-get-involved.qmd"
 
 embed-resources: true
 
@@ -25,8 +26,8 @@ website:
         href: 2-scope.qmd
       - text: Development
         href: 3-process.qmd
-      - text: Get Involved
-        href: 5-get-involved.qmd
+      # - text: Get Involved
+      #   href: 5-get-involved.qmd
 
     tools:
       - icon: github
