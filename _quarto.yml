@@ -26,6 +26,8 @@ website:
         href: 2-scope.qmd
       - text: Development
         href: 3-process.qmd
+      # - text: Team
+      #   href: 4-team.qmd
       # - text: Get Involved
       #   href: 5-get-involved.qmd
 

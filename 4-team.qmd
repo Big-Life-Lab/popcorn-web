@@ -233,10 +233,10 @@ The POPCORN-NCD study team manages the day-to-day research activities, coordinat
 #| echo: false
 #| output: asis
 
-# Filter for study team (where study_team = "Yes")
+# Filter for study team (where study_team is "Yes" or "active")
 study_team <- team %>%
   filter(!is.na(study_team) &
-         study_team == "Yes") %>%
+         (study_team == "Yes" | study_team == "active")) %>%
   # Sort alphabetically by last name
   arrange(last_name)
 
