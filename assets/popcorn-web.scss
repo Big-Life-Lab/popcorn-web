@@ -21,8 +21,8 @@
 .team-member {
   display: grid;
   grid-template-columns: 250px 1fr;
-  gap: 1.25rem;
-  padding: 0.85rem 0;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
   border-bottom: 1px solid #dee2e6;
 }
 
@@ -38,22 +38,29 @@
   font-size: 0.9em;
   font-weight: normal;
   color: #6c757d;
-  margin-top: 0.2rem;
+  margin-top: 0.1rem;
 }
 
 .member-affiliation {
   font-style: italic;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.05rem;
 }
 
 .member-role {
   font-style: italic;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.05rem;
+}
+
+.role-icon {
+  height: 1em;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 0.25rem;
 }
 
 .member-links {
   font-size: 0.9em;
-  margin-top: 0.15rem;
+  margin-top: 0.05rem;
 }
 
 .member-links a {

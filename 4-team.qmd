@@ -44,14 +44,14 @@ sac <- team %>%
          strategic_advisory_cmt != "" &
          strategic_advisory_cmt != "NA" &
          strategic_advisory_cmt != ".") %>%
-  # Create sort order: Chair → Members → Ex Officio → PIs → Staff
+  # Create sort order: SAC Chair → SAC Member → SAC Ex officio → POPCORN PI → POPCORN Secretariat
   mutate(
     role_order = case_when(
-      grepl("Chair", strategic_advisory_cmt, ignore.case = TRUE) ~ 1,
-      grepl("Member", strategic_advisory_cmt, ignore.case = TRUE) ~ 2,
-      grepl("Ex Officio", strategic_advisory_cmt, ignore.case = TRUE) ~ 3,
-      grepl("Principal Investigator|Co-Principal", strategic_advisory_cmt, ignore.case = TRUE) ~ 4,
-      grepl("Staff", strategic_advisory_cmt, ignore.case = TRUE) ~ 5,
+      grepl("SAC Chair", strategic_advisory_cmt, ignore.case = TRUE) ~ 1,
+      grepl("SAC Member", strategic_advisory_cmt, ignore.case = TRUE) ~ 2,
+      grepl("SAC Ex.?officio", strategic_advisory_cmt, ignore.case = TRUE) ~ 3,
+      grepl("POPCORN Principal|Principal Investigator", strategic_advisory_cmt, ignore.case = TRUE) ~ 4,
+      grepl("POPCORN Secretariat|Secretariat", strategic_advisory_cmt, ignore.case = TRUE) ~ 5,
       TRUE ~ 6  # Catch-all for any other roles
     )
   ) %>%
@@ -181,9 +181,9 @@ if (nrow(investigators) > 0) {
       cat('<div class="member-affiliation">', paste(affiliations, collapse='; '), '</div>\n\n', sep='')
     }
 
-    # CIHR study role
+    # CIHR study role (with popcorn icon for clarity)
     if (!is.na(investigators$cihr_study[i]) && investigators$cihr_study[i] != "") {
-      cat('<div class="member-role">', investigators$cihr_study[i], '</div>\n\n', sep='')
+      cat('<div class="member-role"><img src="assets/logo-PNG/popcorn-transparent_icon-black.png" class="role-icon" alt="POPCORN"> ', investigators$cihr_study[i], '</div>\n\n', sep='')
     }
 
     # Links (ORCID and Web bio)
