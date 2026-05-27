@@ -33,12 +33,12 @@ jobs:
 
           cat("## CSV Validation Rules\n\n")
           cat("1. Required columns must exist\n")
-          cat("2. Section must be \"Leads\", \"SAG\", or \"Working Group\"\n")
-          cat("3. Name, Institution, and Country must not be empty\n")
-          cat("4. No leading/trailing whitespace in text fields\n")
+          cat("2. first_name and last_name must not be empty\n")
+          cat("3. affiliation_primary must not be empty\n")
+          cat("4. No leading/trailing whitespace in key text fields\n")
           cat("5. ORCID must match format 0000-0000-0000-0000 (if provided)\n")
-          cat("6. No duplicate entries (same Name + Institution)\n")
-          cat("7. Valid email format (if provided)\n\n")
+          cat("6. No duplicate entries (same first_name + last_name + affiliation_primary)\n")
+          cat("7. web_bio should be a URL (if provided)\n\n")
 
           # Read CSV (trim_ws automatically handles trailing whitespace)
           tryCatch({
@@ -50,97 +50,94 @@ jobs:
           errors <- c()
           warnings <- c()
 
+          # Helper: TRUE when a value is meaningful (not NA, blank, or the literal "NA")
+          has_value <- function(x) !is.na(x) & x != "" & x != "NA"
+
           # Rule 1: Required columns must exist
-          required_cols <- c("Section", "Name", "Credentials", "Institution",
-                            "Country", "Expertise", "Role", "Position", "ORCID", "Photo")
+          # These mirror the columns written by scripts/sync_team_from_sheets.R
+          required_cols <- c("first_name", "last_name", "post_nominal_initials",
+                            "affiliation_primary", "affiliation_2", "affiliation_3", "affiliation_4",
+                            "strategic_advisory_cmt", "cihr_study", "study_team", "web_bio", "ORCID")
 
           missing_cols <- setdiff(required_cols, names(team))
           if (length(missing_cols) > 0) {
             errors <- c(errors, paste("Missing required columns:", paste(missing_cols, collapse = ", ")))
           }
 
-          # Rule 2: Section must be valid value
-          valid_sections <- c("Leads", "SAG", "Working Group")
-          invalid_sections <- team %>%
-            filter(!Section %in% valid_sections) %>%
-            pull(Section) %>%
-            unique()
-
-          if (length(invalid_sections) > 0) {
-            errors <- c(errors, paste("Invalid Section values:", paste(invalid_sections, collapse = ", "),
-                                     "- Must be one of:", paste(valid_sections, collapse = ", ")))
-          }
-
-          # Rule 3: Required fields must not be empty
-          missing_name <- team %>% filter(is.na(Name) | trimws(Name) == "")
+          # Rule 2: first_name and last_name must not be empty
+          missing_name <- team %>%
+            filter(is.na(first_name) | trimws(first_name) == "" |
+                   is.na(last_name) | trimws(last_name) == "")
           if (nrow(missing_name) > 0) {
-            errors <- c(errors, paste("Found", nrow(missing_name), "rows with missing Name"))
+            errors <- c(errors, paste("Found", nrow(missing_name), "rows with missing first_name or last_name"))
           }
 
-          missing_institution <- team %>% filter(is.na(Institution) | trimws(Institution) == "")
-          if (nrow(missing_institution) > 0) {
-            errors <- c(errors, paste("Found", nrow(missing_institution), "rows with missing Institution"))
+          # Rule 3: affiliation_primary must not be empty
+          missing_affil <- team %>% filter(is.na(affiliation_primary) | trimws(affiliation_primary) == "")
+          if (nrow(missing_affil) > 0) {
+            warnings <- c(warnings, paste("Found", nrow(missing_affil), "rows with missing affiliation_primary"))
           }
 
-          missing_country <- team %>% filter(is.na(Country) | trimws(Country) == "")
-          if (nrow(missing_country) > 0) {
-            warnings <- c(warnings, paste("Found", nrow(missing_country), "rows with missing Country"))
-          }
-
-          # Rule 4: Check for trailing/leading whitespace (before trim_ws was applied)
-          # Re-read without trimming to detect whitespace
+          # Rule 4: Check for trailing/leading whitespace (re-read without trimming)
           team_raw <- read_csv("data/team-members.csv", show_col_types = FALSE, comment = "#", trim_ws = FALSE)
 
           whitespace_issues <- team_raw %>%
             filter(
-              (!is.na(Name) & Name != trimws(Name)) |
-              (!is.na(Institution) & Institution != trimws(Institution)) |
-              (!is.na(Country) & Country != trimws(Country)) |
-              (!is.na(Expertise) & Expertise != trimws(Expertise))
+              (!is.na(first_name) & first_name != trimws(first_name)) |
+              (!is.na(last_name) & last_name != trimws(last_name)) |
+              (!is.na(affiliation_primary) & affiliation_primary != trimws(affiliation_primary))
             )
 
           if (nrow(whitespace_issues) > 0) {
             warnings <- c(warnings, paste("Found", nrow(whitespace_issues),
                                         "rows with leading/trailing whitespace"))
             for (i in 1:min(nrow(whitespace_issues), 3)) {
-              warnings <- c(warnings, paste("  - Row", i, ":", whitespace_issues$Name[i]))
+              warnings <- c(warnings, paste("  - Row", i, ":", whitespace_issues$first_name[i],
+                                            whitespace_issues$last_name[i]))
             }
           }
 
           # Rule 5: ORCID format validation
-          invalid_orcid <- team %>%
-            filter(!is.na(ORCID) & ORCID != "") %>%
-            filter(!grepl("^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$", ORCID))
+          if ("ORCID" %in% names(team)) {
+            invalid_orcid <- team %>%
+              filter(has_value(ORCID)) %>%
+              filter(!grepl("^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$", ORCID))
 
-          if (nrow(invalid_orcid) > 0) {
-            warnings <- c(warnings, "Invalid ORCID format (should be 0000-0000-0000-0000):")
-            for (i in 1:nrow(invalid_orcid)) {
-              warnings <- c(warnings, paste("  -", invalid_orcid$Name[i], ":", invalid_orcid$ORCID[i]))
+            if (nrow(invalid_orcid) > 0) {
+              warnings <- c(warnings, "Invalid ORCID format (should be 0000-0000-0000-0000):")
+              for (i in 1:nrow(invalid_orcid)) {
+                warnings <- c(warnings, paste("  -", invalid_orcid$first_name[i],
+                                              invalid_orcid$last_name[i], ":", invalid_orcid$ORCID[i]))
+              }
             }
           }
 
           # Rule 6: Check for duplicate entries
           duplicates <- team %>%
-            group_by(Name, Institution) %>%
+            group_by(first_name, last_name, affiliation_primary) %>%
             filter(n() > 1) %>%
             ungroup()
 
           if (nrow(duplicates) > 0) {
-            warnings <- c(warnings, "Found duplicate entries (same Name + Institution):")
+            warnings <- c(warnings, "Found duplicate entries (same first_name + last_name + affiliation_primary):")
             for (i in 1:nrow(duplicates)) {
-              warnings <- c(warnings, paste("  -", duplicates$Name[i], "at", duplicates$Institution[i]))
+              warnings <- c(warnings, paste("  -", duplicates$first_name[i], duplicates$last_name[i],
+                                            "at", duplicates$affiliation_primary[i]))
             }
           }
 
-          # Rule 7: Email format validation (if provided)
-          invalid_email <- team %>%
-            filter(!is.na(Email) & Email != "") %>%
-            filter(!grepl("^[^@]+@[^@]+\\.[^@]+$", Email))
+          # Rule 7: web_bio should look like a URL (if provided)
+          if ("web_bio" %in% names(team)) {
+            invalid_bio <- team %>%
+              filter(has_value(web_bio) & web_bio != "n/a" & web_bio != ".") %>%
+              filter(!grepl("^https?://", web_bio))
 
-          if (nrow(invalid_email) > 0) {
-            warnings <- c(warnings, "Invalid email format:")
-            for (i in 1:nrow(invalid_email)) {
-              warnings <- c(warnings, paste("  -", invalid_email$Name[i], ":", invalid_email$Email[i]))
+            if (nrow(invalid_bio) > 0) {
+              warnings <- c(warnings, "web_bio values that are not URLs:")
+              for (i in 1:nrow(invalid_bio)) {
+                warnings <- c(warnings, paste("  -", invalid_bio$first_name[i], invalid_bio$last_name[i],
+                                              ":", invalid_bio$web_bio[i]))
+              }
             }
           }
 
@@ -167,12 +164,12 @@ jobs:
             cat("✅ All validation rules passed!\n\n")
           }
 
-          # Summary
+          # Summary (sections are derived from role columns, not a Section column)
           cat("## Summary\n")
           cat("Total rows:", nrow(team), "\n")
-          cat("Leads:", nrow(team %>% filter(Section == "Leads")), "\n")
-          cat("SAG members:", nrow(team %>% filter(Section == "SAG")), "\n")
-          cat("Working Group members:", nrow(team %>% filter(Section == "Working Group")), "\n")
+          cat("Strategic Advisory Committee:", sum(has_value(team$strategic_advisory_cmt)), "\n")
+          cat("Investigators and collaborators:", sum(has_value(team$cihr_study)), "\n")
+          cat("Study team:", sum(has_value(team$study_team)), "\n")
 
           # Fail if errors found
           if (length(errors) > 0) {

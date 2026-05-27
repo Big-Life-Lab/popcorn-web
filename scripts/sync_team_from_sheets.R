@@ -14,8 +14,8 @@
 #'   - affiliation_primary, affiliation_2, affiliation_3, affiliation_4
 #'   - strategic_advisory_cmt (SAC role, or "NA"/"" if not a SAC member)
 #'   - cihr_study (investigator/collaborator role, or "NA"/"" if not applicable)
-#'   - study_team ("Yes" for study team members, or "NA"/"" if not applicable)
-#'   - ORCID, web_bio
+#'   - study_team ("active"/"inactive" for study team members, or "NA"/"" if not applicable)
+#'   - web_bio, pub_list (ORCID is extracted from pub_list)
 #'
 #' @examples
 #' # Preview what would be synced (dry run)
@@ -54,7 +54,7 @@ suppressPackageStartupMessages({
 #' Can be overridden with POPCORN_TEAM_SHEET_ID environment variable
 GOOGLE_SHEET_ID <- Sys.getenv(
   "POPCORN_TEAM_SHEET_ID",
-  unset = "1b17h_GeTW4ox8ZZZIDmuXo46EmjKTIxGRyzYnWsLF-4"
+  unset = "1e_dKWpql6ZHB2ZRb9jL44fuxHi_8JcEpq8gfFXb0wTw"
 )
 
 #' Tab/sheet name in Google Sheets
@@ -133,8 +133,18 @@ read_team_from_sheets <- function() {
       data$affiliation_3 <- data[[aff3_col]]
     }
 
-    # Add ORCID column if missing
-    if (!"ORCID" %in% names(data)) {
+    # Derive ORCID from pub_list. The sheet has no dedicated ORCID column;
+    # ORCID identifiers are stored as orcid.org URLs in pub_list (about 1/4 of
+    # rows). Extract the bare 16-digit identifier where present.
+    extract_orcid <- function(x) {
+      x <- as.character(x)
+      if (length(x) == 0 || is.na(x) || x == "") return("")
+      m <- regmatches(x, regexpr("[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9Xx]", x))
+      if (length(m) == 0) "" else toupper(m)
+    }
+    if ("pub_list" %in% names(data)) {
+      data$ORCID <- vapply(data$pub_list, extract_orcid, character(1), USE.NAMES = FALSE)
+    } else if (!"ORCID" %in% names(data)) {
       data$ORCID <- ""
     }
 
@@ -209,9 +219,9 @@ preview_team_sync <- function() {
                    data$cihr_study != "NA")
   message(sprintf("  Investigators and collaborators: %d", inv_count))
 
-  # Count study team (where study_team = "Yes")
+  # Count study team (where study_team = "active")
   team_count <- sum(!is.na(data$study_team) &
-                    data$study_team == "Yes")
+                    data$study_team == "active")
   message(sprintf("  Study team: %d", team_count))
 
   message("\nFirst few rows:")
