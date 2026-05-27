@@ -5,7 +5,6 @@ project:
     - "*.qmd"
     - "!development/"
     - "!renv/"
-    - "!5-get-involved.qmd"
 
 embed-resources: true
 
@@ -19,17 +18,18 @@ website:
     search: true
     left:
       - text: Home
-        href: 0-index.qmd
+        href: index.qmd
       - text: About
-        href: 1-about.qmd
+        href: about.qmd
       - text: Scope
-        href: 2-scope.qmd
+        href: scope.qmd
       - text: Development
-        href: 3-process.qmd
-      # - text: Team
-      #   href: 4-team.qmd
+        href: process.qmd
+      - text: Team
+        href: team.qmd
+      # Get Involved is rendered but intentionally not surfaced in the navbar yet
       # - text: Get Involved
-      #   href: 5-get-involved.qmd
+      #   href: get-involved.qmd
 
     tools:
       - icon: github

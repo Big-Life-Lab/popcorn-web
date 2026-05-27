@@ -1,12 +1,12 @@
 first_name,last_name,post_nominal_initials,affiliation_primary,affiliation_2,affiliation_4,strategic_advisory_cmt,cihr_study,study_team,web_bio,affiliation_3,ORCID
-Doug,Manuel,"MD, MSc, FRCPC",Ottawa Hospital Research Institute,University of Ottawa,NA,POPCORN Principal invesgitor,Nominated principal investigator,active,https://www.ohri.ca/profile/DougManuelLab/profile,Bruyère Health Research Institute,
-Oliver,Mytton,"MD, MPH",University College London,NA,NA,POPCORN Principal invesgitor,Co-principal investigator,active,https://profiles.ucl.ac.uk/88901-oliver-mytton,NA,
-Tony,Blakely,PhD,University of Melbourne,NA,NA,SAC Chair,NA,NA,https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely,NA,
+Doug,Manuel,"MD, MSc, FRCPC",Ottawa Hospital Research Institute,University of Ottawa,NA,POPCORN Principal invesgitor,Nominated principal investigator,active,https://www.ohri.ca/profile/DougManuelLab/profile,Bruyère Health Research Institute,0000-0003-0912-0845
+Oliver,Mytton,"MD, MPH",University College London,NA,NA,POPCORN Principal invesgitor,Co-principal investigator,active,https://profiles.ucl.ac.uk/88901-oliver-mytton,NA,0000-0003-3218-9912
+Tony,Blakely,PhD,University of Melbourne,NA,NA,SAC Chair,NA,NA,https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely,NA,0000-0002-6995-4369
 Adam,Briggs,NA,The Health Foundation,NA,NA,NA,NA,NA,https://www.health.org.uk/about-the-health-foundation/our-people/policy-team/adam-briggs,NA,
 Laura,Webber,PhD,Health Lumen,NA,NA,NA,"Co-investigator, knowledge user",active,https://www.csap.cam.ac.uk/network/laura-webber/,NA,
-David,Moher,PhD,Ottawa Hospital Research Institute,University of Ottawa,NA,SAC Ex-officio member,Co-investigator,active,https://www.ohri.ca/profile/dmoher,NA,
+David,Moher,PhD,Ottawa Hospital Research Institute,University of Ottawa,NA,SAC Ex-officio member,Co-investigator,active,https://www.ohri.ca/profile/dmoher,NA,0000-0003-2434-4206
 Thomas,Monks,NA,University of Exeter,NA,NA,NA,NA,NA,https://experts.exeter.ac.uk/19244-thomas-monks,NA,
-Donald,Husereau,MSc,University of Ottawa,NA,NA,SAC Ex-officio member,NA,NA,https://www.uottawa.ca/faculty-medicine/donald-husereau,NA,
+Donald,Husereau,MSc,University of Ottawa,NA,NA,SAC Ex-officio member,NA,NA,https://www.uottawa.ca/faculty-medicine/donald-husereau,NA,0000-0002-4416-6876
 Natasha,Stout,NA,CISNET,NA,NA,NA,NA,NA,https://surveillance.cancer.gov/about/bios/stoutn.html,NA,
 John,Wong,NA,Annals of Internal Medicine,Tufts University,NA,NA,NA,NA,https://facultyprofiles.tufts.edu/john-wong,NA,
 Peter,Scarborough,NA,University of Oxford,NA,NA,NA,NA,NA,https://www.phc.ox.ac.uk/team/peter-scarborough,NA,
@@ -25,38 +25,38 @@ Elizabeth,Loder,NA,BMJ,Harvard University,NA,NA,NA,NA,https://www.bmj.com/about-
 Jocelyn,Dunstan,NA,Pontifical Catholic University of Chile,NA,NA,NA,NA,NA,https://sites.google.com/view/jdunstan/home,NA,
 Peter,Fantke,NA,Technical University of Denmark,NA,NA,NA,NA,NA,https://orbit.dtu.dk/en/persons/peter-fantke,NA,
 Clare,Stone,NA,PLOS (SSRN),NA,NA,NA,NA,NA,https://uk.linkedin.com/in/dr-clare-stone-87767b57,NA,
-Audrey,Ceschia,PhD,The Lancet Public Health,NA,NA,SAC Member,NA,NA,https://www.thelancet.com/lanpub/about,NA,
+Audrey,Ceschia,PhD,The Lancet Public Health,NA,NA,SAC Member,NA,NA,https://www.thelancet.com/lanpub/about,NA,0000-0003-3218-9912
 Brian J.,Zikmund-Fisher,NA,Medical Decision Making,"University of Michigan, Ann Arbor",NA,NA,NA,NA,https://journals.sagepub.com/editorial-board/MDM,NA,
 Lauren E.,Cipriano,NA,Medical Decision Making,University of Western Ontario,NA,NA,NA,NA,https://journals.sagepub.com/editorial-board/MDM,NA,
 Orsolya,Varga,NA,"Journal of Health, Population and Nutrition",University of Debrecen,NA,NA,NA,NA,https://communities.springernature.com/posts/meet-the-editor-orsolya-varga-discusses-international-women-s-day-2024,NA,
 Cristina,Cleghorn,NA,University of Otago,NA,NA,NA,NA,NA,https://www.otago.ac.nz/bms/expertise/profile?id=1726,NA,
 Michael,Wolfson,NA,University of Ottawa,NA,NA,NA,NA,NA,https://www.uottawa.ca/faculty-medicine/dr-michael-wolfson,NA,
 Hawre,Jalal,NA,University of Ottawa,NA,NA,NA,NA,NA,https://www.uottawa.ca/faculty-medicine/dr-hawre-jalal,NA,
-Arya,Rahgozar,PhD,Ottawa Hospital Research Institute,University of Ottawa,NA,NA,Co-investigator,active,https://www.ohri.ca/profile/arahgozar,NA,
-Justin,Presseau,PhD,Ottawa Hospital Research Institute,University of Ottawa,NA,NA,Co-investigator,active,https://www.ohri.ca/profile/jpresseau,NA,
-Rafael,Meza,PhD,BC Cancer Research Institute,University of British Columbia,NA,NA,Co-investigator,active,https://www.bccrc.ca/dept/io/people/rafael-meza,NA,
+Arya,Rahgozar,PhD,Ottawa Hospital Research Institute,University of Ottawa,NA,NA,Co-investigator,active,https://www.ohri.ca/profile/arahgozar,NA,0000-0002-2127-2449
+Justin,Presseau,PhD,Ottawa Hospital Research Institute,University of Ottawa,NA,NA,Co-investigator,active,https://www.ohri.ca/profile/jpresseau,NA,0000-0002-2132-0703
+Rafael,Meza,PhD,BC Cancer Research Institute,University of British Columbia,NA,NA,Co-investigator,active,https://www.bccrc.ca/dept/phs/people/rafael-meza,NA,
 Deirdre,Hennessy,PhD,Statistics Canada,NA,NA,NA,Co-investigator,active,n/a,NA,
 Massoud,Amini,"PhD, MBA",University of Ottawa,NA,NA,NA,"Co-investigator, trainee",active,.,NA,
-Carol,Bennett,MSc,Ottawa Hospital Research Institute,NA,NA,POPCORN Secretariate,Co-investigator,active,n/a,NA,
-Stacey,Fisher,PhD,Ottawa Hospital Research Institute,NA,NA,NA,"Co-investigator, trainee",active,n/a,NA,
-Zack,Van Allen,"PhD, MBA",University of Ottawa,Bruyère Health Research Institute,NA,NA,"Co-investigator, trainee",active,https://www.zackvanallen.com,NA,
+Carol,Bennett,MSc,Ottawa Hospital Research Institute,NA,NA,POPCORN Secretariate,Co-investigator,active,n/a,NA,0000-0002-3033-9860
+Stacey,Fisher,PhD,Ottawa Hospital Research Institute,NA,NA,NA,"Co-investigator, trainee",active,n/a,NA,0000-0002-4925-7806
+Zack,Van Allen,"PhD, MBA",University of Ottawa,Bruyère Health Research Institute,NA,NA,"Co-investigator, trainee",active,https://www.zackvanallen.com,NA,0000-0002-5778-6441
 James,Wrightson,PhD,University of British Columbia,NA,NA,NA,Collaborator,active,https://jamesgwrightson.com,NA,
-Sarah,Beach,MSc,Ottawa Hospital Research Institute,NA,NA,POPCORN Secretariate,NA,active,n/a,NA,
+Sarah,Beach,MSc,Ottawa Hospital Research Institute,NA,NA,POPCORN Secretariate,NA,active,n/a,NA,0000-0002-4660-0509
 Karim,Halal,NA,Ottawa Hospital Research Institute,NA,NA,NA,NA,active,n/a,NA,
-Pouria,Mortezaagha,MEng,Ottawa Hospital Research Institute,University of Ottawa,NA,NA,NA,active,.,NA,
+Pouria,Mortezaagha,MEng,Ottawa Hospital Research Institute,University of Ottawa,NA,NA,NA,active,.,NA,0009-0006-4768-6654
 Shane,Kirkham,NA,Ottawa Hospital Research Institute,NA,NA,NA,NA,active,n/a,NA,
-Sarah,Visintini,MLIS,University of Ottawa Heart Institute,NA,NA,NA,NA,active,https://www.sarahvisintini.ca/about,NA,
-Lucinéia Heloisa,Thom,NA,Federal University of Rio Grande do Sul,NA,NA,NA,NA,NA,http://lattes.cnpq.br/6022637170344999,NA,
+Sarah,Visintini,MLIS,University of Ottawa Heart Institute,NA,NA,NA,NA,active,https://www.sarahvisintini.ca/about,NA,0000-0001-6966-1753
+Lucinéia Heloisa,Thom,NA,Federal University of Rio Grande do Sul,NA,NA,NA,NA,NA,http://lattes.cnpq.br/6022637170344999,NA,0000-0002-0620-9302
 Maigeng,Zhou,NA,Chinese Center for Disease Control and Prevention (National Center for Chronic and Non-communicable Disease Control and Prevention),NA,NA,NA,NA,NA,https://www.healthdata.org/about/people/maigeng-zhou,NA,
 Hongbing,Shen,NA,Chinese Center for Disease Control and Prevention / Nanjing Medical University,NA,NA,NA,NA,NA,https://www.researchgate.net/profile/Hongbing-Shen,NA,
-Cheryl,Cohen,NA,University of the Witwatersrand,NA,NA,NA,NA,NA,https://www.wits.ac.za/people/academic-a-z-listing/c/cherylcohenwitsacza/,NA,
+Cheryl,Cohen,NA,University of the Witwatersrand,NA,NA,NA,NA,NA,https://www.wits.ac.za/people/academic-a-z-listing/c/cherylcohenwitsacza/,NA,0000-0003-0376-2302
 Lixia,Ge,NA,"Health Services and Outcomes Research, National Healthcare Group",NA,NA,NA,NA,NA,https://corp.nhg.com.sg/HSOR/Pages/Our-Staff.aspx,NA,
 John Arputhan,Abisheganaden,NA,"Lee Kong Chian School of Medicine, Nanyang Technological University",NA,NA,NA,NA,NA,https://talentdev.gri.nhg.com.sg/files/Researcher%20Directory/TTSH/TTSH___John_Abisheganaden_Arputhan_v2211.pdf,NA,
 G. S. Pradeep,Ghantasala,NA,Chitkara University,NA,NA,NA,NA,NA,https://www.alliance.edu.in/faculty/dr-ggs-pradeep; https://scholar.google.co.in/citations?user=niwqX7AAAAAJ&hl=en,NA,
-David Yawe,Guwatudde,NA,Makerere University,NA,NA,NA,NA,NA,https://sph.mak.ac.ug/about-us/personnel/prof-david-yawe-guwatudde,NA,
+David Yawe,Guwatudde,NA,Makerere University,NA,NA,NA,NA,NA,https://sph.mak.ac.ug/about-us/personnel/prof-david-yawe-guwatudde,NA,0000-0003-3563-0224
 Christijan Marijn,Hazelbag,NA,South African Centre for Epidemiological Modelling and Analysis (SACEMA),NA,NA,NA,NA,NA,https://www.researchgate.net/profile/Christijan-Hazelbag,NA,
-Wim,Delva,NA,South African Centre for Epidemiological Modelling and Analysis (SACEMA),NA,NA,NA,NA,NA,https://www.sacema.org/person/prof-wim-delva-phd/,NA,
-Wirichada,Pan-ngum,NA,Mahidol University,NA,NA,NA,NA,NA,https://www.tm.mahidol.ac.th/research/client/researcherInfo.php?userID=62,NA,
+Wim,Delva,NA,South African Centre for Epidemiological Modelling and Analysis (SACEMA),NA,NA,NA,NA,NA,https://www.sacema.org/person/prof-wim-delva-phd/,NA,0000-0001-8054-1904
+Wirichada,Pan-ngum,NA,Mahidol University,NA,NA,NA,NA,NA,https://www.tm.mahidol.ac.th/research/client/researcherInfo.php?userID=62,NA,0000-0002-9839-5359
 Marcus Tolentino,Silva,NA,University of Brasília,NA,NA,NA,NA,NA,https://www.researchgate.net/profile/Marcus-Silva-19,NA,
 Bach,Tran,NA,Vietnam National University,NA,NA,NA,NA,NA,https://www.researchgate.net/profile/Bach-Tran-3,NA,
 Daniel,Kim,NA,Northwestern University,NA,NA,NA,NA,NA,https://www.feinberg.northwestern.edu/faculty-profiles/az/profile.html?xid=34612,NA,
@@ -71,7 +71,7 @@ Jason,Thompson,NA,University of Melbourne,NA,NA,NA,NA,NA,https://findanexpert.un
 Hsien-Ho,Lin,NA,National Taiwan University,NA,NA,NA,NA,NA,https://iipp.tw/mentor/688,NA,
 Lennert,Veerman,NA,Griffith University,NA,NA,NA,NA,NA,https://experts.griffith.edu.au/18793-lennert-veerman,NA,
 Linda,Cobiac,NA,Griffith University,NA,NA,NA,NA,NA,https://experts.griffith.edu.au/32227-linda-cobiac/about,NA,
-K. Srinath,Reddy,"MD, DM, MSc",Public Health Foundation of India (PHFI),NA,NA,SAC Member,NA,NA,https://phfi.org/member/profksrinathreddy/,NA,
+K. Srinath,Reddy,"MD, DM, MSc",Public Health Foundation of India (PHFI),NA,NA,NA,NA,NA,https://phfi.org/member/profksrinathreddy/,NA,0000-0003-3416-3548
 Wanrudee,Isaranuwatchai,NA,"Health Intervention and Technology Assessment Program (HITAP), Ministry of Public Health",NA,NA,NA,NA,NA,https://www.hitap.net/en/staff/172294,NA,
 Chen,Wang,NA,Chinese Academy of Medical Sciences and Peking Union Medical College,NA,NA,NA,NA,NA,https://covid19commission.org/chen-wang,NA,
 Yot,Teerawattananon,NA,"Health Intervention and Technology Assessment Program (HITAP), Ministry of Public Health",NA,NA,NA,NA,NA,https://www.hitap.net/en/staff/10463,NA,
@@ -80,10 +80,14 @@ Ismail,Saadi,NA,University of Cambridge,NA,NA,NA,NA,NA,https://www.mrc-epid.cam.
 Lambed,Tatah,NA,University of Cambridge,NA,NA,NA,NA,NA,https://www.mrc-epid.cam.ac.uk/people/lambed-tatah/,NA,
 Haneen,Khreis,NA,University of Cambridge,NA,NA,NA,NA,NA,https://www.mrc-epid.cam.ac.uk/people/haneen-khreis/,NA,
 Jasper,ten Dam,NA,RIVM National Institute for Public Health and the Environment,NA,NA,NA,NA,NA,https://theorg.com/org/rivm-national-institute-for-public-health-and-the-environment/org-chart/jasper-ten-dam,NA,
-Andreia,Cunha,PhD,PLOS Medicine,NA,NA,SAC Member,NA,NA,https://journals.plos.org/plosmedicine/s/staff-editors,NA,
-Anna,Vassall,PhD,World Health Organisation,London School of Hygiene and Tropical Medicine,NA,SAC Member,NA,NA,https://www.cgdev.org/expert/anna-vassall,NA,
+Andreia,Cunha,PhD,PLOS Medicine,NA,NA,SAC Member,NA,NA,https://journals.plos.org/plosmedicine/s/staff-editors,NA,0009-0001-4072-173X
+Anna,Vassall,PhD,World Health Organisation,London School of Hygiene and Tropical Medicine,NA,SAC Member,NA,NA,https://www.cgdev.org/expert/anna-vassall,NA,0000-0002-2911-1375
 Karen,Hofman,NA,University of the Witwatersrand,NA,NA,NA,NA,NA,https://pricelesssa.ac.za/about/our-team/staff/professor-karen-hofman,NA,
-Eric (Rocky),Feuer,PhD,"Cancer Intervention and Surveillance Modeling Network, National Cancer Institute, USA",NA,NA,SAC Member,NA,NA,NA,NA,
+Eric J. (Rocky),Feuer,PhD,"National Cancer Institute, Retired","Cancer Intervention and Surveillance Modeling Network, Retired",NA,SAC Member,NA,NA,.,NA,0000-0003-4842-7751
 Naomi,Levitt,NA,University of Cape Town,NA,NA,NA,NA,NA,"https://cdia.uct.ac.za/about-us/staff#:~:text=Naomi%20Levitt%20is%20a%20diabetologist,Initiative%20for%20Africa%20(CDIA).",NA,
 Alexandre Dias Porto,Chiavegatto Filho,NA,University of São Paulo /  Revista de Saúde Pública,NA,NA,NA,NA,NA,https://rsp.fsp.usp.br/editor/alexandre-dias-porto-chiavegatto-filho/,NA,
-Susan,Goldstein,NA,University of the Witwatersrand,NA,NA,NA,NA,NA,https://pricelesssa.ac.za/about/our-team/staff/professor-susan-goldstein,NA,
+Susan,Goldstein,NA,University of the Witwatersrand,NA,NA,SAC Member,NA,NA,https://pricelesssa.ac.za/about/our-team/staff/professor-susan-goldstein,NA,0000-0002-3424-5319
+Alex,Welte,PhD,Stellenbosch University,NA,NA,NA,NA,NA,https://www.sacema.org/person/prof-alex-welte-phd/,NA,
+Brian,Williams,PhD,Stellenbosch University,NA,NA,NA,NA,NA,https://www.sacema.org/person/prof-brian-williams-phd/,NA,0000-0002-3174-4876
+Leigh,Johnson,NA,University of Cape Town,NA,NA,NA,NA,NA,https://health.uct.ac.za/school-public-health/divisions-epidemiology-and-biostatistics-people/dr-leigh-johnson,NA,
+Claudia,Hampel,NA,NA,NA,NA,SAC Member,NA,NA,NA,NA,

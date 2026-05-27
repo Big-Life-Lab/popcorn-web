@@ -2,18 +2,26 @@
 
 ## Overview
 
-The POPCORN-NCD project uses a Google Sheets workbook to manage team member information. This allows the Research Coordinator (Sarah) to update team data without needing to edit CSV files directly or use GitHub.
+The POPCORN-NCD project uses a Google Drive workbook to manage team member information. This allows the Research Coordinator (Sarah) to update team data without needing to edit CSV files directly or use GitHub.
 
 The setup includes:
-- A Google Sheet with team member data
-- An R script that syncs data from Google Sheets to CSV
+- A workbook in Google Drive with team member data
+- An R script that syncs data from the workbook to CSV
 - A GitHub Actions workflow that runs automatically to keep data in sync
+
+> **Note on the file type.** The workbook is a **native Google Sheet**
+> (`POPCORN_Group Lists_V1.0.0`). The sync script reads it directly with
+> `googlesheets4::read_sheet()`. If the workbook is ever replaced by an
+> uploaded Excel (`.xlsx`) file, `read_sheet()` will fail ("must not be an
+> Office file") and the script would need to download it via
+> `googledrive::drive_download()` and read it with `readxl` instead. Keep the
+> workbook a native Sheet to use the simpler `googlesheets4` path.
 
 ## Architecture
 
 ```
-Google Workbook (POPCORN-NCD Master Data)
-└── Tab: Team Members → CSV → team.qmd (popcorn-web)
+Google Sheet (POPCORN_Group Lists_V1.0.0)
+└── Tab: contributors → sync_team_from_sheets.R → data/team-members.csv → team.qmd
 ```
 
 The workflow runs:
@@ -44,15 +52,28 @@ This allows GitHub Actions to read from Google Sheets without interactive authen
    - Click "Add Key" → "Create new key" → "JSON"
    - Save the downloaded JSON file securely
 
-### 2. Share Google Sheet with service account
+### 2. Share the workbook with the service account
 
-1. Open the downloaded JSON file
-2. Find the `client_email` field (looks like `popcorn-github-actions@project-id.iam.gserviceaccount.com`)
-3. Open your Google Sheet
-4. Click "Share" button
-5. Add the service account email as a Viewer
-6. Uncheck "Notify people" (no need to send email to service account)
-7. Click "Share"
+> **This is the most common breakage.** When the workbook is moved, renamed,
+> or recreated, it must be re-shared with the service account or the sync
+> fails with a `404 File not found`.
+
+The current service account is:
+
+```
+popcorn-data-manager@popcorn-data-management.iam.gserviceaccount.com
+```
+
+1. Open the workbook in Google Drive
+2. Click "Share"
+3. Add the service account email above as a **Viewer**
+   (sharing the parent folder works too, and survives future moves within it)
+4. Uncheck "Notify people" (no need to send email to a service account)
+5. Click "Share"
+
+The service account email is also the `client_email` field inside
+`.secrets/popcorn-data-manager.json` (and the `GOOGLE_SERVICE_ACCOUNT_JSON`
+GitHub secret), if you need to confirm which account is in use.
 
 ### 3. Add secrets to GitHub repository
 
@@ -105,27 +126,41 @@ Rscript scripts/sync_team_from_sheets.R sync
 Rscript scripts/sync_team_from_sheets.R sync --commit
 ```
 
-## Google Sheet structure
+## Workbook structure
 
-The "Team Members" tab must have these columns:
+The sync script reads the **`contributors`** tab. The workbook contains
+other tabs (`dictionary`, `e-delphi`, `funding`, `terms_list`) that the
+script ignores. The script pulls the following columns; any others on the
+tab are left untouched.
 
 | Column | Required | Description | Example |
 |--------|----------|-------------|---------|
-| Section | Yes | Member category | `Leads`, `SAG`, `Working Group` |
-| Name | Yes | Full name | `Douglas Manuel` |
-| Credentials | Yes | Academic degrees | `MD MSc FRCPC` |
-| Institution | Yes | Primary affiliation | `The Ottawa Hospital Research Institute` |
-| Country | Yes | Country | `Canada` |
-| Expertise | Yes | Areas of expertise | `Population health microsimulation modelling` |
-| Role | Yes | Role description | `Principal Investigator...` |
-| Position | No | Special position | `Ex Officio`, `Chair` |
-| ORCID | No | ORCID identifier | `0000-0002-0599-2061` |
-| Photo | No | Photo filename or URL | `dmanuel.jpg` |
+| `first_name` | Yes | Given name | `Doug` |
+| `last_name` | Yes | Family name | `Manuel` |
+| `post_nominal_initials` | No | Credentials | `MD, MSc, FRCPC` |
+| `affiliation_primary` | Yes | Main institution | `Ottawa Hospital Research Institute` |
+| `affiliation_2` | No | Secondary affiliation | `University of Ottawa` |
+| `affiliation_3` | No | Third affiliation | |
+| `affiliation_4` | No | Fourth affiliation | |
+| `strategic_advisory_cmt` | No | SAC role; blank/`NA` if not a SAC member | `SAC Chair` |
+| `cihr_study` | No | Grant role; blank/`NA` if not applicable | `Co-investigator` |
+| `study_team` | No | Active-status flag for study-team members | `active` |
+| `web_bio` | No | URL to the person's online biography | `https://…/profile` |
+| `pub_list` | No | Link to publications; ORCID preferred (ORCID is extracted from here) | `https://orcid.org/0000-0002-0599-2061` |
 
-**Valid Section values:**
-- `Leads` - Principal Investigators and Co-PIs
-- `SAG` - Strategic Advisory Group members
-- `Working Group` - Working group members
+> **ORCID is derived, not a column.** The sheet has no dedicated `ORCID`
+> column. The sync script extracts the ORCID identifier from `pub_list` when
+> it contains an `orcid.org` URL, and writes it to the CSV's `ORCID` column
+> (blank when `pub_list` is a non-ORCID link or empty).
+
+Membership sections on the team page are **derived from the role columns**,
+not from a single `Section` column:
+
+- **Strategic Advisory Committee** — rows where `strategic_advisory_cmt` has
+  a value.
+- **Investigators and collaborators** — rows where `cihr_study` has a value.
+- **Study team** — rows where `study_team` has a value (the workbook stores
+  this as `active`/`inactive` from the `terms_list` tab).
 
 ## Workflow for updating team members
 
@@ -149,15 +184,18 @@ The GitHub Actions workflow:
 
 ## Validation rules
 
-The sync script validates:
-1. Required columns exist
-2. Section is one of: `Leads`, `SAG`, `Working Group`
-3. Name, Institution, and Country are not empty
-4. No duplicate entries (same Name + Institution)
-5. ORCID format matches `0000-0000-0000-0000` (if provided)
-6. Email format is valid (if provided)
+The sync script (`validate_team_data()`) requires:
+1. Required columns exist (the columns listed above)
+2. `first_name` and `last_name` are not empty
 
-If validation fails, the workflow stops and creates an error log.
+The `validate-csv.yml` workflow additionally checks the generated CSV for:
+3. `affiliation_primary` not empty (warning)
+4. No leading/trailing whitespace in key text fields (warning)
+5. ORCID format matches `0000-0000-0000-0000`, if provided (warning)
+6. No duplicate entries (same `first_name` + `last_name` + `affiliation_primary`) (warning)
+7. `web_bio` looks like a URL, if provided (warning)
+
+If a required column is missing or names are blank, the workflow stops.
 
 ## Troubleshooting
 
@@ -190,7 +228,7 @@ If validation fails, the workflow stops and creates an error log.
 2. Wrong file path for service account
 
 **Solution:**
-- Ensure `.secrets/google-service-account.json` exists (for service account auth)
+- Ensure `.secrets/popcorn-data-manager.json` exists (for service account auth)
 - Or allow interactive auth (browser-based) when running locally
 
 ## Security notes
@@ -205,7 +243,7 @@ If validation fails, the workflow stops and creates an error log.
 ### Local development
 
 For local testing without service account:
-1. Remove `.secrets/google-service-account.json` file
+1. Remove `.secrets/popcorn-data-manager.json` file
 2. Run script - it will prompt for interactive authentication via browser
 3. Grant read-only access to your Google account
 4. Token cached locally in `.secrets/`

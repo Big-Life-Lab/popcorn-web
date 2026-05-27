@@ -14,7 +14,7 @@ team <- read_csv("data/team-members.csv", show_col_types = FALSE)
 
 Our work on the **POPCORN-NCD Reporting Guideline** is led by an international collaborative group committed to transparency and rigour in simulation modelling research. Our team brings together expertise from diverse regions, disciplines, and stakeholder perspectives.
 
-[Learn more about our development process →](3-process.qmd)
+[Learn more about our development process →](process.qmd)
 
 ---
 
@@ -101,7 +101,7 @@ if (nrow(sac) > 0) {
       links <- c(links, paste0('<a href="https://orcid.org/', sac$ORCID[i], '"><img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID</a>'))
     }
 
-    if (!is.na(sac$web_bio[i]) && sac$web_bio[i] != "") {
+    if (!is.na(sac$web_bio[i]) && grepl("^https?://", sac$web_bio[i])) {
       links <- c(links, paste0('<a href="', sac$web_bio[i], '">Web bio</a>'))
     }
 
@@ -193,7 +193,7 @@ if (nrow(investigators) > 0) {
       links <- c(links, paste0('<a href="https://orcid.org/', investigators$ORCID[i], '"><img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID</a>'))
     }
 
-    if (!is.na(investigators$web_bio[i]) && investigators$web_bio[i] != "") {
+    if (!is.na(investigators$web_bio[i]) && grepl("^https?://", investigators$web_bio[i])) {
       links <- c(links, paste0('<a href="', investigators$web_bio[i], '">Web bio</a>'))
     }
 
@@ -280,7 +280,7 @@ if (nrow(study_team) > 0) {
       links <- c(links, paste0('<a href="https://orcid.org/', study_team$ORCID[i], '"><img src="assets/icons/orcid.svg" class="inline-icon" alt="ORCID"> ORCID</a>'))
     }
 
-    if (!is.na(study_team$web_bio[i]) && study_team$web_bio[i] != "") {
+    if (!is.na(study_team$web_bio[i]) && grepl("^https?://", study_team$web_bio[i])) {
       links <- c(links, paste0('<a href="', study_team$web_bio[i], '">Web bio</a>'))
     }
 

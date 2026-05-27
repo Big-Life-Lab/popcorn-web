@@ -69,3 +69,5 @@ rsconnect/
 /.luarc.json
 
 .secrets/
+
+**/*.quarto_ipynb
