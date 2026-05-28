@@ -41,9 +41,9 @@ Our Strategic Advisory Committee provides expert guidance on the development and
 # Filter for SAC members (where strategic_advisory_cmt is not NA or empty)
 sac <- team %>%
   filter(!is.na(strategic_advisory_cmt) &
-         strategic_advisory_cmt != "" &
-         strategic_advisory_cmt != "NA" &
-         strategic_advisory_cmt != ".") %>%
+    strategic_advisory_cmt != "" &
+    strategic_advisory_cmt != "NA" &
+    strategic_advisory_cmt != ".") %>%
   # Create sort order: SAC Chair → SAC Member → SAC Ex officio → POPCORN PI → POPCORN Secretariat
   mutate(
     role_order = case_when(
@@ -52,7 +52,7 @@ sac <- team %>%
       grepl("SAC Ex.?officio", strategic_advisory_cmt, ignore.case = TRUE) ~ 3,
       grepl("POPCORN Principal|Principal Investigator", strategic_advisory_cmt, ignore.case = TRUE) ~ 4,
       grepl("POPCORN Secretariat|Secretariat", strategic_advisory_cmt, ignore.case = TRUE) ~ 5,
-      TRUE ~ 6  # Catch-all for any other roles
+      TRUE ~ 6 # Catch-all for any other roles
     )
   ) %>%
   # Sort by role order, then alphabetically by last name
@@ -67,11 +67,11 @@ if (nrow(sac) > 0) {
 
     # Left column: Name and credentials
     cat('<div class="member-name-col">\n')
-    cat(sac$first_name[i], ' ', sac$last_name[i], '\n', sep='')
+    cat(sac$first_name[i], " ", sac$last_name[i], "\n", sep = "")
     if (!is.na(sac$post_nominal_initials[i]) && sac$post_nominal_initials[i] != "") {
-      cat('<div class="member-credentials">', sac$post_nominal_initials[i], '</div>\n', sep='')
+      cat('<div class="member-credentials">', sac$post_nominal_initials[i], "</div>\n", sep = "")
     }
-    cat('</div>\n\n')
+    cat("</div>\n\n")
 
     # Right column: Details
     cat('<div class="member-details-col">\n\n')
@@ -86,12 +86,12 @@ if (nrow(sac) > 0) {
     affiliations <- affiliations[!is.na(affiliations) & affiliations != ""]
 
     if (length(affiliations) > 0) {
-      cat('<div class="member-affiliation">', paste(affiliations, collapse='; '), '</div>\n\n', sep='')
+      cat('<div class="member-affiliation">', paste(affiliations, collapse = "; "), "</div>\n\n", sep = "")
     }
 
     # SAC role (just the role name, not full description)
     if (!is.na(sac$strategic_advisory_cmt[i]) && sac$strategic_advisory_cmt[i] != "") {
-      cat('<div class="member-role">', sac$strategic_advisory_cmt[i], '</div>\n\n', sep='')
+      cat('<div class="member-role">', sac$strategic_advisory_cmt[i], "</div>\n\n", sep = "")
     }
 
     # Links (ORCID and Web bio)
@@ -106,16 +106,16 @@ if (nrow(sac) > 0) {
     }
 
     if (length(links) > 0) {
-      cat('<div class="member-links">', paste(links, collapse=' '), '</div>\n', sep='')
+      cat('<div class="member-links">', paste(links, collapse = " "), "</div>\n", sep = "")
     }
 
-    cat('</div>\n\n')  # Close details column
-    cat('</div>\n\n')  # Close member div
+    cat("</div>\n\n") # Close details column
+    cat("</div>\n\n") # Close member div
   }
 
-  cat('</div>\n\n')  # Close team-list
+  cat("</div>\n\n") # Close team-list
 } else {
-  cat('*Members to be announced.*\n\n')
+  cat("*Members to be announced.*\n\n")
 }
 ```
 
@@ -144,9 +144,9 @@ Our team of investigators and collaborators brings together expertise in populat
 # Filter for investigators/collaborators (where cihr_study is not NA or empty)
 investigators <- team %>%
   filter(!is.na(cihr_study) &
-         cihr_study != "" &
-         cihr_study != "NA" &
-         cihr_study != ".") %>%
+    cihr_study != "" &
+    cihr_study != "NA" &
+    cihr_study != ".") %>%
   # Sort alphabetically by last name
   arrange(last_name)
 
@@ -159,11 +159,11 @@ if (nrow(investigators) > 0) {
 
     # Left column: Name and credentials
     cat('<div class="member-name-col">\n')
-    cat(investigators$first_name[i], ' ', investigators$last_name[i], '\n', sep='')
+    cat(investigators$first_name[i], " ", investigators$last_name[i], "\n", sep = "")
     if (!is.na(investigators$post_nominal_initials[i]) && investigators$post_nominal_initials[i] != "") {
-      cat('<div class="member-credentials">', investigators$post_nominal_initials[i], '</div>\n', sep='')
+      cat('<div class="member-credentials">', investigators$post_nominal_initials[i], "</div>\n", sep = "")
     }
-    cat('</div>\n\n')
+    cat("</div>\n\n")
 
     # Right column: Details
     cat('<div class="member-details-col">\n\n')
@@ -178,12 +178,12 @@ if (nrow(investigators) > 0) {
     affiliations <- affiliations[!is.na(affiliations) & affiliations != ""]
 
     if (length(affiliations) > 0) {
-      cat('<div class="member-affiliation">', paste(affiliations, collapse='; '), '</div>\n\n', sep='')
+      cat('<div class="member-affiliation">', paste(affiliations, collapse = "; "), "</div>\n\n", sep = "")
     }
 
     # CIHR study role (with popcorn icon for clarity)
     if (!is.na(investigators$cihr_study[i]) && investigators$cihr_study[i] != "") {
-      cat('<div class="member-role"><img src="assets/logo-PNG/popcorn-transparent_icon-black.png" class="role-icon" alt="POPCORN"> ', investigators$cihr_study[i], '</div>\n\n', sep='')
+      cat('<div class="member-role"><img src="assets/logo-PNG/popcorn-transparent_icon-black.png" class="role-icon" alt="POPCORN"> ', investigators$cihr_study[i], "</div>\n\n", sep = "")
     }
 
     # Links (ORCID and Web bio)
@@ -198,16 +198,16 @@ if (nrow(investigators) > 0) {
     }
 
     if (length(links) > 0) {
-      cat('<div class="member-links">', paste(links, collapse=' '), '</div>\n', sep='')
+      cat('<div class="member-links">', paste(links, collapse = " "), "</div>\n", sep = "")
     }
 
-    cat('</div>\n\n')  # Close details column
-    cat('</div>\n\n')  # Close member div
+    cat("</div>\n\n") # Close details column
+    cat("</div>\n\n") # Close member div
   }
 
-  cat('</div>\n\n')  # Close team-list
+  cat("</div>\n\n") # Close team-list
 } else {
-  cat('*Team members to be announced.*\n\n')
+  cat("*Team members to be announced.*\n\n")
 }
 ```
 
@@ -236,7 +236,7 @@ The POPCORN-NCD study team manages the day-to-day research activities, coordinat
 # Filter for study team (where study_team is "Yes" or "active")
 study_team <- team %>%
   filter(!is.na(study_team) &
-         (study_team == "Yes" | study_team == "active")) %>%
+    (study_team == "Yes" | study_team == "active")) %>%
   # Sort alphabetically by last name
   arrange(last_name)
 
@@ -249,11 +249,11 @@ if (nrow(study_team) > 0) {
 
     # Left column: Name and credentials
     cat('<div class="member-name-col">\n')
-    cat(study_team$first_name[i], ' ', study_team$last_name[i], '\n', sep='')
+    cat(study_team$first_name[i], " ", study_team$last_name[i], "\n", sep = "")
     if (!is.na(study_team$post_nominal_initials[i]) && study_team$post_nominal_initials[i] != "") {
-      cat('<div class="member-credentials">', study_team$post_nominal_initials[i], '</div>\n', sep='')
+      cat('<div class="member-credentials">', study_team$post_nominal_initials[i], "</div>\n", sep = "")
     }
-    cat('</div>\n\n')
+    cat("</div>\n\n")
 
     # Right column: Details
     cat('<div class="member-details-col">\n\n')
@@ -268,7 +268,7 @@ if (nrow(study_team) > 0) {
     affiliations <- affiliations[!is.na(affiliations) & affiliations != ""]
 
     if (length(affiliations) > 0) {
-      cat('<div class="member-affiliation">', paste(affiliations, collapse='; '), '</div>\n\n', sep='')
+      cat('<div class="member-affiliation">', paste(affiliations, collapse = "; "), "</div>\n\n", sep = "")
     }
 
     # No role for study team - just affiliations and links
@@ -285,16 +285,16 @@ if (nrow(study_team) > 0) {
     }
 
     if (length(links) > 0) {
-      cat('<div class="member-links">', paste(links, collapse=' '), '</div>\n', sep='')
+      cat('<div class="member-links">', paste(links, collapse = " "), "</div>\n", sep = "")
     }
 
-    cat('</div>\n\n')  # Close details column
-    cat('</div>\n\n')  # Close member div
+    cat("</div>\n\n") # Close details column
+    cat("</div>\n\n") # Close member div
   }
 
-  cat('</div>\n\n')  # Close team-list
+  cat("</div>\n\n") # Close team-list
 } else {
-  cat('*Team members to be announced.*\n\n')
+  cat("*Team members to be announced.*\n\n")
 }
 ```
 
