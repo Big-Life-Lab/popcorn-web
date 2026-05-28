@@ -35,7 +35,7 @@ required_packages <- c(
 )
 
 # Check and install missing packages
-missing_packages <- required_packages[!required_packages %in% installed.packages()[,"Package"]]
+missing_packages <- required_packages[!required_packages %in% installed.packages()[, "Package"]]
 if (length(missing_packages) > 0) {
   message("Installing missing packages: ", paste(missing_packages, collapse = ", "))
   install.packages(missing_packages)
@@ -161,7 +161,10 @@ read_team_from_sheets <- function() {
 
     data
   }, error = function(e) {
-    stop(sprintf("Error reading from Google Sheets: %s\nCheck that GOOGLE_SHEET_ID is correct and you have access.", e$message))
+    stop(sprintf(
+      "Error reading from Google Sheets: %s\nCheck that GOOGLE_SHEET_ID is correct and you have access.",
+      e$message
+    ))
   })
 }
 
@@ -225,7 +228,10 @@ preview_team_sync <- function() {
   message(sprintf("  Study team: %d", team_count))
 
   message("\nFirst few rows:")
-  print(head(data %>% select(first_name, last_name, affiliation_primary, strategic_advisory_cmt, cihr_study, study_team), 5))
+  print(head(data %>% select(
+    first_name, last_name, affiliation_primary,
+    strategic_advisory_cmt, cihr_study, study_team
+  ), 5))
 
   if (file.exists(OUTPUT_CSV)) {
     current <- read_csv(OUTPUT_CSV, show_col_types = FALSE)
@@ -279,7 +285,7 @@ sync_team_from_sheets <- function(commit = FALSE,
   # Git commit if requested
   if (commit) {
     message("\nCommitting changes to git...")
-    system(sprintf('git add %s', OUTPUT_CSV))
+    system(sprintf("git add %s", OUTPUT_CSV))
     system(sprintf('git commit -m "%s"', commit_msg))
     message("✓ Changes committed")
   }

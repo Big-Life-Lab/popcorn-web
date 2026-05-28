@@ -49,7 +49,10 @@ jobs:
           results <- lapply(files, function(f) {
             lint(f, linters = linters_with_defaults(
               line_length_linter = line_length_linter(120),
-              object_name_linter = NULL  # Allow snake_case and camelCase
+              object_name_linter = NULL,        # Allow snake_case and camelCase
+              object_usage_linter = NULL,       # Noisy in qmd: chunk-scoped vars look "undefined" across chunks
+              pipe_consistency_linter = NULL,   # Project uses %>% throughout; not a defect
+              indentation_linter = NULL         # Conflicts with styler::tidyverse_style block indent
             ))
           })
 
