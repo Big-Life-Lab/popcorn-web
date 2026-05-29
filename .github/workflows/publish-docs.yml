@@ -1,11 +1,25 @@
 name: Publish docs to GitHub pages
+
 on:
   workflow_dispatch:
   push:
     branches:
       - main
+
+# Permissions are scoped per-job below. Defaults here are read-only so the
+# build job inherits least privilege; the deploy job opts in to pages:write
+# and id-token:write.
+permissions:
+  contents: read
+
+# Allow only one concurrent Pages deploy; don't cancel an in-progress one
+# (a cancelled mid-deploy can leave the site half-replaced).
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  publish-docs:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -14,12 +28,26 @@ jobs:
       - name: Build docs
         uses: ./.github/actions/build-docs-composite-action
 
-      # New step to copy CNAME into the ./docs directory
+      # GitHub Pages only serves the custom domain when CNAME is in the
+      # deployed tree.
       - name: Copy CNAME to docs
         run: cp CNAME ./docs/CNAME
 
-      - name: Publish docs
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          path: ./docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write       # required to deploy
+      id-token: write    # required for OIDC verification of the artifact
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
