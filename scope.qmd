@@ -24,7 +24,7 @@ Consider these alternatives:
 - **Prediction models** (individual risk calculators developed from observed data) → [TRIPOD](https://www.tripod-statement.org/)
 - **Health estimates** (data assembly and burden quantification) → [GATHER](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(16)30388-9/fulltext)
 - **Economic evaluations** (without simulation modelling) → [CHEERS](https://www.ispor.org/heor-resources/good-practices/cheers)
-- **Burden of disease studies** (using standardised formulas without simulation) → [STROBOD](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004699)
+- **Burden of disease studies** (using standardised formulas without simulation) → [STROBOD](https://doi.org/10.1186/s12963-024-00347-9)
 - **Experimental studies** → [CONSORT](https://www.consort-statement.org/) and related extensions
 - **Systematic reviews** → [PRISMA](https://www.prisma-statement.org/)
 :::

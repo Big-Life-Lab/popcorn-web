@@ -34,6 +34,13 @@
   font-weight: 700;
 }
 
+/* Members without post-nominal credentials get their name wrapped in a <p>
+   by Pandoc; keep it bold and flush so rows align. */
+.member-name-col p {
+  margin: 0;
+  font-weight: 700;
+}
+
 .member-credentials {
   font-size: 0.9em;
   font-weight: normal;
